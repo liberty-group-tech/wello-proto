@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package helloworld.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-notification;notificationv1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.helloworld.v1";
+option java_outer_classname = "HelloworldProtoV1";
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {
+    option (google.api.http) = {
+      get: "/helloworld/{name}"
+    };
+  }
+
+  rpc TestWebhook (TestWebhookRequest) returns (TestWebhookReply) {
+    option (google.api.http) = {
+      post: "/test-webhook"
+      body: "*"
+    };
+  }
+}
+
+message TestWebhookRequest {
+  string url = 1;
+  string body = 2;
+}
+
+message TestWebhookReply {
+  string message = 1;
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
+}

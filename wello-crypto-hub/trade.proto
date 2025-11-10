@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+package wello.crypto.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "validate/validate.proto";
+
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-crypto-hub/v1;cryptov1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.wello.crypto.v1";
+option java_outer_classname = "TradeProto";
+
+service TradeService {
+  rpc PlaceOrder(PlaceOrderRequest) returns (Order) {
+    option (google.api.http) = {
+      post: "/v1/orders"
+      body: "*"
+    };
+  }
+
+  rpc GetOrder(GetOrderRequest) returns (Order) {
+    option (google.api.http) = {
+      get: "/v1/orders/{order_id}"
+    };
+  }
+
+  rpc ListOrders(ListOrdersRequest) returns (ListOrdersResponse) {
+    option (google.api.http) = {
+      get: "/v1/orders"
+    };
+  }
+
+  rpc CancelOrder(CancelOrderRequest) returns (Order) {
+    option (google.api.http) = {
+      post: "/v1/orders/{order_id}:cancel"
+      body: "*"
+    };
+  }
+}
+
+message Order {
+  string order_id = 1;
+  string account_id = 2;
+  string base_asset = 3;
+  string quote_asset = 4;
+  OrderSide side = 5;
+  OrderType type = 6;
+  string quantity = 7;
+  string price = 8;
+  string executed_quantity = 9;
+  OrderStatus status = 10;
+  google.protobuf.Timestamp created_at = 11;
+  google.protobuf.Timestamp updated_at = 12;
+  google.protobuf.Timestamp closed_at = 13;
+}
+
+enum OrderSide {
+  ORDER_SIDE_UNSPECIFIED = 0;
+  ORDER_SIDE_BUY = 1;
+  ORDER_SIDE_SELL = 2;
+}
+
+enum OrderType {
+  ORDER_TYPE_UNSPECIFIED = 0;
+  ORDER_TYPE_MARKET = 1;
+  ORDER_TYPE_LIMIT = 2;
+}
+
+enum OrderStatus {
+  ORDER_STATUS_UNSPECIFIED = 0;
+  ORDER_STATUS_NEW = 1;
+  ORDER_STATUS_PARTIALLY_FILLED = 2;
+  ORDER_STATUS_FILLED = 3;
+  ORDER_STATUS_CANCELLED = 4;
+  ORDER_STATUS_REJECTED = 5;
+  ORDER_STATUS_EXPIRED = 6;
+}
+
+message PlaceOrderRequest {
+  string account_id = 1 [(validate.rules).string = {uuid: true}];
+  string base_asset = 2 [(validate.rules).string = {min_len: 1}];
+  string quote_asset = 3 [(validate.rules).string = {min_len: 1}];
+  OrderSide side = 4 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
+  OrderType type = 5 [(validate.rules).enum = {defined_only: true, not_in: [0]}];
+  string quantity = 6 [(validate.rules).string = {pattern: "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{1,18})?$"}];
+  string price = 7;
+  string client_order_id = 8;
+  map<string, string> metadata = 9;
+}
+
+message GetOrderRequest {
+  string order_id = 1 [(validate.rules).string = {uuid: true}];
+}
+
+message ListOrdersRequest {
+  repeated string account_ids = 1;
+  OrderStatus status = 2;
+  OrderSide side = 3;
+  OrderType type = 4;
+  int32 page_size = 5 [(validate.rules).int32 = {gte: 1, lte: 100}];
+  string page_token = 6;
+}
+
+message ListOrdersResponse {
+  repeated Order orders = 1;
+  string next_page_token = 2;
+}
+
+message CancelOrderRequest {
+  string order_id = 1 [(validate.rules).string = {uuid: true}];
+  string cancelled_by = 2 [(validate.rules).string = {min_len: 1}];
+  string reason = 3;
+}

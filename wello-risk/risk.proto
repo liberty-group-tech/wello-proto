@@ -1,0 +1,111 @@
+syntax = "proto3";
+
+package risk.v1;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-risk;riskv1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.risk.v1";
+option java_outer_classname = "RiskProtoV1";
+
+service RiskService {
+
+  rpc EvaluateDecision(EvaluateDecisionRequest) returns (EvaluateDecisionResponse);
+
+  rpc ReportEvent(ReportEventRequest) returns (ReportEventResponse);
+
+  rpc GetLimits(GetLimitsRequest) returns (GetLimitsResponse);
+
+  rpc ListRules(ListRulesRequest) returns (ListRulesResponse);
+
+  rpc EvaluateVelocity(EvaluateVelocityRequest) returns (EvaluateVelocityResponse);
+}
+
+enum DecisionStatus {
+  DECISION_STATUS_UNSPECIFIED = 0;
+  DECISION_STATUS_APPROVED = 1;
+  DECISION_STATUS_REVIEW = 2;
+  DECISION_STATUS_DECLINED = 3;
+}
+
+message EvaluateDecisionRequest {
+  string decision_id = 1;
+  string subject_id = 2;
+  string scenario = 3;
+  google.protobuf.Struct features = 4;
+}
+
+message EvaluateDecisionResponse {
+  DecisionStatus status = 1;
+  string reason = 2;
+  repeated string applied_rules = 3;
+  map<string, double> score_components = 4;
+  double overall_score = 5;
+}
+
+message ReportEventRequest {
+  string event_id = 1;
+  string subject_id = 2;
+  string event_type = 3;
+  google.protobuf.Timestamp occurred_at = 4;
+  google.protobuf.Struct payload = 5;
+}
+
+message ReportEventResponse {
+  bool accepted = 1;
+  string message = 2;
+}
+
+message GetLimitsRequest {
+  string subject_id = 1;
+}
+
+message GetLimitsResponse {
+  repeated RiskLimit limits = 1;
+}
+
+message RiskLimit {
+  string limit_id = 1;
+  string name = 2;
+  double threshold = 3;
+  string currency = 4;
+  string window = 5;
+  google.protobuf.Timestamp refreshed_at = 6;
+}
+
+message ListRulesRequest {
+  bool include_inactive = 1;
+}
+
+message ListRulesResponse {
+  repeated RiskRule rules = 1;
+}
+
+message RiskRule {
+  string rule_id = 1;
+  string name = 2;
+  string description = 3;
+  bool enabled = 4;
+  google.protobuf.Timestamp updated_at = 5;
+}
+
+message EvaluateVelocityRequest {
+  string subject_id = 1;
+  string action = 2;
+  string channel = 3;
+  repeated string signals = 4;
+  string window = 5;
+  uint64 count = 6;
+  google.protobuf.Timestamp observed_at = 7;
+  google.protobuf.Struct context = 8;
+}
+
+message EvaluateVelocityResponse {
+  DecisionStatus status = 1;
+  bool allowed = 2;
+  string policy_id = 3;
+  string reason = 4;
+  map<string, double> anomaly_scores = 5;
+}

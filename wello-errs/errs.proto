@@ -1,0 +1,142 @@
+syntax = "proto3";
+
+package errs;
+import "wello-proto-deps/errors/errors.proto";
+
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-errs;apierrs";
+
+enum ErrorReason {
+  option (errors.default_code) = 500;
+
+  Success = 0; // 成功
+
+  // Common错误
+  CommonPanic = 100001; // 服务内部错误
+  CommonBadRequest = 100002;// 请求参数错误,一般是缺失或者格式不对，不牵扯逻辑[一般是App出问题]
+  CommonUnauthorized = 100003; // 未授权，也就是登录失效
+  CommonServerErr = 100004; // 服务器内部错误，逻辑错误
+  CommonUnknownErr = 100005; // 未知错误
+  CommonServiceOverloaded = 100006; // 内部微服务暂时无法访问
+  CommonMysqlErr = 100007; // 数据库访问失败
+  CommonRedisErr = 100008; // redis访问失败
+  CommonRedisLockErr = 100009; // 分布式锁获取失败
+  CommonServiceCallBadRequest = 100010; // 内部调用参数错误
+  CommonRetry = 100011; // 一些重试可能解决的错误
+  CommonRecordNotFound = 100012; // 找不到记录
+  CommonNumberFormatErr = 100013; // 数字格式错误
+  CommonForbidden = 100014; // 无权限操作
+  CommonVendorCallErr = 100015; // vendor call 错误
+
+  // 模块错误
+
+  // User模块错误
+  UserSignFlowTypeNotSupport = 200001; // 登录/注册的方式不支持
+  UserMobileCodeNotSupport = 200002; // 手机区号不支持
+  UserMobileFormatErr = 200003; // 手机号格式错误(一般就是没传)
+  UserMobileAlreadyExist = 200004; // 手机号已经注册
+  UserSignFlowNotFound = 200005; // 登录/注册Flow找不到或者已经过期
+  UserVerifyCodeSendTooMany = 200006; // 验证码发送次数超过限制
+  UserVerifyCodeSendFrequent = 200007; // 验证码发送过于频繁
+  UserVerifyCodeErrorTooMany = 200008; // 验证码错误次数过多
+  UserVerifyCodeError = 200009; //验证码错误
+  UserNotFound = 200010; // 用户找不到
+  UserStatusDisabled = 200011; // 用户被冻结
+  UserStatusDeleted = 200012; // 用户已经注销
+  UserMobileNotExist = 200013; // 手机号未注册
+  UserUsernameExist = 200014; // Username已经存在
+  UserCryptoWalletAlreadyExist = 200015; // 钱包地址已经被别人绑定
+  UserAlreadyBindCryptoWallet = 200016; // 用户已经绑定CryptoWallet
+  UserMustPassOldPassword = 200017; // 必须携带旧密码
+  UserOldPasswordError = 200018; // 旧密码错误
+  UserAlreadyBindEmail = 200019; // 用户已经绑定过Email
+  UserEmailAlreadyExist = 200020; // 邮箱已经被注册
+  UserBindEmailFlowNotFound = 200021; // 绑定邮箱的Flow找不到
+  UserOAuthPlatformNotSupport = 200022; // OAuth2平台不支持
+  UserAlreadyBindOAuth = 200023; // 用户已经绑定OAuth
+  UserOAuthAlreadyExist = 200024; // 该OAuth已经被别人绑定
+  UserBindOAuthFlowNotFound = 200025; // 绑定OAuthFlow过期
+  UserOAuthTokenInvalid = 200026; // 用户的OAuthToken不合法
+  UserKycNoNeed = 200027; // 用户暂时无需进行Kyc后续操作
+  UserAlreadyKycL2 = 200028; // 用户已经通过L2 KYC
+  UserAlreadyKycL1 = 200029; // 用户已经通过L1 KYC
+  UserShouldPassKycL1First = 200030; // 用户应该先进行L1 KYC
+  UserSumsubCallErr = 200031; // Sumsub请求失败
+  UserHaveNoKyc = 200032; // 用户没有KYC信息
+  UserCryptoWalletNotExist = 200033; // 用户没有绑定Crypto钱包
+  UserEmailFormatError = 200034; // 邮箱格式错误
+  UserEmailNotExist = 200035; // 用户邮箱不存在
+  UserOAuthNotExist = 200036; // 尚未注册
+  UserHaveUnFinishedOrders = 200037; // 用户存在进行中订单
+  UserMigration = 200038; // 用户正在迁移中
+  UserTurnkeyCreateSubOrgError = 200039; // Turnkey创建子机构失败
+  UserTurnkeySendOTPError = 200040; // Turnkey发送OTP失败
+  UserTurnkeyVerifyOTPError = 200041; // Turnkey验证OTP失败
+  UserTurnkeyCallError = 200042; // Turnkey调用失败
+  UserTurnkeyResultError = 200043; // Turnkey返回结果错误
+  UserAlreadyExist = 200044; // 用户已经存在
+
+  // Crypto模块错误
+  CryptoNodeEndpointNotFound = 300001; // 节点Endpoint找不到或者没有活跃的(5min)
+  CryptoNetworkNotSupport = 300002; // CryptoNetwork不支持
+  CryptoAddressNotValid = 300003; // 地址格式不合法
+  CryptoAEONError = 300004; // AEON Quote失败
+  CryptoMemeQuoteNotFound = 300005; // MemeQuote找不到
+  CryptoGetNonceError = 300006; // 获取地址Nonce失败
+  CryptoMemeTokenNotSupport = 300007; // 该Token不支持买卖
+  CryptoTxNotFound = 300008; // 要广播的Tx不存在
+  CryptoUserSignedError = 300009; // 用户签名数据错误
+  CryptoWalletNotEqual = 300010; // 用户地址不符合
+  CryptoCoinNotSupport = 300011; // 不支持的Coin
+  CryptoGetTokenBalanceError = 300012;// 获取Token余额失败
+  CryptoTokenBalanceInsufficient = 300013; // Token余额不足
+  CryptoGetTokenApproveError = 300014; // 获取Token授权失败
+  CryptoMustCheckApproveFirst = 300015; // 请先检查授权
+  CryptoPriceAbnormal = 300016; // USDC价格异常波动
+  CryptoNoderealCallError = 300017; // Call nodereal Error
+  CryptoNoderealResultError = 300018; // Nodereal返回错误
+
+  // IP模块错误
+  IpInvalid = 400001; // ip格式错误
+
+  // Risk模块错误
+  RiskForterCallErr = 500001; // ForterCall错误
+  RiskForterResultErr = 500002; // Forter结果错误
+  RiskSignupReject = 500003; // 未通过注册风险检测
+  RiskSignInReject = 500004; // 未通过登录风险检测
+
+  // OCBS模块错误
+  OcbsQuoteNotFound = 600001; // Quote找不到
+  OcbsFiatRateInvalid = 600002; // 汇率错误
+  OcbsQuoterNotFound = 600003; // Quoter找不到
+  OcbsTradeLimitError = 600004; // 交易限制错误
+  OcbsPairNotFound = 600005; // 交易对找不到
+  OcbsFeeConfigNotFound = 600006; // 交易对手续费配置找不到
+  OcbsSellMinLimit = 600007; // 提现最小限制
+  OcbsSellMaxLimit = 600008; // 提现最大限制
+  OcbsBuyMinLimit = 600009; // 充值最小限制
+  OcbsBuyMaxLimit = 600010; // 充值最大限制
+  OcbsLpVendorError = 600011; // LP Vendor错误
+  OcbsFiatFeeError = 600012; // 法币手续费错误
+  OcbsDepositLimit = 600013; // 充值限制错误
+  OcbsWithdrawLimit = 600014; // 提现限制错误
+  OcbsBalanceInsufficient = 600015; // 余额不足
+
+  // Fiat模块错误
+  FiatVendorCallError = 700001; // 支付渠道调用错误
+  FiatVendorResultError = 700002; // 支付渠道结果错误
+  FiatCardNotFound = 700003; // 卡片不存在
+  FiatRiskCheckFail = 700004; // 风险检测失败
+  FiatApplePayPaymentFail = 700005; // ApplePay支付失败
+  FiatFiathubCallError = 700006; // 支付渠道调用错误
+
+  // Admin模块错误
+  AdminRoleNameExist = 800001; // 角色名称重复
+  AdminRoleNotFound = 800002; // 角色不存在
+  AdminRoleInUse = 800003; // 该角色正在使用中
+  AdminUserEmailExist = 800004; // 邮箱已存在
+  AdminUserEmailOrPwdError = 800005; // 邮箱或密码错误
+  AdminUserNotFound = 800006; // 用户找不到
+  AdminUserOldPwdError = 800007; // 旧密码错误
+  AdminUserLocked = 800008; // 管理员账号冻结
+  AdminOperationNotAllowed = 800009; // 操作不允许
+}

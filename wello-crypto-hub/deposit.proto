@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+package wello.crypto.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "validate/validate.proto";
+
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-crypto-hub/v1;cryptov1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.wello.crypto.v1";
+option java_outer_classname = "DepositProto";
+
+service DepositService {
+  rpc InitiateDeposit(InitiateDepositRequest) returns (Deposit) {
+    option (google.api.http) = {
+      post: "/v1/deposits"
+      body: "*"
+    };
+  }
+
+  rpc GetDeposit(GetDepositRequest) returns (Deposit) {
+    option (google.api.http) = {
+      get: "/v1/deposits/{deposit_id}"
+    };
+  }
+
+  rpc ListDeposits(ListDepositsRequest) returns (ListDepositsResponse) {
+    option (google.api.http) = {
+      get: "/v1/deposits"
+    };
+  }
+
+  rpc ConfirmDeposit(ConfirmDepositRequest) returns (Deposit) {
+    option (google.api.http) = {
+      post: "/v1/deposits/{deposit_id}:confirm"
+      body: "*"
+    };
+  }
+}
+
+message Deposit {
+  string deposit_id = 1;
+  string account_id = 2;
+  string chain = 3;
+  string asset = 4;
+  string tx_hash = 5;
+  string amount = 6;
+  DepositStatus status = 7;
+  google.protobuf.Timestamp detected_at = 8;
+  google.protobuf.Timestamp completed_at = 9;
+  google.protobuf.Timestamp created_at = 10;
+}
+
+enum DepositStatus {
+  DEPOSIT_STATUS_UNSPECIFIED = 0;
+  DEPOSIT_STATUS_PENDING = 1;
+  DEPOSIT_STATUS_CONFIRMED = 2;
+  DEPOSIT_STATUS_FAILED = 3;
+}
+
+message InitiateDepositRequest {
+  string account_id = 1 [(validate.rules).string = {uuid: true}];
+  string chain = 2 [(validate.rules).string = {min_len: 1}];
+  string asset = 3 [(validate.rules).string = {min_len: 1}];
+  string amount = 4 [(validate.rules).string = {pattern: "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{1,18})?$"}];
+  string tx_hash = 5;
+  map<string, string> metadata = 6;
+}
+
+message GetDepositRequest {
+  string deposit_id = 1 [(validate.rules).string = {uuid: true}];
+}
+
+message ListDepositsRequest {
+  repeated string account_ids = 1;
+  string chain = 2;
+  string asset = 3;
+  DepositStatus status = 4;
+  int32 page_size = 5 [(validate.rules).int32 = {gte: 1, lte: 100}];
+  string page_token = 6;
+}
+
+message ListDepositsResponse {
+  repeated Deposit deposits = 1;
+  string next_page_token = 2;
+}
+
+message ConfirmDepositRequest {
+  string deposit_id = 1 [(validate.rules).string = {uuid: true}];
+  string confirmer_id = 2 [(validate.rules).string = {min_len: 1}];
+}

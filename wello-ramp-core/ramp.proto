@@ -1,0 +1,136 @@
+syntax = "proto3";
+
+package admin.v1;
+
+import "wello-proto-deps/google/api/annotations.proto";
+import "wello-proto-deps/validate/validate.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-ramp-core;rampv1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.stub.v1";
+option java_outer_classname = "StubProtoV1";
+
+service Ramp {
+
+  rpc CreateOnRampOrder(CreateOnRampOrderRequest) returns (GetOnRampOrderResponse) {
+    option (google.api.http) = {
+      put: "/ramp/v1/buy/order"
+      body: "*"
+    };
+  }
+
+  rpc GetOnRampOrder(GetOnRampOrderRequest) returns (GetOnRampOrderResponse) {
+    option (google.api.http) = {
+      get: "/ramp/v1/buy/order/{id}"
+    };
+  }
+
+
+  rpc Quote(QuoteRequest) returns (QuoteResponse) {
+    option (google.api.http) = {
+      get: "/ramp/v1/quote"
+    };
+  }
+
+  rpc QuoteInfo(QuoteInfoRequest) returns (QuoteResponse) {
+    option (google.api.http) = {
+      get: "/ramp/v1/quote/{quote_id}"
+    };
+  }
+
+}
+
+message CreateOnRampOrderRequest {
+  string quote_id = 1;
+  string reference_id = 2;
+  string merchant_id = 3;
+  string wallet_address = 4;
+  string redirect_url = 5;
+}
+
+message GetOnRampOrderRequest {
+  string id = 1;
+  string reference_id = 2;
+  string merchant_id = 3;
+}
+
+message GetOnRampOrderResponse {
+  string code = 1;
+  bool success = 2;
+  string message = 3;
+  string request_id = 4;
+  google.protobuf.Timestamp timestamp = 5;
+
+  OnRampOrder data = 10;
+}
+
+
+message OnRampOrder {
+  string id = 1;
+  string reference_id = 2;
+  google.protobuf.Timestamp created_at = 3;
+  google.protobuf.Timestamp updated_at = 4;
+  string status = 5;
+  string amount = 6;
+  string fiat_currency = 7;
+  string crypto_currency = 8;
+  string side = 9;
+  string direction = 10;
+  string quote_id = 11;
+  string wallet_address = 12;
+  string redirect_url = 13;
+}
+
+message QuoteRequest {
+  optional string intent_id = 1;
+  string amount = 2 [(validate.rules).string.min_len = 1];
+  string fiat_currency = 3 [(validate.rules).string.min_len = 1];
+  string crypto_currency = 4 [(validate.rules).string.min_len = 1];
+  string side = 5 [(validate.rules).string = {in: ["buy", "sell"]}];
+  string direction = 6 [(validate.rules).string = {in: ["pay", "receive"]}];
+  optional string type = 7 [(validate.rules).string = {in: ["firm", "indicative"]}];
+  optional string network = 8;
+  optional string payment_method = 9;
+
+}
+
+
+message FeeItem {
+  string type = 1;
+  string amount = 2;
+  string currency = 3;
+}
+
+message QuoteResponse {
+  string code = 1;
+  bool success = 2;
+  string message = 3;
+  string request_id = 4;
+  google.protobuf.Timestamp timestamp = 5;
+
+  Quote data = 10;
+}
+
+message Quote {
+  string quote_id = 1;
+  google.protobuf.Timestamp created_at = 2;
+  google.protobuf.Timestamp valid_until = 3;
+  string direction = 4 [(validate.rules).string = { in: ["pay", "receive"]}];
+  string side = 5 [(validate.rules).string = { in: ["buy", "sell"]}];
+
+  string fiat_currency = 6;
+  string crypto_currency = 7;
+
+  string pay_amount = 8;
+  string receive_amount = 9;
+
+  string exchange_rate = 10;
+
+  string fee_amount = 11;
+  repeated FeeItem fees_items = 12;
+}
+
+message QuoteInfoRequest {
+  string quote_id = 1;
+}

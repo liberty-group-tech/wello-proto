@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+package wello.crypto.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "validate/validate.proto";
+
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-crypto-hub/v1;cryptov1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.wello.crypto.v1";
+option java_outer_classname = "MetadataProto";
+
+service MetadataService {
+  rpc GetChainInfo(GetChainInfoRequest) returns (ChainInfo) {
+    option (google.api.http) = {
+      get: "/v1/chains/{chain_id}"
+    };
+  }
+
+  rpc ListChains(ListChainsRequest) returns (ListChainsResponse) {
+    option (google.api.http) = {
+      get: "/v1/chains"
+    };
+  }
+
+  rpc ListSupportedTokens(ListSupportedTokensRequest) returns (ListSupportedTokensResponse) {
+    option (google.api.http) = {
+      get: "/v1/chains/{chain_id}/tokens"
+    };
+  }
+
+  rpc GetServiceConfig(GetServiceConfigRequest) returns (ServiceConfig) {
+    option (google.api.http) = {
+      get: "/v1/service-config"
+    };
+  }
+}
+
+message ChainInfo {
+  string chain_id = 1;
+  string name = 2;
+  string native_asset = 3;
+  string rpc_endpoint = 4;
+  ChainStatus status = 5;
+  google.protobuf.Timestamp updated_at = 6;
+  map<string, string> metadata = 7;
+}
+
+enum ChainStatus {
+  CHAIN_STATUS_UNSPECIFIED = 0;
+  CHAIN_STATUS_ACTIVE = 1;
+  CHAIN_STATUS_DEGRADED = 2;
+  CHAIN_STATUS_DISABLED = 3;
+}
+
+message TokenInfo {
+  string token_id = 1;
+  string chain_id = 2;
+  string symbol = 3;
+  string name = 4;
+  uint32 decimals = 5;
+  bool is_native = 6;
+  map<string, string> metadata = 7;
+}
+
+message ServiceConfig {
+  string version = 1;
+  map<string, string> feature_flags = 2;
+  google.protobuf.Timestamp updated_at = 3;
+}
+
+message GetChainInfoRequest {
+  string chain_id = 1 [(validate.rules).string = {min_len: 1}];
+}
+
+message ListChainsRequest {
+  ChainStatus status = 1;
+}
+
+message ListChainsResponse {
+  repeated ChainInfo chains = 1;
+}
+
+message ListSupportedTokensRequest {
+  string chain_id = 1 [(validate.rules).string = {min_len: 1}];
+}
+
+message ListSupportedTokensResponse {
+  repeated TokenInfo tokens = 1;
+}
+
+message GetServiceConfigRequest {}

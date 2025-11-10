@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+package wello.crypto.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "validate/validate.proto";
+
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-crypto-hub/v1;cryptov1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.wello.crypto.v1";
+option java_outer_classname = "WithdrawalProto";
+
+service WithdrawalService {
+  rpc CreateWithdrawal(CreateWithdrawalRequest) returns (Withdrawal) {
+    option (google.api.http) = {
+      post: "/v1/withdrawals"
+      body: "*"
+    };
+  }
+
+  rpc GetWithdrawal(GetWithdrawalRequest) returns (Withdrawal) {
+    option (google.api.http) = {
+      get: "/v1/withdrawals/{withdrawal_id}"
+    };
+  }
+
+  rpc ListWithdrawals(ListWithdrawalsRequest) returns (ListWithdrawalsResponse) {
+    option (google.api.http) = {
+      get: "/v1/withdrawals"
+    };
+  }
+
+  rpc CancelWithdrawal(CancelWithdrawalRequest) returns (Withdrawal) {
+    option (google.api.http) = {
+      post: "/v1/withdrawals/{withdrawal_id}:cancel"
+      body: "*"
+    };
+  }
+}
+
+message Withdrawal {
+  string withdrawal_id = 1;
+  string account_id = 2;
+  string chain = 3;
+  string asset = 4;
+  string amount = 5;
+  string destination_address = 6;
+  WithdrawalStatus status = 7;
+  string tx_hash = 8;
+  google.protobuf.Timestamp created_at = 9;
+  google.protobuf.Timestamp updated_at = 10;
+  google.protobuf.Timestamp broadcast_at = 11;
+}
+
+enum WithdrawalStatus {
+  WITHDRAWAL_STATUS_UNSPECIFIED = 0;
+  WITHDRAWAL_STATUS_PENDING = 1;
+  WITHDRAWAL_STATUS_QUEUED = 2;
+  WITHDRAWAL_STATUS_BROADCAST = 3;
+  WITHDRAWAL_STATUS_CONFIRMED = 4;
+  WITHDRAWAL_STATUS_FAILED = 5;
+  WITHDRAWAL_STATUS_CANCELLED = 6;
+}
+
+message CreateWithdrawalRequest {
+  string account_id = 1 [(validate.rules).string = {uuid: true}];
+  string chain = 2 [(validate.rules).string = {min_len: 1}];
+  string asset = 3 [(validate.rules).string = {min_len: 1}];
+  string amount = 4 [(validate.rules).string = {pattern: "^(?:0|[1-9][0-9]*)(?:\\.[0-9]{1,18})?$"}];
+  string destination_address = 5 [(validate.rules).string = {min_len: 1}];
+  map<string, string> metadata = 6;
+  string requested_by = 7 [(validate.rules).string = {min_len: 1}];
+}
+
+message GetWithdrawalRequest {
+  string withdrawal_id = 1 [(validate.rules).string = {uuid: true}];
+}
+
+message ListWithdrawalsRequest {
+  repeated string account_ids = 1;
+  string chain = 2;
+  string asset = 3;
+  WithdrawalStatus status = 4;
+  int32 page_size = 5 [(validate.rules).int32 = {gte: 1, lte: 100}];
+  string page_token = 6;
+}
+
+message ListWithdrawalsResponse {
+  repeated Withdrawal withdrawals = 1;
+  string next_page_token = 2;
+}
+
+message CancelWithdrawalRequest {
+  string withdrawal_id = 1 [(validate.rules).string = {uuid: true}];
+  string cancelled_by = 2 [(validate.rules).string = {min_len: 1}];
+  string reason = 3;
+}
