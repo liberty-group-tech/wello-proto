@@ -1,0 +1,41 @@
+{
+  "name": "wello-proto",
+  "version": "1.0.0",
+  "description": "Protobuf definitions for the Wello services. Each `.proto` file is committed in source form; generated Go code is intentionally excluded so that downstream services can regenerate stubs with their preferred toolchain.",
+  "homepage": "https://github.com/liberty-group-tech/wello-proto#readme",
+  "bugs": {
+    "url": "https://github.com/liberty-group-tech/wello-proto/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liberty-group-tech/wello-proto.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    "./*": {
+      "import": "./typescript/*.ts",
+      "default": "./typescript/*.ts"
+    }
+  },
+  "files": [
+    "typescript/"
+  ],
+  "typesVersions": {
+    "*": {
+      "*": [
+        "typescript/*.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "make ts-proto"
+  },
+  "devDependencies": {
+    "google-proto-files": "^5.0.1",
+    "protoc-gen-validate": "^1.0.11",
+    "ts-proto": "^2.8.3"
+  }
+}

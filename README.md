@@ -48,6 +48,25 @@ make account
 
 To regenerate other folders, swap out `wello-account/*.proto` with the service directory you need (e.g. `wello-errs/*.proto`). When those protos import dependencies from `wello-proto-deps`, the extra `--proto_path=./wello-proto-deps` ensures the imports resolve.
 
+### TypeScript 输出
+
+```shell
+npm install
+make ts-proto
+
+# output: ./typescript
+```
+
+Usage:
+
+```shell
+npm i git+https://github.com/liberty-group-tech/wello-proto nice-grpc-common @bufbuild/protobuf/wire
+```
+
+```typescript
+import { RampClient } from "wello-proto/wello-ramp-core/v1/ramp.ts"
+```
+
 ## Naming Notes
 
 - Keep the `go_package` option in sync with the module path in `go.mod`.
