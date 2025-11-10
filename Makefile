@@ -52,3 +52,12 @@ notification:
 		--go-http_out=paths=source_relative:. \
 		--validate_out=paths=source_relative,lang=go:. \
 		$(shell find wello-notification -name '*.proto')
+
+fiat-hub:
+	protoc --proto_path=. \
+		-I ./wello-proto-deps \
+		--go_out=paths=source_relative:. \
+		--go-grpc_out=paths=source_relative:. \
+		--go-http_out=paths=source_relative:. \
+		--validate_out=paths=source_relative,lang=go:. \
+		$(shell find wello-fiat-hub -name '*.proto')

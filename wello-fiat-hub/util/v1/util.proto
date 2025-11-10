@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+package fiathub.util.v1;
+
+import "wello-proto-deps/google/api/annotations.proto";
+import "wello-proto-deps/google/protobuf/empty.proto";
+import "wello-fiat-hub/shared/v1/payment_method.proto";
+import "wello-fiat-hub/common/v1/common.proto";
+import "wello-proto-deps/validate/validate.proto";
+
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-fiat-hub/util/v1;fiathub";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.fiat-hub.util.v1";
+option java_outer_classname = "FiatHubUtilProtoV1";
+
+service Util {
+
+  rpc IpGeoLookup (IpGeoLookupReq) returns (IpGeoLookupReply) {
+    option (google.api.http) = {
+      get: "/util/ip_geo_lookup/{ip}"
+    };
+  }
+
+  rpc GetFlwBankList (GetFlwBankListReq) returns (GetFlwBankListReply) {
+    option (google.api.http) = {
+      get: "/util/flw/bank_list/{country}"
+    };
+  }
+
+  rpc GetFxRate (common.v1.GetFxRateRequest) returns (common.v1.GetFxRateReply) {
+    option deprecated = true;
+    option (google.api.http) = {
+      post: "/util/fx/rate"
+      body: "*"
+    };
+  }
+
+  rpc DeletePaymentMethod(common.v1.GetPaymentMethodRequest) returns (google.protobuf.Empty) {
+    option deprecated = true;
+    option (google.api.http) = {
+      delete: "/util/payment_methods/{id}"
+    };
+  }
+
+  rpc GetPaymentMethod(common.v1.GetPaymentMethodRequest) returns (shared.v1.PaymentMethod) {
+    option deprecated = true;
+    option (google.api.http) = {
+      get: "/util/payment_methods/{id}"
+    };
+  }
+
+  rpc GetPaymentMethods (common.v1.GetPaymentMethodsRequest) returns (common.v1.GetPaymentMethodsReply) {
+    option deprecated = true;
+    option (google.api.http) = {
+      get: "/util/payment_methods"
+    };
+  }
+
+}
+
+message IpGeoLookupReq {
+  string ip = 1;
+}
+
+message IpGeoLookupReply {
+  string ip = 1;
+  string country_code = 2;
+  string country_name =3 ;
+  string region = 4;
+  string city = 5;
+  double latitude = 6;
+  double longitude = 7;
+  string timezone = 8;
+}
+
+message GetFlwBankListReq {
+  string country = 1 [(validate.rules).string.pattern = "^[A-Z]{2}$"];
+}
+
+message GetFlwBankListReply {
+  message Bank {
+    int64 id = 1;
+    string code = 2;
+    string name = 3;
+  }
+  repeated Bank banks = 1;
+}

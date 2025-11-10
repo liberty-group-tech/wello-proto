@@ -1,0 +1,135 @@
+syntax = "proto3";
+
+package payout.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "validate/validate.proto";
+import "shared/v1/misc.proto";
+import "shared/v1/payment_method.proto";
+
+
+option go_package = "wello-fiat-hub/api/payin/v1;v1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.payout.v1";
+option java_outer_classname = "PayoutProtoV1";
+
+service Payout {
+
+  rpc Transfer (TransferRequest) returns (TransferReply) {
+    option (google.api.http) = {
+      post: "/payout/transactions"
+      body: "*"
+    };
+  }
+
+  rpc GetBalance (GetBalanceRequest) returns (GetBalanceReply) {
+    option (google.api.http) = {
+      get: "/channels/{channel_id}/balance"
+    };
+  }
+
+  rpc GetTransaction (GetTransactionRequest) returns (Transaction) {
+    option (google.api.http) = {
+      get: "/payout/transactions/{id}"
+    };
+  }
+
+  rpc GetTransactions (GetTransactionsRequest) returns (GetTransactionsReply) {
+    option (google.api.http) = {
+      get: "/payout/transactions"
+    };
+  }
+}
+
+message TransferRequest {
+  string channel_id = 1;
+  string amount = 3 [(validate.rules).string.pattern = "^\\d+(\\.\\d{1,2})?$"];
+  string currency = 4 [(validate.rules).string.pattern = "^[A-Z]{3}$"];
+  optional string reference_id = 5;
+  optional string description = 6;
+  optional shared.v1.Identity identity = 7;
+  shared.v1.PaymentMethod payment_method = 8 [(validate.rules).message.required = true];
+  optional shared.v1.Fingerprint fingerprint = 9;
+  optional shared.v1.Callback callback = 10;
+}
+
+message TransferReply {
+  string id = 1;
+  string amount = 2;
+  string currency = 3;
+  string description = 4;
+  string status = 5;
+  int32 status_code = 6;
+  string channel_id = 7;
+  string channel_status = 8;
+  string channel_message = 9;
+  optional string reference_id = 10;
+  optional string channel_reference_id = 11;
+  optional shared.v1.Identity identity = 12;
+  optional shared.v1.PaymentMethod payment_method = 13;
+  google.protobuf.Timestamp created_at = 14;
+  google.protobuf.Timestamp updated_at = 15;
+}
+
+
+
+message Transaction {
+  string id = 1;
+  string amount = 2;
+  string currency = 3;
+  string description = 4; 
+  string status = 5;
+  int32 status_code = 6;
+  string payment_method_type = 7;
+  string channel_id = 8;
+  optional string channel_status = 9;
+  optional string channel_message = 10;
+  optional string reference_id = 11;
+  optional string channel_reference_id = 12;
+  optional shared.v1.Identity identity = 13;
+  optional shared.v1.Fingerprint fingerprint = 15;
+  optional shared.v1.PaymentMethod payment_method = 16;
+  google.protobuf.Timestamp created_at = 17;
+  google.protobuf.Timestamp updated_at = 18;
+}
+
+
+message GetTransactionRequest {
+  message ChannelReferenceId {
+    string channel_id = 1;
+    string reference_id = 2;
+  }
+  optional string id = 1 [(validate.rules).string.prefix = "po_"];
+  optional string reference_id = 2;
+  optional ChannelReferenceId channel_reference_id = 3;
+}
+
+message GetTransactionsReply {
+  repeated Transaction transactions = 1;
+  int32 total = 2;
+  int32 skip = 3;
+  int32 limit = 4;
+}
+
+message GetTransactionsRequest {
+  shared.v1.Paging paging = 1;
+  repeated shared.v1.Filter filters = 2;
+  repeated shared.v1.OrderBy orderBy = 3;
+}
+
+message GetBalanceRequest {
+  string channel_id = 1;
+  optional string currency = 2;
+}
+
+message GetBalanceReply {
+
+  message Account {
+    string id = 1;  
+    string currency = 2;
+    string amount = 3;
+    string payable_amount = 4;
+  }
+  repeated Account accounts = 1;
+}

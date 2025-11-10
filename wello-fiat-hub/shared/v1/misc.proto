@@ -1,0 +1,145 @@
+syntax = "proto3";
+
+package shared.v1;
+
+import "google/type/date.proto";
+import "validate/validate.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "wello-fiat-hub/api/shared/v1;v1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.shared.v1";
+option java_outer_classname = "SharedProtoV1";
+
+enum FilterOp {
+  EQ = 0;
+  NE = 1;
+  GT = 2;
+  GTE = 3;
+  LT = 4;
+  LTE = 5;
+  IN = 6;
+  OR = 7;
+  AND = 8;
+  CONTAINS = 9;
+  // more ops 
+}
+
+message Filter {
+  string key = 1;
+  message StringArrayValue {
+    repeated string values = 1;
+  }
+  message Int64ArrayValue {
+    repeated int64 values = 1;
+  }
+  oneof value {
+    string string_value = 2;
+    int64 number_value = 3;
+    bool bool_value = 4;
+    StringArrayValue string_array_value = 5;
+    Int64ArrayValue number_array_value = 6;
+  };
+  optional FilterOp op = 7;
+  repeated Filter filters = 8;
+}
+
+enum Order {
+  ascending = 0;
+  descending = 1;
+}
+
+message OrderBy {
+  string key = 1;
+  Order order = 2;
+}
+
+message Paging {
+  int32 skip = 1;
+  int32 limit = 2;
+} 
+
+
+message Fee {
+  string name = 1 [(validate.rules).string.min_len = 1];
+  string currency = 2 [(validate.rules).string.pattern = "^[A-Z]{3}$"];
+  string amount = 3 [(validate.rules).string.pattern = "^[0-9]+(\\.[0-9]+)?$"];
+}
+
+message Callback {
+  optional string success_url = 1 [(validate.rules).string.uri = true];
+  optional string failure_url = 2 [(validate.rules).string.uri = true];
+  optional string webhook_url = 3 [(validate.rules).string.uri = true];
+}
+
+message Identity {
+  optional string id = 1;
+  string ref_id = 2 [(validate.rules).string.min_len = 5];
+  optional bool store = 3;
+  optional string email = 4 [(validate.rules).string.email = true];
+  optional string phone = 5;
+  optional string first_name = 6;
+  optional string middle_name = 7;
+  optional string last_name = 8;
+  optional string full_name = 9;
+  optional google.type.Date date_of_birth = 10;
+  optional Address address = 11;
+  optional Passport passport = 12;
+  optional DriverLicense driver_license = 13;
+  optional IDCard id_card = 14;
+}
+
+
+message Passport {
+  string number = 1;  
+  string full_name = 2;
+  string gender = 3;
+  string date_of_birth = 4;
+  string issuing_country = 5;
+  string issuing_date = 6;
+  string expiry_date = 7;
+  repeated string assets = 8;
+}
+
+message DriverLicense {
+  string number = 1;
+  string full_name = 2;
+  string gender = 3;
+  string date_of_birth = 4;
+  string issuing_country = 5;
+  string expiry_date = 6;
+  optional string front_url = 7;
+  optional string back_url = 8;
+}
+
+message IDCard {
+  string number = 1;
+  string full_name = 2;
+  string gender = 3;
+  string date_of_birth = 4;
+  string issuing_country = 5;
+  string expiry_date = 6;
+  optional string front_url = 7;
+  optional string back_url = 8;
+} 
+
+message Address {
+  string line1 = 1;
+  optional string line2 = 2;
+  string city = 3;
+  string state = 4;
+  string postal_code = 5;
+  string country = 6;
+}
+
+message Fingerprint {
+  optional string ip = 1 [(validate.rules).string.ipv4 = true];
+  optional string user_agent = 2;
+  optional string device_id = 3;
+  optional string device_os = 4;
+  optional string device_type = 5;
+  optional string language = 6;
+  optional google.protobuf.Timestamp last_login = 7;
+  map<string, string> metadata = 8;
+}
+

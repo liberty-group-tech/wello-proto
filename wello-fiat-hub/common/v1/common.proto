@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+package common.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "validate/validate.proto";
+import "shared/v1/misc.proto";
+import "shared/v1/payment_method.proto";
+
+option go_package = "wello-fiat-hub/api/common/v1;v1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.common.v1";
+option java_outer_classname = "CommonProtoV1";
+
+service Common {
+
+  rpc GetCardInfo (GetCardInfoRequest) returns (GetCardInfoReply) {
+    option (google.api.http) = {
+      post: "/common/card/info"
+      body: "*"
+    };
+  }
+  rpc GetFxRate (GetFxRateRequest) returns (GetFxRateReply) {
+    option (google.api.http) = {
+      post: "/common/fx/rate"
+      body: "*"
+    };
+  }
+
+  rpc DeletePaymentMethod(GetPaymentMethodRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/common/payment_methods/{id}"
+    };
+  }
+
+  rpc GetPaymentMethod(GetPaymentMethodRequest) returns (shared.v1.PaymentMethod) {
+    option (google.api.http) = {
+      get: "/common/payment_methods/{id}"
+    };
+  }
+
+  rpc GetPaymentMethods (GetPaymentMethodsRequest) returns (GetPaymentMethodsReply) {
+    option (google.api.http) = {
+      post: "/common/payment_methods"
+      body: "*"
+    };
+  }
+
+  rpc ValidateCard (ValidateCardRequest) returns (ValidateCardReply) {
+    option (google.api.http) = {
+      post: "/common/card/validate"
+      body: "*"
+    };
+  }
+}
+
+message GetCardInfoRequest {
+  string card_number = 1;
+  optional int32 expiry_month = 2;
+  optional int32 expiry_year = 3;
+  optional string holder_name = 4;
+  optional bool include_stats = 5;
+  optional string channel_id = 6;
+}
+
+message GetCardInfoReply {
+  string card_id = 1 [(validate.rules).string.prefix = "card_"];
+  shared.v1.Card card = 2;
+  repeated shared.v1.CardStats stats = 3;
+}
+
+message GetFxRateRequest {
+
+  message CurrencyPair {
+    string from = 1 [(validate.rules).string = {pattern: "^[A-Z]{3}$"}];
+    string to = 2 [(validate.rules).string = {pattern: "^[A-Z]{3}$"}];
+  }
+  optional string channel_id = 1 [(validate.rules).string = { in: ["checkout", "worldpay", "flutterwave"]}];
+  repeated CurrencyPair currency_pairs = 2;
+  map<string, string> metadata = 3;
+  optional bool disable_cache = 4;
+}
+
+message GetFxRateReply {
+  message Rate {
+    string from = 1;
+    string to = 2;
+    double rate = 3;
+    optional google.protobuf.Timestamp valid_until = 4;
+    optional google.protobuf.Timestamp issued_at = 5;
+  }
+  repeated Rate rates = 1;
+}
+
+message GetPaymentMethodRequest {
+  string id = 1 [(validate.rules).string = {pattern: "^pm_"}];
+}
+
+
+message GetPaymentMethodsRequest {
+  shared.v1.Paging paging = 1;
+  repeated shared.v1.Filter filters = 2;
+  repeated shared.v1.OrderBy orderBy = 3;
+}
+
+message GetPaymentMethodsReply {
+  int32 total = 1;
+  int32 skip = 2;
+  int32 limit = 3;
+  repeated shared.v1.PaymentMethod payment_methods = 4; 
+}
+
+message ValidateCardRequest {
+  shared.v1.Card card = 1;
+}
+
+message ValidateCardReply {
+  bool valid = 1;
+}

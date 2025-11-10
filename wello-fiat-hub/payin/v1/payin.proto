@@ -1,0 +1,216 @@
+syntax = "proto3";
+
+package payin.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "validate/validate.proto";
+import "shared/v1/misc.proto";
+import "shared/v1/payment_method.proto";
+
+option go_package = "wello-fiat-hub/api/payin/v1;v1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.payin.v1";
+option java_outer_classname = "PayinProtoV1";
+
+service Payin {
+
+  rpc Pay (PayRequest) returns (PayReply) {
+    option (google.api.http) = {
+      post: "/payin/transactions"
+      body: "*"
+    };
+  }
+
+  rpc Refund (RefundRequest) returns (RefundReply) {
+    option (google.api.http) = {
+      post: "/payin/transactions/{order_id}/refund"
+      body: "*"
+    };
+  }
+
+  rpc Void (VoidRequest) returns (VoidReply) {
+    option (google.api.http) = {
+      post: "/payin/transactions/{order_id}/void"
+      body: "*"
+    };
+  }
+
+  rpc Capture (CaptureRequest) returns (CaptureReply) {
+    option (google.api.http) = {
+      post: "/payin/transactions/{order_id}/capture"
+      body: "*"
+    };
+  }
+
+  rpc GetTransaction (GetTransactionRequest) returns (Transaction) {
+    option (google.api.http) = {
+      get: "/payin/transactions/{id}"
+    };
+  }
+
+  rpc GetTransactions (GetTransactionsRequest) returns (GetTransactionsReply) {
+    option (google.api.http) = {
+      get: "/payin/transactions"
+    };
+  }
+
+}
+
+message PayRequest {
+  string channel_id = 1;
+  string amount = 2 [(validate.rules).string.pattern = "^[0-9]+(\\.[0-9]+)?$"];
+  string currency = 3 [(validate.rules).string.pattern = "^[A-Z]{3}$"];
+  optional string reference_id = 4;
+  optional string description = 5;
+  optional shared.v1.Identity identity = 6;
+  shared.v1.PaymentMethod payment_method = 7 [(validate.rules).message.required = true];
+  optional shared.v1.Fingerprint fingerprint = 8;
+  optional shared.v1.Callback callback = 9;
+}
+
+message Callback {
+  optional string success_url = 1 [(validate.rules).string.uri = true];
+  optional string failure_url = 2 [(validate.rules).string.uri = true];
+  optional string webhook_url = 3 [(validate.rules).string.uri = true];
+}
+
+
+message PayReply {
+  string id = 1;
+  string amount = 2;
+  string currency = 3;
+  string status = 4;
+  int32 status_code = 5;
+  string channel_id = 6;
+  string channel_status = 7;
+  string channel_message = 8;
+  optional string reference_id = 9;
+  optional string channel_reference_id = 10;
+  optional shared.v1.Identity identity = 11;
+  optional shared.v1.PaymentMethod payment_method = 12;
+  google.protobuf.Timestamp created_at = 13;
+  google.protobuf.Timestamp updated_at = 14;
+  oneof authorization {
+    RedirectAuthorization redirect = 15;
+    BankTransferAuthorization bank_transfer = 16;
+    QrCodeAuthorization qr_code = 17;
+    // more methods
+  }
+}
+
+message RedirectAuthorization {
+  string uri = 1;
+  optional google.protobuf.Timestamp expires_at = 2;
+}
+
+message BankTransferAuthorization {
+  shared.v1.BankAccount bank_account = 1;
+  optional string note = 2;
+  optional string reference = 3;
+}
+
+message QrCodeAuthorization {
+  string uri = 1;
+  optional google.protobuf.Timestamp expires_at = 2;
+}
+
+message ChannelReferenceId {
+  string channel_id = 1;
+  string reference_id = 2;
+}
+
+message RefundRequest {
+  string order_id = 1 [(validate.rules).string.prefix = "pi_"];
+  optional string amount = 2;
+  optional string currency = 3;
+  optional string note = 4;
+  optional string reference_id = 5;
+}
+
+message RefundReply {
+  string id = 1;
+  string status = 2;
+  int32 status_code = 3;
+  string message = 4;
+  string channel_status = 5;
+  string channel_reference_id = 6;
+  optional string reference_id = 7;
+}
+
+message VoidRequest {
+  string order_id = 1 [(validate.rules).string.prefix = "pi_"];
+  optional string note = 2;
+}
+
+message VoidReply {
+  string id = 1;
+  string status = 2;
+  string message = 3;
+  string channel_status = 4;
+}
+
+message CaptureRequest {
+  string order_id = 1 [(validate.rules).string.prefix = "pi_"];
+}
+message CaptureReply {
+  string id = 1;
+  string status = 2;
+  string message = 3;
+}
+
+message Transaction {
+  string id = 1;
+  string amount = 2;
+  string fulfill_amount = 3;
+  string currency = 4;
+  optional string description = 5;
+  string status = 6;
+  int32 status_code = 7;
+  string payment_method_type = 8;
+  string channel_id = 9;
+  optional string channel_status = 10;
+  optional string channel_message = 11;
+  optional string reference_id = 12;
+  optional string channel_reference_id = 13;
+  optional shared.v1.Identity identity = 14;
+  optional shared.v1.PaymentMethod payment_method = 15;
+  optional shared.v1.Fingerprint fingerprint = 16;
+  optional shared.v1.Callback callback = 17;
+  oneof authorization {
+    RedirectAuthorization redirect = 18;
+    BankTransferAuthorization bank_transfer = 19;
+    // more methods
+  }
+  google.protobuf.Timestamp created_at = 20;
+  google.protobuf.Timestamp updated_at = 21;
+
+  optional string raw_response = 22;
+  map<string, string> annotation = 23;
+  string client_id = 24;
+  optional string updated_by = 25;
+  optional string update_reason = 26;
+}
+
+message GetTransactionRequest {
+  message ChannelReferenceId {
+    string channel_id = 1;
+    string reference_id = 2;
+  }
+  optional string id = 1 [(validate.rules).string.prefix = "pi_"];
+  optional string reference_id = 2;
+  optional ChannelReferenceId channel_reference_id = 3;
+}
+
+message GetTransactionsReply {
+  int32 total = 1;
+  int32 skip = 2;
+  int32 limit = 3;
+  repeated Transaction transactions = 4;
+}
+
+message GetTransactionsRequest {
+  shared.v1.Paging paging = 1;
+  repeated shared.v1.Filter filters = 2;
+  repeated shared.v1.OrderBy orderBy = 3;
+}

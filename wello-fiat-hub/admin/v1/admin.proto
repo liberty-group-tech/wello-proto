@@ -1,0 +1,145 @@
+syntax = "proto3";
+
+package admin.v1;
+
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+import "shared/v1/payment_method.proto";
+import "google/protobuf/timestamp.proto";
+import "shared/v1/misc.proto";
+
+option go_package = "wello-fiat-hub/api/admin/v1;v1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.admin.v1";
+option java_outer_classname = "AdminProtoV1";
+
+service Admin {
+
+  rpc GetWebhookEvents(GetWebhookEventsReq) returns (GetWebhookEventsReply) {
+    option (google.api.http) = {
+      get: "/admin/webhook/events"
+    };
+  }
+
+  rpc GetTransactionStatusLogs(GetTransactionStatusLogsReq) returns (GetTransactionStatusLogsReply) {
+    option (google.api.http) = {
+      get: "/admin/transaction/status/logs"
+    };
+  }
+
+  rpc ReplayWebhookEvent (ReplayWebhookEventReq) returns (ReplayWebhookEventReply) {
+    option (google.api.http) = {
+      post: "/admin/webhook/replay"
+      body: "*"
+    };
+  }
+
+  rpc ReplayTransactionStatusEvent(ReplayTransactionStatusEventReq) returns (ReplayTransactionStatusEventReply) {
+    option (google.api.http) = {
+      post: "/admin/transaction/status/replay"
+      body: "*"
+    };
+  }
+
+  rpc UpdateCardCardMeta(UpdateCardCardMetaReq) returns (UpdateCardCardMetaReply) {
+    option (google.api.http) = {
+      post: "/admin/card/meta/update"
+      body: "*"
+    };
+  }
+
+  rpc MigrateCardTemp(MigrateCardTempReq) returns (MigrateCardTempReply) {
+    option (google.api.http) = {
+      put: "/admin/card/temp/migrate"
+      body: "*"
+    };
+  }
+}
+message WebhookEvent {
+  string id = 1;
+  string source = 2;
+  string source_id = 3;
+  map<string, string> headers = 4;  
+  string body = 5;
+  string content_type = 6;
+  string status = 7;
+  google.protobuf.Timestamp created_at = 8;
+  google.protobuf.Timestamp updated_at = 9;
+}
+
+message GetWebhookEventsReq {
+  shared.v1.Paging paging = 1;
+  repeated shared.v1.Filter filters = 2;
+  repeated shared.v1.OrderBy orderBy = 3;
+}
+
+message GetWebhookEventsReply {
+  int64 total = 1;
+  int64 skip = 2;
+  int64 limit = 3;
+  repeated WebhookEvent events = 4;
+
+}
+
+message GetTransactionStatusLogsReq {
+  string id = 1;
+}
+
+message TransactionStatusLog {
+  int64 id = 1;
+  string transaction_id = 2;
+  string from_status = 3;
+  string to_status = 4;
+  int32 from_status_code = 5;
+  int32 to_status_code = 6;
+  string from_channel_status = 7;
+  string to_channel_status = 8;
+  string from_channel_message = 9;
+  string to_channel_message = 10;
+  string note = 11;
+  string updated_by = 12;
+  google.protobuf.Timestamp created_at = 13;
+  google.protobuf.Timestamp updated_at = 14;
+}
+message GetTransactionStatusLogsReply {
+  repeated TransactionStatusLog logs = 1;
+}
+
+message MigrateCardTempReq {
+  repeated string user_ids = 1;
+  optional bool dry_run = 2;
+}
+
+message MigrateCardTempReply {
+  int32 count = 1;
+}
+
+message ReplayWebhookEventReq {
+  string webhook_event_id = 1 [(validate.rules).string.prefix = "wh_"];
+  optional bool forward = 2;
+}
+
+message ReplayWebhookEventReply {
+  string new_webhook_event_id = 1;
+  string original_webhook_event_id = 2;
+  int32 forward_count = 3;
+}
+
+message ReplayTransactionStatusEventReq {
+  optional string transaction_id = 1 [(validate.rules).string.pattern = "^(pi_|po_).*$"];
+}
+
+message ReplayTransactionStatusEventReply {
+  string status = 1;
+}
+
+message UpdateCardCardMetaReq {
+  string card_id = 1 [(validate.rules).string.prefix = "card_"];
+  string channel_id = 2;
+}
+
+message UpdateCardCardMetaReply {
+  string card_id = 1 [(validate.rules).string.prefix = "card_"];
+  shared.v1.Card card = 2;
+  shared.v1.CardStats stats = 3;
+}
