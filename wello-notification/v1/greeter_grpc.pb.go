@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.32.1
-// source: wello-notification/greeter.proto
+// source: wello-notification/v1/greeter.proto
 
 package notificationv1
 
@@ -19,8 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Greeter_SayHello_FullMethodName    = "/helloworld.v1.Greeter/SayHello"
-	Greeter_TestWebhook_FullMethodName = "/helloworld.v1.Greeter/TestWebhook"
+	Greeter_SayHello_FullMethodName    = "/wello.notification.v1.Greeter/SayHello"
+	Greeter_TestWebhook_FullMethodName = "/wello.notification.v1.Greeter/TestWebhook"
 )
 
 // GreeterClient is the client API for Greeter service.
@@ -148,7 +148,7 @@ func _Greeter_TestWebhook_Handler(srv interface{}, ctx context.Context, dec func
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Greeter_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "helloworld.v1.Greeter",
+	ServiceName: "wello.notification.v1.Greeter",
 	HandlerType: (*GreeterServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -161,5 +161,5 @@ var Greeter_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "wello-notification/greeter.proto",
+	Metadata: "wello-notification/v1/greeter.proto",
 }

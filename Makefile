@@ -33,6 +33,8 @@ risk:
 		-I ./wello-proto-deps \
 		--go_out=paths=source_relative:. \
 		--go-grpc_out=paths=source_relative:. \
+		--go-http_out=paths=source_relative:. \
+		--validate_out=paths=source_relative,lang=go:. \
 		wello-risk/*.proto
 
 crypto-hub:
@@ -47,4 +49,6 @@ notification:
 		-I ./wello-proto-deps \
 		--go_out=paths=source_relative:. \
 		--go-grpc_out=paths=source_relative:. \
-		wello-notification/*.proto
+		--go-http_out=paths=source_relative:. \
+		--validate_out=paths=source_relative,lang=go:. \
+		$(shell find wello-notification -name '*.proto')

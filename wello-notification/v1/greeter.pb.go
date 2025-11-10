@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.9
 // 	protoc        v6.32.1
-// source: wello-notification/greeter.proto
+// source: wello-notification/v1/greeter.proto
 
 package notificationv1
 
@@ -32,7 +32,7 @@ type TestWebhookRequest struct {
 
 func (x *TestWebhookRequest) Reset() {
 	*x = TestWebhookRequest{}
-	mi := &file_wello_notification_greeter_proto_msgTypes[0]
+	mi := &file_wello_notification_v1_greeter_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -44,7 +44,7 @@ func (x *TestWebhookRequest) String() string {
 func (*TestWebhookRequest) ProtoMessage() {}
 
 func (x *TestWebhookRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_notification_greeter_proto_msgTypes[0]
+	mi := &file_wello_notification_v1_greeter_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -57,7 +57,7 @@ func (x *TestWebhookRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TestWebhookRequest.ProtoReflect.Descriptor instead.
 func (*TestWebhookRequest) Descriptor() ([]byte, []int) {
-	return file_wello_notification_greeter_proto_rawDescGZIP(), []int{0}
+	return file_wello_notification_v1_greeter_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *TestWebhookRequest) GetUrl() string {
@@ -83,7 +83,7 @@ type TestWebhookReply struct {
 
 func (x *TestWebhookReply) Reset() {
 	*x = TestWebhookReply{}
-	mi := &file_wello_notification_greeter_proto_msgTypes[1]
+	mi := &file_wello_notification_v1_greeter_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -95,7 +95,7 @@ func (x *TestWebhookReply) String() string {
 func (*TestWebhookReply) ProtoMessage() {}
 
 func (x *TestWebhookReply) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_notification_greeter_proto_msgTypes[1]
+	mi := &file_wello_notification_v1_greeter_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -108,7 +108,7 @@ func (x *TestWebhookReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TestWebhookReply.ProtoReflect.Descriptor instead.
 func (*TestWebhookReply) Descriptor() ([]byte, []int) {
-	return file_wello_notification_greeter_proto_rawDescGZIP(), []int{1}
+	return file_wello_notification_v1_greeter_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *TestWebhookReply) GetMessage() string {
@@ -128,7 +128,7 @@ type HelloRequest struct {
 
 func (x *HelloRequest) Reset() {
 	*x = HelloRequest{}
-	mi := &file_wello_notification_greeter_proto_msgTypes[2]
+	mi := &file_wello_notification_v1_greeter_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -140,7 +140,7 @@ func (x *HelloRequest) String() string {
 func (*HelloRequest) ProtoMessage() {}
 
 func (x *HelloRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_notification_greeter_proto_msgTypes[2]
+	mi := &file_wello_notification_v1_greeter_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -153,7 +153,7 @@ func (x *HelloRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HelloRequest.ProtoReflect.Descriptor instead.
 func (*HelloRequest) Descriptor() ([]byte, []int) {
-	return file_wello_notification_greeter_proto_rawDescGZIP(), []int{2}
+	return file_wello_notification_v1_greeter_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *HelloRequest) GetName() string {
@@ -173,7 +173,7 @@ type HelloReply struct {
 
 func (x *HelloReply) Reset() {
 	*x = HelloReply{}
-	mi := &file_wello_notification_greeter_proto_msgTypes[3]
+	mi := &file_wello_notification_v1_greeter_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -185,7 +185,7 @@ func (x *HelloReply) String() string {
 func (*HelloReply) ProtoMessage() {}
 
 func (x *HelloReply) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_notification_greeter_proto_msgTypes[3]
+	mi := &file_wello_notification_v1_greeter_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -198,7 +198,7 @@ func (x *HelloReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use HelloReply.ProtoReflect.Descriptor instead.
 func (*HelloReply) Descriptor() ([]byte, []int) {
-	return file_wello_notification_greeter_proto_rawDescGZIP(), []int{3}
+	return file_wello_notification_v1_greeter_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *HelloReply) GetMessage() string {
@@ -208,11 +208,11 @@ func (x *HelloReply) GetMessage() string {
 	return ""
 }
 
-var File_wello_notification_greeter_proto protoreflect.FileDescriptor
+var File_wello_notification_v1_greeter_proto protoreflect.FileDescriptor
 
-const file_wello_notification_greeter_proto_rawDesc = "" +
+const file_wello_notification_v1_greeter_proto_rawDesc = "" +
 	"\n" +
-	" wello-notification/greeter.proto\x12\rhelloworld.v1\x1a\x1cgoogle/api/annotations.proto\":\n" +
+	"#wello-notification/v1/greeter.proto\x12\x15wello.notification.v1\x1a\x1cgoogle/api/annotations.proto\":\n" +
 	"\x12TestWebhookRequest\x12\x10\n" +
 	"\x03url\x18\x01 \x01(\tR\x03url\x12\x12\n" +
 	"\x04body\x18\x02 \x01(\tR\x04body\",\n" +
@@ -222,36 +222,36 @@ const file_wello_notification_greeter_proto_rawDesc = "" +
 	"\x04name\x18\x01 \x01(\tR\x04name\"&\n" +
 	"\n" +
 	"HelloReply\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage2\xd6\x01\n" +
-	"\aGreeter\x12^\n" +
-	"\bSayHello\x12\x1b.helloworld.v1.HelloRequest\x1a\x19.helloworld.v1.HelloReply\"\x1a\x82\xd3\xe4\x93\x02\x14\x12\x12/helloworld/{name}\x12k\n" +
-	"\vTestWebhook\x12!.helloworld.v1.TestWebhookRequest\x1a\x1f.helloworld.v1.TestWebhookReply\"\x18\x82\xd3\xe4\x93\x02\x12:\x01*\"\r/test-webhookB\x80\x01\n" +
-	"\x1cdev.kratos.api.helloworld.v1B\x11HelloworldProtoV1P\x01ZKgithub.com/liberty-group-tech/wello-proto/wello-notification;notificationv1b\x06proto3"
+	"\amessage\x18\x01 \x01(\tR\amessage2\xf6\x01\n" +
+	"\aGreeter\x12n\n" +
+	"\bSayHello\x12#.wello.notification.v1.HelloRequest\x1a!.wello.notification.v1.HelloReply\"\x1a\x82\xd3\xe4\x93\x02\x14\x12\x12/helloworld/{name}\x12{\n" +
+	"\vTestWebhook\x12).wello.notification.v1.TestWebhookRequest\x1a'.wello.notification.v1.TestWebhookReply\"\x18\x82\xd3\xe4\x93\x02\x12:\x01*\"\r/test-webhookB\x83\x01\n" +
+	"\x1cdev.kratos.api.helloworld.v1B\x11HelloworldProtoV1P\x01ZNgithub.com/liberty-group-tech/wello-proto/wello-notification/v1;notificationv1b\x06proto3"
 
 var (
-	file_wello_notification_greeter_proto_rawDescOnce sync.Once
-	file_wello_notification_greeter_proto_rawDescData []byte
+	file_wello_notification_v1_greeter_proto_rawDescOnce sync.Once
+	file_wello_notification_v1_greeter_proto_rawDescData []byte
 )
 
-func file_wello_notification_greeter_proto_rawDescGZIP() []byte {
-	file_wello_notification_greeter_proto_rawDescOnce.Do(func() {
-		file_wello_notification_greeter_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_wello_notification_greeter_proto_rawDesc), len(file_wello_notification_greeter_proto_rawDesc)))
+func file_wello_notification_v1_greeter_proto_rawDescGZIP() []byte {
+	file_wello_notification_v1_greeter_proto_rawDescOnce.Do(func() {
+		file_wello_notification_v1_greeter_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_wello_notification_v1_greeter_proto_rawDesc), len(file_wello_notification_v1_greeter_proto_rawDesc)))
 	})
-	return file_wello_notification_greeter_proto_rawDescData
+	return file_wello_notification_v1_greeter_proto_rawDescData
 }
 
-var file_wello_notification_greeter_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
-var file_wello_notification_greeter_proto_goTypes = []any{
-	(*TestWebhookRequest)(nil), // 0: helloworld.v1.TestWebhookRequest
-	(*TestWebhookReply)(nil),   // 1: helloworld.v1.TestWebhookReply
-	(*HelloRequest)(nil),       // 2: helloworld.v1.HelloRequest
-	(*HelloReply)(nil),         // 3: helloworld.v1.HelloReply
+var file_wello_notification_v1_greeter_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_wello_notification_v1_greeter_proto_goTypes = []any{
+	(*TestWebhookRequest)(nil), // 0: wello.notification.v1.TestWebhookRequest
+	(*TestWebhookReply)(nil),   // 1: wello.notification.v1.TestWebhookReply
+	(*HelloRequest)(nil),       // 2: wello.notification.v1.HelloRequest
+	(*HelloReply)(nil),         // 3: wello.notification.v1.HelloReply
 }
-var file_wello_notification_greeter_proto_depIdxs = []int32{
-	2, // 0: helloworld.v1.Greeter.SayHello:input_type -> helloworld.v1.HelloRequest
-	0, // 1: helloworld.v1.Greeter.TestWebhook:input_type -> helloworld.v1.TestWebhookRequest
-	3, // 2: helloworld.v1.Greeter.SayHello:output_type -> helloworld.v1.HelloReply
-	1, // 3: helloworld.v1.Greeter.TestWebhook:output_type -> helloworld.v1.TestWebhookReply
+var file_wello_notification_v1_greeter_proto_depIdxs = []int32{
+	2, // 0: wello.notification.v1.Greeter.SayHello:input_type -> wello.notification.v1.HelloRequest
+	0, // 1: wello.notification.v1.Greeter.TestWebhook:input_type -> wello.notification.v1.TestWebhookRequest
+	3, // 2: wello.notification.v1.Greeter.SayHello:output_type -> wello.notification.v1.HelloReply
+	1, // 3: wello.notification.v1.Greeter.TestWebhook:output_type -> wello.notification.v1.TestWebhookReply
 	2, // [2:4] is the sub-list for method output_type
 	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -259,26 +259,26 @@ var file_wello_notification_greeter_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_wello_notification_greeter_proto_init() }
-func file_wello_notification_greeter_proto_init() {
-	if File_wello_notification_greeter_proto != nil {
+func init() { file_wello_notification_v1_greeter_proto_init() }
+func file_wello_notification_v1_greeter_proto_init() {
+	if File_wello_notification_v1_greeter_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_wello_notification_greeter_proto_rawDesc), len(file_wello_notification_greeter_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_wello_notification_v1_greeter_proto_rawDesc), len(file_wello_notification_v1_greeter_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_wello_notification_greeter_proto_goTypes,
-		DependencyIndexes: file_wello_notification_greeter_proto_depIdxs,
-		MessageInfos:      file_wello_notification_greeter_proto_msgTypes,
+		GoTypes:           file_wello_notification_v1_greeter_proto_goTypes,
+		DependencyIndexes: file_wello_notification_v1_greeter_proto_depIdxs,
+		MessageInfos:      file_wello_notification_v1_greeter_proto_msgTypes,
 	}.Build()
-	File_wello_notification_greeter_proto = out.File
-	file_wello_notification_greeter_proto_goTypes = nil
-	file_wello_notification_greeter_proto_depIdxs = nil
+	File_wello_notification_v1_greeter_proto = out.File
+	file_wello_notification_v1_greeter_proto_goTypes = nil
+	file_wello_notification_v1_greeter_proto_depIdxs = nil
 }

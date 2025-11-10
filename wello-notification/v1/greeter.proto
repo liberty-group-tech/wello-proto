@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package helloworld.v1;
+package wello.notification.v1;
 
 import "google/api/annotations.proto";
 
-option go_package = "github.com/liberty-group-tech/wello-proto/wello-notification;notificationv1";
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-notification/v1;notificationv1";
 option java_multiple_files = true;
 option java_package = "dev.kratos.api.helloworld.v1";
 option java_outer_classname = "HelloworldProtoV1";
