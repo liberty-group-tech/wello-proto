@@ -11,22 +11,27 @@ errs:
 	protoc --proto_path=. \
 		--go_out=paths=source_relative:. \
 		--go-grpc_out=paths=source_relative:. \
-		wello-errs/*.proto
-
+		--go-http_out=paths=source_relative:. \
+		--validate_out=paths=source_relative,lang=go:. \
+		$(shell find wello-errs -name '*.proto')
 
 hedging:
 	protoc --proto_path=. \
 		-I ./wello-proto-deps \
 		--go_out=paths=source_relative:. \
 		--go-grpc_out=paths=source_relative:. \
-		wello-hedging/*.proto
+		--go-http_out=paths=source_relative:. \
+		--validate_out=paths=source_relative,lang=go:. \
+		$(shell find wello-hedging -name '*.proto')
 
 ramp-core:
 	protoc --proto_path=. \
 		-I ./wello-proto-deps \
 		--go_out=paths=source_relative:. \
 		--go-grpc_out=paths=source_relative:. \
-		wello-ramp-core/*.proto
+		--go-http_out=paths=source_relative:. \
+		--validate_out=paths=source_relative,lang=go:. \
+		$(shell find wello-ramp-core -name '*.proto')
 
 risk:
 	protoc --proto_path=. \
@@ -35,23 +40,16 @@ risk:
 		--go-grpc_out=paths=source_relative:. \
 		--go-http_out=paths=source_relative:. \
 		--validate_out=paths=source_relative,lang=go:. \
-		wello-risk/*.proto
+		$(shell find wello-risk -name '*.proto')
 
 crypto-hub:
 	protoc --proto_path=. \
 		-I ./wello-proto-deps \
 		--go_out=paths=source_relative:. \
 		--go-grpc_out=paths=source_relative:. \
-		wello-crypto-hub/*.proto
-
-notification:
-	protoc --proto_path=. \
-		-I ./wello-proto-deps \
-		--go_out=paths=source_relative:. \
-		--go-grpc_out=paths=source_relative:. \
 		--go-http_out=paths=source_relative:. \
 		--validate_out=paths=source_relative,lang=go:. \
-		$(shell find wello-notification -name '*.proto')
+		$(shell find wello-crypto-hub -name '*.proto')
 
 fiat-hub:
 	protoc --proto_path=. \
@@ -61,3 +59,12 @@ fiat-hub:
 		--go-http_out=paths=source_relative:. \
 		--validate_out=paths=source_relative,lang=go:. \
 		$(shell find wello-fiat-hub -name '*.proto')
+
+notification:
+	protoc --proto_path=. \
+		-I ./wello-proto-deps \
+		--go_out=paths=source_relative:. \
+		--go-grpc_out=paths=source_relative:. \
+		--go-http_out=paths=source_relative:. \
+		--validate_out=paths=source_relative,lang=go:. \
+		$(shell find wello-notification -name '*.proto')

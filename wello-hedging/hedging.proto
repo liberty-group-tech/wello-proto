@@ -3,7 +3,7 @@ syntax = "proto3";
 package hedging.v1;
 
 import "google/api/annotations.proto";
-import "wello-proto-deps/validate/validate.proto";
+import "validate/validate.proto";
 import "google/protobuf/timestamp.proto";
 
 option go_package = "github.com/liberty-group-tech/wello-proto/wello-hedging;hedgingv1";

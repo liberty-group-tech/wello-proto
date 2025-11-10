@@ -5,11 +5,11 @@ package payout.v1;
 import "google/api/annotations.proto";
 import "google/protobuf/timestamp.proto";
 import "validate/validate.proto";
-import "shared/v1/misc.proto";
-import "shared/v1/payment_method.proto";
+import "wello-fiat-hub/shared/v1/misc.proto";
+import "wello-fiat-hub/shared/v1/payment_method.proto";
 
 
-option go_package = "wello-fiat-hub/api/payin/v1;v1";
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-fiat-hub/payout/v1;payout";
 option java_multiple_files = true;
 option java_package = "dev.kratos.api.payout.v1";
 option java_outer_classname = "PayoutProtoV1";
