@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.10
 // 	protoc        v6.32.0
-// source: wello-ramp-core/ramp.proto
+// source: wello-ramp-core/v1/ramp.proto
 
-package rampv1
+package ramp
 
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
@@ -37,7 +37,7 @@ type CreateOnRampOrderRequest struct {
 
 func (x *CreateOnRampOrderRequest) Reset() {
 	*x = CreateOnRampOrderRequest{}
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[0]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -49,7 +49,7 @@ func (x *CreateOnRampOrderRequest) String() string {
 func (*CreateOnRampOrderRequest) ProtoMessage() {}
 
 func (x *CreateOnRampOrderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[0]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -62,7 +62,7 @@ func (x *CreateOnRampOrderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateOnRampOrderRequest.ProtoReflect.Descriptor instead.
 func (*CreateOnRampOrderRequest) Descriptor() ([]byte, []int) {
-	return file_wello_ramp_core_ramp_proto_rawDescGZIP(), []int{0}
+	return file_wello_ramp_core_v1_ramp_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *CreateOnRampOrderRequest) GetQuoteId() string {
@@ -111,7 +111,7 @@ type GetOnRampOrderRequest struct {
 
 func (x *GetOnRampOrderRequest) Reset() {
 	*x = GetOnRampOrderRequest{}
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[1]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -123,7 +123,7 @@ func (x *GetOnRampOrderRequest) String() string {
 func (*GetOnRampOrderRequest) ProtoMessage() {}
 
 func (x *GetOnRampOrderRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[1]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -136,7 +136,7 @@ func (x *GetOnRampOrderRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOnRampOrderRequest.ProtoReflect.Descriptor instead.
 func (*GetOnRampOrderRequest) Descriptor() ([]byte, []int) {
-	return file_wello_ramp_core_ramp_proto_rawDescGZIP(), []int{1}
+	return file_wello_ramp_core_v1_ramp_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *GetOnRampOrderRequest) GetId() string {
@@ -174,7 +174,7 @@ type GetOnRampOrderResponse struct {
 
 func (x *GetOnRampOrderResponse) Reset() {
 	*x = GetOnRampOrderResponse{}
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[2]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -186,7 +186,7 @@ func (x *GetOnRampOrderResponse) String() string {
 func (*GetOnRampOrderResponse) ProtoMessage() {}
 
 func (x *GetOnRampOrderResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[2]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -199,7 +199,7 @@ func (x *GetOnRampOrderResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOnRampOrderResponse.ProtoReflect.Descriptor instead.
 func (*GetOnRampOrderResponse) Descriptor() ([]byte, []int) {
-	return file_wello_ramp_core_ramp_proto_rawDescGZIP(), []int{2}
+	return file_wello_ramp_core_v1_ramp_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GetOnRampOrderResponse) GetCode() string {
@@ -265,7 +265,7 @@ type OnRampOrder struct {
 
 func (x *OnRampOrder) Reset() {
 	*x = OnRampOrder{}
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[3]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -277,7 +277,7 @@ func (x *OnRampOrder) String() string {
 func (*OnRampOrder) ProtoMessage() {}
 
 func (x *OnRampOrder) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[3]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -290,7 +290,7 @@ func (x *OnRampOrder) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OnRampOrder.ProtoReflect.Descriptor instead.
 func (*OnRampOrder) Descriptor() ([]byte, []int) {
-	return file_wello_ramp_core_ramp_proto_rawDescGZIP(), []int{3}
+	return file_wello_ramp_core_v1_ramp_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *OnRampOrder) GetId() string {
@@ -401,7 +401,7 @@ type QuoteRequest struct {
 
 func (x *QuoteRequest) Reset() {
 	*x = QuoteRequest{}
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[4]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -413,7 +413,7 @@ func (x *QuoteRequest) String() string {
 func (*QuoteRequest) ProtoMessage() {}
 
 func (x *QuoteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[4]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -426,7 +426,7 @@ func (x *QuoteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QuoteRequest.ProtoReflect.Descriptor instead.
 func (*QuoteRequest) Descriptor() ([]byte, []int) {
-	return file_wello_ramp_core_ramp_proto_rawDescGZIP(), []int{4}
+	return file_wello_ramp_core_v1_ramp_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *QuoteRequest) GetIntentId() string {
@@ -503,7 +503,7 @@ type FeeItem struct {
 
 func (x *FeeItem) Reset() {
 	*x = FeeItem{}
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[5]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -515,7 +515,7 @@ func (x *FeeItem) String() string {
 func (*FeeItem) ProtoMessage() {}
 
 func (x *FeeItem) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[5]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -528,7 +528,7 @@ func (x *FeeItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FeeItem.ProtoReflect.Descriptor instead.
 func (*FeeItem) Descriptor() ([]byte, []int) {
-	return file_wello_ramp_core_ramp_proto_rawDescGZIP(), []int{5}
+	return file_wello_ramp_core_v1_ramp_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *FeeItem) GetType() string {
@@ -566,7 +566,7 @@ type QuoteResponse struct {
 
 func (x *QuoteResponse) Reset() {
 	*x = QuoteResponse{}
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[6]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -578,7 +578,7 @@ func (x *QuoteResponse) String() string {
 func (*QuoteResponse) ProtoMessage() {}
 
 func (x *QuoteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[6]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -591,7 +591,7 @@ func (x *QuoteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QuoteResponse.ProtoReflect.Descriptor instead.
 func (*QuoteResponse) Descriptor() ([]byte, []int) {
-	return file_wello_ramp_core_ramp_proto_rawDescGZIP(), []int{6}
+	return file_wello_ramp_core_v1_ramp_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *QuoteResponse) GetCode() string {
@@ -656,7 +656,7 @@ type Quote struct {
 
 func (x *Quote) Reset() {
 	*x = Quote{}
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[7]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -668,7 +668,7 @@ func (x *Quote) String() string {
 func (*Quote) ProtoMessage() {}
 
 func (x *Quote) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[7]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -681,7 +681,7 @@ func (x *Quote) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Quote.ProtoReflect.Descriptor instead.
 func (*Quote) Descriptor() ([]byte, []int) {
-	return file_wello_ramp_core_ramp_proto_rawDescGZIP(), []int{7}
+	return file_wello_ramp_core_v1_ramp_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *Quote) GetQuoteId() string {
@@ -777,7 +777,7 @@ type QuoteInfoRequest struct {
 
 func (x *QuoteInfoRequest) Reset() {
 	*x = QuoteInfoRequest{}
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[8]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -789,7 +789,7 @@ func (x *QuoteInfoRequest) String() string {
 func (*QuoteInfoRequest) ProtoMessage() {}
 
 func (x *QuoteInfoRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_ramp_core_ramp_proto_msgTypes[8]
+	mi := &file_wello_ramp_core_v1_ramp_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -802,7 +802,7 @@ func (x *QuoteInfoRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QuoteInfoRequest.ProtoReflect.Descriptor instead.
 func (*QuoteInfoRequest) Descriptor() ([]byte, []int) {
-	return file_wello_ramp_core_ramp_proto_rawDescGZIP(), []int{8}
+	return file_wello_ramp_core_v1_ramp_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *QuoteInfoRequest) GetQuoteId() string {
@@ -812,11 +812,11 @@ func (x *QuoteInfoRequest) GetQuoteId() string {
 	return ""
 }
 
-var File_wello_ramp_core_ramp_proto protoreflect.FileDescriptor
+var File_wello_ramp_core_v1_ramp_proto protoreflect.FileDescriptor
 
-const file_wello_ramp_core_ramp_proto_rawDesc = "" +
+const file_wello_ramp_core_v1_ramp_proto_rawDesc = "" +
 	"\n" +
-	"\x1awello-ramp-core/ramp.proto\x12\badmin.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc3\x01\n" +
+	"\x1dwello-ramp-core/v1/ramp.proto\x12\badmin.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc3\x01\n" +
 	"\x18CreateOnRampOrderRequest\x12\x19\n" +
 	"\bquote_id\x18\x01 \x01(\tR\aquoteId\x12!\n" +
 	"\freference_id\x18\x02 \x01(\tR\vreferenceId\x12\x1f\n" +
@@ -910,23 +910,23 @@ const file_wello_ramp_core_ramp_proto_rawDesc = "" +
 	"\x11CreateOnRampOrder\x12\".admin.v1.CreateOnRampOrderRequest\x1a .admin.v1.GetOnRampOrderResponse\"\x1d\x82\xd3\xe4\x93\x02\x17:\x01*\x1a\x12/ramp/v1/buy/order\x12t\n" +
 	"\x0eGetOnRampOrder\x12\x1f.admin.v1.GetOnRampOrderRequest\x1a .admin.v1.GetOnRampOrderResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\x12\x17/ramp/v1/buy/order/{id}\x12P\n" +
 	"\x05Quote\x12\x16.admin.v1.QuoteRequest\x1a\x17.admin.v1.QuoteResponse\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/ramp/v1/quote\x12c\n" +
-	"\tQuoteInfo\x12\x1a.admin.v1.QuoteInfoRequest\x1a\x17.admin.v1.QuoteResponse\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/ramp/v1/quote/{quote_id}Bi\n" +
-	"\x16dev.kratos.api.stub.v1B\vStubProtoV1P\x01Z@github.com/liberty-group-tech/wello-proto/wello-ramp-core;rampv1b\x06proto3"
+	"\tQuoteInfo\x12\x1a.admin.v1.QuoteInfoRequest\x1a\x17.admin.v1.QuoteResponse\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/ramp/v1/quote/{quote_id}Bj\n" +
+	"\x16dev.kratos.api.ramp.v1B\vRampProtoV1P\x01ZAgithub.com/liberty-group-tech/wello-proto/wello-ramp-core/v1;rampb\x06proto3"
 
 var (
-	file_wello_ramp_core_ramp_proto_rawDescOnce sync.Once
-	file_wello_ramp_core_ramp_proto_rawDescData []byte
+	file_wello_ramp_core_v1_ramp_proto_rawDescOnce sync.Once
+	file_wello_ramp_core_v1_ramp_proto_rawDescData []byte
 )
 
-func file_wello_ramp_core_ramp_proto_rawDescGZIP() []byte {
-	file_wello_ramp_core_ramp_proto_rawDescOnce.Do(func() {
-		file_wello_ramp_core_ramp_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_wello_ramp_core_ramp_proto_rawDesc), len(file_wello_ramp_core_ramp_proto_rawDesc)))
+func file_wello_ramp_core_v1_ramp_proto_rawDescGZIP() []byte {
+	file_wello_ramp_core_v1_ramp_proto_rawDescOnce.Do(func() {
+		file_wello_ramp_core_v1_ramp_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_wello_ramp_core_v1_ramp_proto_rawDesc), len(file_wello_ramp_core_v1_ramp_proto_rawDesc)))
 	})
-	return file_wello_ramp_core_ramp_proto_rawDescData
+	return file_wello_ramp_core_v1_ramp_proto_rawDescData
 }
 
-var file_wello_ramp_core_ramp_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
-var file_wello_ramp_core_ramp_proto_goTypes = []any{
+var file_wello_ramp_core_v1_ramp_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_wello_ramp_core_v1_ramp_proto_goTypes = []any{
 	(*CreateOnRampOrderRequest)(nil), // 0: admin.v1.CreateOnRampOrderRequest
 	(*GetOnRampOrderRequest)(nil),    // 1: admin.v1.GetOnRampOrderRequest
 	(*GetOnRampOrderResponse)(nil),   // 2: admin.v1.GetOnRampOrderResponse
@@ -938,7 +938,7 @@ var file_wello_ramp_core_ramp_proto_goTypes = []any{
 	(*QuoteInfoRequest)(nil),         // 8: admin.v1.QuoteInfoRequest
 	(*timestamppb.Timestamp)(nil),    // 9: google.protobuf.Timestamp
 }
-var file_wello_ramp_core_ramp_proto_depIdxs = []int32{
+var file_wello_ramp_core_v1_ramp_proto_depIdxs = []int32{
 	9,  // 0: admin.v1.GetOnRampOrderResponse.timestamp:type_name -> google.protobuf.Timestamp
 	3,  // 1: admin.v1.GetOnRampOrderResponse.data:type_name -> admin.v1.OnRampOrder
 	9,  // 2: admin.v1.OnRampOrder.created_at:type_name -> google.protobuf.Timestamp
@@ -963,27 +963,27 @@ var file_wello_ramp_core_ramp_proto_depIdxs = []int32{
 	0,  // [0:9] is the sub-list for field type_name
 }
 
-func init() { file_wello_ramp_core_ramp_proto_init() }
-func file_wello_ramp_core_ramp_proto_init() {
-	if File_wello_ramp_core_ramp_proto != nil {
+func init() { file_wello_ramp_core_v1_ramp_proto_init() }
+func file_wello_ramp_core_v1_ramp_proto_init() {
+	if File_wello_ramp_core_v1_ramp_proto != nil {
 		return
 	}
-	file_wello_ramp_core_ramp_proto_msgTypes[4].OneofWrappers = []any{}
+	file_wello_ramp_core_v1_ramp_proto_msgTypes[4].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_wello_ramp_core_ramp_proto_rawDesc), len(file_wello_ramp_core_ramp_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_wello_ramp_core_v1_ramp_proto_rawDesc), len(file_wello_ramp_core_v1_ramp_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_wello_ramp_core_ramp_proto_goTypes,
-		DependencyIndexes: file_wello_ramp_core_ramp_proto_depIdxs,
-		MessageInfos:      file_wello_ramp_core_ramp_proto_msgTypes,
+		GoTypes:           file_wello_ramp_core_v1_ramp_proto_goTypes,
+		DependencyIndexes: file_wello_ramp_core_v1_ramp_proto_depIdxs,
+		MessageInfos:      file_wello_ramp_core_v1_ramp_proto_msgTypes,
 	}.Build()
-	File_wello_ramp_core_ramp_proto = out.File
-	file_wello_ramp_core_ramp_proto_goTypes = nil
-	file_wello_ramp_core_ramp_proto_depIdxs = nil
+	File_wello_ramp_core_v1_ramp_proto = out.File
+	file_wello_ramp_core_v1_ramp_proto_goTypes = nil
+	file_wello_ramp_core_v1_ramp_proto_depIdxs = nil
 }

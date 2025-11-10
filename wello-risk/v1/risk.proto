@@ -5,7 +5,7 @@ package risk.v1;
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/liberty-group-tech/wello-proto/wello-risk;riskv1";
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-risk/v1;risk";
 option java_multiple_files = true;
 option java_package = "dev.kratos.api.risk.v1";
 option java_outer_classname = "RiskProtoV1";

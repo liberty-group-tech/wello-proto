@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.32.0
-// source: wello-ramp-core/ramp.proto
+// source: wello-ramp-core/v1/ramp.proto
 
-package rampv1
+package ramp
 
 import (
 	context "context"
@@ -231,5 +231,5 @@ var Ramp_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "wello-ramp-core/ramp.proto",
+	Metadata: "wello-ramp-core/v1/ramp.proto",
 }

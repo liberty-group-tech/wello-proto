@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.32.0
-// source: wello-risk/risk.proto
+// source: wello-risk/v1/risk.proto
 
-package riskv1
+package risk
 
 import (
 	context "context"
@@ -269,5 +269,5 @@ var RiskService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "wello-risk/risk.proto",
+	Metadata: "wello-risk/v1/risk.proto",
 }

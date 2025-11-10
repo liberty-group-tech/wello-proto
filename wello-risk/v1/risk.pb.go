@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.10
 // 	protoc        v6.32.0
-// source: wello-risk/risk.proto
+// source: wello-risk/v1/risk.proto
 
-package riskv1
+package risk
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -59,11 +59,11 @@ func (x DecisionStatus) String() string {
 }
 
 func (DecisionStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_wello_risk_risk_proto_enumTypes[0].Descriptor()
+	return file_wello_risk_v1_risk_proto_enumTypes[0].Descriptor()
 }
 
 func (DecisionStatus) Type() protoreflect.EnumType {
-	return &file_wello_risk_risk_proto_enumTypes[0]
+	return &file_wello_risk_v1_risk_proto_enumTypes[0]
 }
 
 func (x DecisionStatus) Number() protoreflect.EnumNumber {
@@ -72,7 +72,7 @@ func (x DecisionStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DecisionStatus.Descriptor instead.
 func (DecisionStatus) EnumDescriptor() ([]byte, []int) {
-	return file_wello_risk_risk_proto_rawDescGZIP(), []int{0}
+	return file_wello_risk_v1_risk_proto_rawDescGZIP(), []int{0}
 }
 
 type EvaluateDecisionRequest struct {
@@ -87,7 +87,7 @@ type EvaluateDecisionRequest struct {
 
 func (x *EvaluateDecisionRequest) Reset() {
 	*x = EvaluateDecisionRequest{}
-	mi := &file_wello_risk_risk_proto_msgTypes[0]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -99,7 +99,7 @@ func (x *EvaluateDecisionRequest) String() string {
 func (*EvaluateDecisionRequest) ProtoMessage() {}
 
 func (x *EvaluateDecisionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_risk_risk_proto_msgTypes[0]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -112,7 +112,7 @@ func (x *EvaluateDecisionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EvaluateDecisionRequest.ProtoReflect.Descriptor instead.
 func (*EvaluateDecisionRequest) Descriptor() ([]byte, []int) {
-	return file_wello_risk_risk_proto_rawDescGZIP(), []int{0}
+	return file_wello_risk_v1_risk_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *EvaluateDecisionRequest) GetDecisionId() string {
@@ -156,7 +156,7 @@ type EvaluateDecisionResponse struct {
 
 func (x *EvaluateDecisionResponse) Reset() {
 	*x = EvaluateDecisionResponse{}
-	mi := &file_wello_risk_risk_proto_msgTypes[1]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -168,7 +168,7 @@ func (x *EvaluateDecisionResponse) String() string {
 func (*EvaluateDecisionResponse) ProtoMessage() {}
 
 func (x *EvaluateDecisionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_risk_risk_proto_msgTypes[1]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -181,7 +181,7 @@ func (x *EvaluateDecisionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EvaluateDecisionResponse.ProtoReflect.Descriptor instead.
 func (*EvaluateDecisionResponse) Descriptor() ([]byte, []int) {
-	return file_wello_risk_risk_proto_rawDescGZIP(), []int{1}
+	return file_wello_risk_v1_risk_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *EvaluateDecisionResponse) GetStatus() DecisionStatus {
@@ -232,7 +232,7 @@ type ReportEventRequest struct {
 
 func (x *ReportEventRequest) Reset() {
 	*x = ReportEventRequest{}
-	mi := &file_wello_risk_risk_proto_msgTypes[2]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -244,7 +244,7 @@ func (x *ReportEventRequest) String() string {
 func (*ReportEventRequest) ProtoMessage() {}
 
 func (x *ReportEventRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_risk_risk_proto_msgTypes[2]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -257,7 +257,7 @@ func (x *ReportEventRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReportEventRequest.ProtoReflect.Descriptor instead.
 func (*ReportEventRequest) Descriptor() ([]byte, []int) {
-	return file_wello_risk_risk_proto_rawDescGZIP(), []int{2}
+	return file_wello_risk_v1_risk_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ReportEventRequest) GetEventId() string {
@@ -305,7 +305,7 @@ type ReportEventResponse struct {
 
 func (x *ReportEventResponse) Reset() {
 	*x = ReportEventResponse{}
-	mi := &file_wello_risk_risk_proto_msgTypes[3]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -317,7 +317,7 @@ func (x *ReportEventResponse) String() string {
 func (*ReportEventResponse) ProtoMessage() {}
 
 func (x *ReportEventResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_risk_risk_proto_msgTypes[3]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -330,7 +330,7 @@ func (x *ReportEventResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReportEventResponse.ProtoReflect.Descriptor instead.
 func (*ReportEventResponse) Descriptor() ([]byte, []int) {
-	return file_wello_risk_risk_proto_rawDescGZIP(), []int{3}
+	return file_wello_risk_v1_risk_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ReportEventResponse) GetAccepted() bool {
@@ -356,7 +356,7 @@ type GetLimitsRequest struct {
 
 func (x *GetLimitsRequest) Reset() {
 	*x = GetLimitsRequest{}
-	mi := &file_wello_risk_risk_proto_msgTypes[4]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -368,7 +368,7 @@ func (x *GetLimitsRequest) String() string {
 func (*GetLimitsRequest) ProtoMessage() {}
 
 func (x *GetLimitsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_risk_risk_proto_msgTypes[4]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -381,7 +381,7 @@ func (x *GetLimitsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLimitsRequest.ProtoReflect.Descriptor instead.
 func (*GetLimitsRequest) Descriptor() ([]byte, []int) {
-	return file_wello_risk_risk_proto_rawDescGZIP(), []int{4}
+	return file_wello_risk_v1_risk_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetLimitsRequest) GetSubjectId() string {
@@ -400,7 +400,7 @@ type GetLimitsResponse struct {
 
 func (x *GetLimitsResponse) Reset() {
 	*x = GetLimitsResponse{}
-	mi := &file_wello_risk_risk_proto_msgTypes[5]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -412,7 +412,7 @@ func (x *GetLimitsResponse) String() string {
 func (*GetLimitsResponse) ProtoMessage() {}
 
 func (x *GetLimitsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_risk_risk_proto_msgTypes[5]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -425,7 +425,7 @@ func (x *GetLimitsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetLimitsResponse.ProtoReflect.Descriptor instead.
 func (*GetLimitsResponse) Descriptor() ([]byte, []int) {
-	return file_wello_risk_risk_proto_rawDescGZIP(), []int{5}
+	return file_wello_risk_v1_risk_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetLimitsResponse) GetLimits() []*RiskLimit {
@@ -449,7 +449,7 @@ type RiskLimit struct {
 
 func (x *RiskLimit) Reset() {
 	*x = RiskLimit{}
-	mi := &file_wello_risk_risk_proto_msgTypes[6]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -461,7 +461,7 @@ func (x *RiskLimit) String() string {
 func (*RiskLimit) ProtoMessage() {}
 
 func (x *RiskLimit) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_risk_risk_proto_msgTypes[6]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -474,7 +474,7 @@ func (x *RiskLimit) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RiskLimit.ProtoReflect.Descriptor instead.
 func (*RiskLimit) Descriptor() ([]byte, []int) {
-	return file_wello_risk_risk_proto_rawDescGZIP(), []int{6}
+	return file_wello_risk_v1_risk_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *RiskLimit) GetLimitId() string {
@@ -528,7 +528,7 @@ type ListRulesRequest struct {
 
 func (x *ListRulesRequest) Reset() {
 	*x = ListRulesRequest{}
-	mi := &file_wello_risk_risk_proto_msgTypes[7]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -540,7 +540,7 @@ func (x *ListRulesRequest) String() string {
 func (*ListRulesRequest) ProtoMessage() {}
 
 func (x *ListRulesRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_risk_risk_proto_msgTypes[7]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -553,7 +553,7 @@ func (x *ListRulesRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRulesRequest.ProtoReflect.Descriptor instead.
 func (*ListRulesRequest) Descriptor() ([]byte, []int) {
-	return file_wello_risk_risk_proto_rawDescGZIP(), []int{7}
+	return file_wello_risk_v1_risk_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *ListRulesRequest) GetIncludeInactive() bool {
@@ -572,7 +572,7 @@ type ListRulesResponse struct {
 
 func (x *ListRulesResponse) Reset() {
 	*x = ListRulesResponse{}
-	mi := &file_wello_risk_risk_proto_msgTypes[8]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -584,7 +584,7 @@ func (x *ListRulesResponse) String() string {
 func (*ListRulesResponse) ProtoMessage() {}
 
 func (x *ListRulesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_risk_risk_proto_msgTypes[8]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -597,7 +597,7 @@ func (x *ListRulesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListRulesResponse.ProtoReflect.Descriptor instead.
 func (*ListRulesResponse) Descriptor() ([]byte, []int) {
-	return file_wello_risk_risk_proto_rawDescGZIP(), []int{8}
+	return file_wello_risk_v1_risk_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *ListRulesResponse) GetRules() []*RiskRule {
@@ -620,7 +620,7 @@ type RiskRule struct {
 
 func (x *RiskRule) Reset() {
 	*x = RiskRule{}
-	mi := &file_wello_risk_risk_proto_msgTypes[9]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -632,7 +632,7 @@ func (x *RiskRule) String() string {
 func (*RiskRule) ProtoMessage() {}
 
 func (x *RiskRule) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_risk_risk_proto_msgTypes[9]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -645,7 +645,7 @@ func (x *RiskRule) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RiskRule.ProtoReflect.Descriptor instead.
 func (*RiskRule) Descriptor() ([]byte, []int) {
-	return file_wello_risk_risk_proto_rawDescGZIP(), []int{9}
+	return file_wello_risk_v1_risk_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *RiskRule) GetRuleId() string {
@@ -699,7 +699,7 @@ type EvaluateVelocityRequest struct {
 
 func (x *EvaluateVelocityRequest) Reset() {
 	*x = EvaluateVelocityRequest{}
-	mi := &file_wello_risk_risk_proto_msgTypes[10]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -711,7 +711,7 @@ func (x *EvaluateVelocityRequest) String() string {
 func (*EvaluateVelocityRequest) ProtoMessage() {}
 
 func (x *EvaluateVelocityRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_risk_risk_proto_msgTypes[10]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -724,7 +724,7 @@ func (x *EvaluateVelocityRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EvaluateVelocityRequest.ProtoReflect.Descriptor instead.
 func (*EvaluateVelocityRequest) Descriptor() ([]byte, []int) {
-	return file_wello_risk_risk_proto_rawDescGZIP(), []int{10}
+	return file_wello_risk_v1_risk_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *EvaluateVelocityRequest) GetSubjectId() string {
@@ -796,7 +796,7 @@ type EvaluateVelocityResponse struct {
 
 func (x *EvaluateVelocityResponse) Reset() {
 	*x = EvaluateVelocityResponse{}
-	mi := &file_wello_risk_risk_proto_msgTypes[11]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -808,7 +808,7 @@ func (x *EvaluateVelocityResponse) String() string {
 func (*EvaluateVelocityResponse) ProtoMessage() {}
 
 func (x *EvaluateVelocityResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_risk_risk_proto_msgTypes[11]
+	mi := &file_wello_risk_v1_risk_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -821,7 +821,7 @@ func (x *EvaluateVelocityResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use EvaluateVelocityResponse.ProtoReflect.Descriptor instead.
 func (*EvaluateVelocityResponse) Descriptor() ([]byte, []int) {
-	return file_wello_risk_risk_proto_rawDescGZIP(), []int{11}
+	return file_wello_risk_v1_risk_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *EvaluateVelocityResponse) GetStatus() DecisionStatus {
@@ -859,11 +859,11 @@ func (x *EvaluateVelocityResponse) GetAnomalyScores() map[string]float64 {
 	return nil
 }
 
-var File_wello_risk_risk_proto protoreflect.FileDescriptor
+var File_wello_risk_v1_risk_proto protoreflect.FileDescriptor
 
-const file_wello_risk_risk_proto_rawDesc = "" +
+const file_wello_risk_v1_risk_proto_rawDesc = "" +
 	"\n" +
-	"\x15wello-risk/risk.proto\x12\arisk.v1\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xaa\x01\n" +
+	"\x18wello-risk/v1/risk.proto\x12\arisk.v1\x1a\x1cgoogle/protobuf/struct.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xaa\x01\n" +
 	"\x17EvaluateDecisionRequest\x12\x1f\n" +
 	"\vdecision_id\x18\x01 \x01(\tR\n" +
 	"decisionId\x12\x1d\n" +
@@ -945,24 +945,24 @@ const file_wello_risk_risk_proto_rawDesc = "" +
 	"\vReportEvent\x12\x1b.risk.v1.ReportEventRequest\x1a\x1c.risk.v1.ReportEventResponse\x12B\n" +
 	"\tGetLimits\x12\x19.risk.v1.GetLimitsRequest\x1a\x1a.risk.v1.GetLimitsResponse\x12B\n" +
 	"\tListRules\x12\x19.risk.v1.ListRulesRequest\x1a\x1a.risk.v1.ListRulesResponse\x12W\n" +
-	"\x10EvaluateVelocity\x12 .risk.v1.EvaluateVelocityRequest\x1a!.risk.v1.EvaluateVelocityResponseBd\n" +
-	"\x16dev.kratos.api.risk.v1B\vRiskProtoV1P\x01Z;github.com/liberty-group-tech/wello-proto/wello-risk;riskv1b\x06proto3"
+	"\x10EvaluateVelocity\x12 .risk.v1.EvaluateVelocityRequest\x1a!.risk.v1.EvaluateVelocityResponseBe\n" +
+	"\x16dev.kratos.api.risk.v1B\vRiskProtoV1P\x01Z<github.com/liberty-group-tech/wello-proto/wello-risk/v1;riskb\x06proto3"
 
 var (
-	file_wello_risk_risk_proto_rawDescOnce sync.Once
-	file_wello_risk_risk_proto_rawDescData []byte
+	file_wello_risk_v1_risk_proto_rawDescOnce sync.Once
+	file_wello_risk_v1_risk_proto_rawDescData []byte
 )
 
-func file_wello_risk_risk_proto_rawDescGZIP() []byte {
-	file_wello_risk_risk_proto_rawDescOnce.Do(func() {
-		file_wello_risk_risk_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_wello_risk_risk_proto_rawDesc), len(file_wello_risk_risk_proto_rawDesc)))
+func file_wello_risk_v1_risk_proto_rawDescGZIP() []byte {
+	file_wello_risk_v1_risk_proto_rawDescOnce.Do(func() {
+		file_wello_risk_v1_risk_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_wello_risk_v1_risk_proto_rawDesc), len(file_wello_risk_v1_risk_proto_rawDesc)))
 	})
-	return file_wello_risk_risk_proto_rawDescData
+	return file_wello_risk_v1_risk_proto_rawDescData
 }
 
-var file_wello_risk_risk_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_wello_risk_risk_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
-var file_wello_risk_risk_proto_goTypes = []any{
+var file_wello_risk_v1_risk_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_wello_risk_v1_risk_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
+var file_wello_risk_v1_risk_proto_goTypes = []any{
 	(DecisionStatus)(0),              // 0: risk.v1.DecisionStatus
 	(*EvaluateDecisionRequest)(nil),  // 1: risk.v1.EvaluateDecisionRequest
 	(*EvaluateDecisionResponse)(nil), // 2: risk.v1.EvaluateDecisionResponse
@@ -981,7 +981,7 @@ var file_wello_risk_risk_proto_goTypes = []any{
 	(*structpb.Struct)(nil),          // 15: google.protobuf.Struct
 	(*timestamppb.Timestamp)(nil),    // 16: google.protobuf.Timestamp
 }
-var file_wello_risk_risk_proto_depIdxs = []int32{
+var file_wello_risk_v1_risk_proto_depIdxs = []int32{
 	15, // 0: risk.v1.EvaluateDecisionRequest.features:type_name -> google.protobuf.Struct
 	0,  // 1: risk.v1.EvaluateDecisionResponse.status:type_name -> risk.v1.DecisionStatus
 	13, // 2: risk.v1.EvaluateDecisionResponse.score_components:type_name -> risk.v1.EvaluateDecisionResponse.ScoreComponentsEntry
@@ -1012,27 +1012,27 @@ var file_wello_risk_risk_proto_depIdxs = []int32{
 	0,  // [0:13] is the sub-list for field type_name
 }
 
-func init() { file_wello_risk_risk_proto_init() }
-func file_wello_risk_risk_proto_init() {
-	if File_wello_risk_risk_proto != nil {
+func init() { file_wello_risk_v1_risk_proto_init() }
+func file_wello_risk_v1_risk_proto_init() {
+	if File_wello_risk_v1_risk_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_wello_risk_risk_proto_rawDesc), len(file_wello_risk_risk_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_wello_risk_v1_risk_proto_rawDesc), len(file_wello_risk_v1_risk_proto_rawDesc)),
 			NumEnums:      1,
 			NumMessages:   14,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_wello_risk_risk_proto_goTypes,
-		DependencyIndexes: file_wello_risk_risk_proto_depIdxs,
-		EnumInfos:         file_wello_risk_risk_proto_enumTypes,
-		MessageInfos:      file_wello_risk_risk_proto_msgTypes,
+		GoTypes:           file_wello_risk_v1_risk_proto_goTypes,
+		DependencyIndexes: file_wello_risk_v1_risk_proto_depIdxs,
+		EnumInfos:         file_wello_risk_v1_risk_proto_enumTypes,
+		MessageInfos:      file_wello_risk_v1_risk_proto_msgTypes,
 	}.Build()
-	File_wello_risk_risk_proto = out.File
-	file_wello_risk_risk_proto_goTypes = nil
-	file_wello_risk_risk_proto_depIdxs = nil
+	File_wello_risk_v1_risk_proto = out.File
+	file_wello_risk_v1_risk_proto_goTypes = nil
+	file_wello_risk_v1_risk_proto_depIdxs = nil
 }

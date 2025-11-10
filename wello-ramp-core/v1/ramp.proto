@@ -6,10 +6,10 @@ import "google/api/annotations.proto";
 import "validate/validate.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/liberty-group-tech/wello-proto/wello-ramp-core;rampv1";
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-ramp-core/v1;ramp";
 option java_multiple_files = true;
-option java_package = "dev.kratos.api.stub.v1";
-option java_outer_classname = "StubProtoV1";
+option java_package = "dev.kratos.api.ramp.v1";
+option java_outer_classname = "RampProtoV1";
 
 service Ramp {
 

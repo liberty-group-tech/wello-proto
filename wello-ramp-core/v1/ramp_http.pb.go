@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-http v2.9.0
 // - protoc             v6.32.0
-// source: wello-ramp-core/ramp.proto
+// source: wello-ramp-core/v1/ramp.proto
 
-package rampv1
+package ramp
 
 import (
 	context "context"
