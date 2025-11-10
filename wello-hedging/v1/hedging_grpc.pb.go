@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.32.0
-// source: wello-hedging/hedging.proto
+// source: wello-hedging/v1/hedging.proto
 
-package hedgingv1
+package hedging
 
 import (
 	context "context"
@@ -155,5 +155,5 @@ var Hedging_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "wello-hedging/hedging.proto",
+	Metadata: "wello-hedging/v1/hedging.proto",
 }

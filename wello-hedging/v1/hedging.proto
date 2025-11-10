@@ -6,7 +6,7 @@ import "google/api/annotations.proto";
 import "validate/validate.proto";
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/liberty-group-tech/wello-proto/wello-hedging;hedgingv1";
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-hedging/v1;hedging";
 option java_multiple_files = true;
 option java_package = "dev.kratos.api.hedging.v1";
 option java_outer_classname = "HedgingProtoV1";

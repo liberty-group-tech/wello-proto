@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-http v2.9.0
 // - protoc             v6.32.0
-// source: wello-hedging/hedging.proto
+// source: wello-hedging/v1/hedging.proto
 
-package hedgingv1
+package hedging
 
 import (
 	context "context"

@@ -2,9 +2,9 @@
 // versions:
 // 	protoc-gen-go v1.36.10
 // 	protoc        v6.32.0
-// source: wello-hedging/hedging.proto
+// source: wello-hedging/v1/hedging.proto
 
-package hedgingv1
+package hedging
 
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
@@ -42,7 +42,7 @@ type QuoteRequest struct {
 
 func (x *QuoteRequest) Reset() {
 	*x = QuoteRequest{}
-	mi := &file_wello_hedging_hedging_proto_msgTypes[0]
+	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -54,7 +54,7 @@ func (x *QuoteRequest) String() string {
 func (*QuoteRequest) ProtoMessage() {}
 
 func (x *QuoteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_hedging_hedging_proto_msgTypes[0]
+	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -67,7 +67,7 @@ func (x *QuoteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QuoteRequest.ProtoReflect.Descriptor instead.
 func (*QuoteRequest) Descriptor() ([]byte, []int) {
-	return file_wello_hedging_hedging_proto_rawDescGZIP(), []int{0}
+	return file_wello_hedging_v1_hedging_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *QuoteRequest) GetIntentId() string {
@@ -166,7 +166,7 @@ type Quote struct {
 
 func (x *Quote) Reset() {
 	*x = Quote{}
-	mi := &file_wello_hedging_hedging_proto_msgTypes[1]
+	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -178,7 +178,7 @@ func (x *Quote) String() string {
 func (*Quote) ProtoMessage() {}
 
 func (x *Quote) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_hedging_hedging_proto_msgTypes[1]
+	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -191,7 +191,7 @@ func (x *Quote) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Quote.ProtoReflect.Descriptor instead.
 func (*Quote) Descriptor() ([]byte, []int) {
-	return file_wello_hedging_hedging_proto_rawDescGZIP(), []int{1}
+	return file_wello_hedging_v1_hedging_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Quote) GetQuoteId() string {
@@ -334,7 +334,7 @@ type QuoteResponse struct {
 
 func (x *QuoteResponse) Reset() {
 	*x = QuoteResponse{}
-	mi := &file_wello_hedging_hedging_proto_msgTypes[2]
+	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -346,7 +346,7 @@ func (x *QuoteResponse) String() string {
 func (*QuoteResponse) ProtoMessage() {}
 
 func (x *QuoteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_hedging_hedging_proto_msgTypes[2]
+	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -359,7 +359,7 @@ func (x *QuoteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QuoteResponse.ProtoReflect.Descriptor instead.
 func (*QuoteResponse) Descriptor() ([]byte, []int) {
-	return file_wello_hedging_hedging_proto_rawDescGZIP(), []int{2}
+	return file_wello_hedging_v1_hedging_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *QuoteResponse) GetCode() string {
@@ -415,7 +415,7 @@ type ExecuteRequest struct {
 
 func (x *ExecuteRequest) Reset() {
 	*x = ExecuteRequest{}
-	mi := &file_wello_hedging_hedging_proto_msgTypes[3]
+	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -427,7 +427,7 @@ func (x *ExecuteRequest) String() string {
 func (*ExecuteRequest) ProtoMessage() {}
 
 func (x *ExecuteRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_hedging_hedging_proto_msgTypes[3]
+	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -440,7 +440,7 @@ func (x *ExecuteRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExecuteRequest.ProtoReflect.Descriptor instead.
 func (*ExecuteRequest) Descriptor() ([]byte, []int) {
-	return file_wello_hedging_hedging_proto_rawDescGZIP(), []int{3}
+	return file_wello_hedging_v1_hedging_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ExecuteRequest) GetQuoteId() string {
@@ -478,7 +478,7 @@ type ExecuteResponse struct {
 
 func (x *ExecuteResponse) Reset() {
 	*x = ExecuteResponse{}
-	mi := &file_wello_hedging_hedging_proto_msgTypes[4]
+	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -490,7 +490,7 @@ func (x *ExecuteResponse) String() string {
 func (*ExecuteResponse) ProtoMessage() {}
 
 func (x *ExecuteResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_hedging_hedging_proto_msgTypes[4]
+	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -503,7 +503,7 @@ func (x *ExecuteResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExecuteResponse.ProtoReflect.Descriptor instead.
 func (*ExecuteResponse) Descriptor() ([]byte, []int) {
-	return file_wello_hedging_hedging_proto_rawDescGZIP(), []int{4}
+	return file_wello_hedging_v1_hedging_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ExecuteResponse) GetCode() string {
@@ -558,7 +558,7 @@ type ExecuteResponse_Data struct {
 
 func (x *ExecuteResponse_Data) Reset() {
 	*x = ExecuteResponse_Data{}
-	mi := &file_wello_hedging_hedging_proto_msgTypes[5]
+	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -570,7 +570,7 @@ func (x *ExecuteResponse_Data) String() string {
 func (*ExecuteResponse_Data) ProtoMessage() {}
 
 func (x *ExecuteResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_hedging_hedging_proto_msgTypes[5]
+	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -583,7 +583,7 @@ func (x *ExecuteResponse_Data) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ExecuteResponse_Data.ProtoReflect.Descriptor instead.
 func (*ExecuteResponse_Data) Descriptor() ([]byte, []int) {
-	return file_wello_hedging_hedging_proto_rawDescGZIP(), []int{4, 0}
+	return file_wello_hedging_v1_hedging_proto_rawDescGZIP(), []int{4, 0}
 }
 
 func (x *ExecuteResponse_Data) GetExecuted() []string {
@@ -600,11 +600,11 @@ func (x *ExecuteResponse_Data) GetFailed() []string {
 	return nil
 }
 
-var File_wello_hedging_hedging_proto protoreflect.FileDescriptor
+var File_wello_hedging_v1_hedging_proto protoreflect.FileDescriptor
 
-const file_wello_hedging_hedging_proto_rawDesc = "" +
+const file_wello_hedging_v1_hedging_proto_rawDesc = "" +
 	"\n" +
-	"\x1bwello-hedging/hedging.proto\x12\n" +
+	"\x1ewello-hedging/v1/hedging.proto\x12\n" +
 	"hedging.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xae\x03\n" +
 	"\fQuoteRequest\x12 \n" +
 	"\tintent_id\x18\x01 \x01(\tH\x00R\bintentId\x88\x01\x01\x12\x1f\n" +
@@ -673,23 +673,23 @@ const file_wello_hedging_hedging_proto_rawDesc = "" +
 	"\x06failed\x18\x02 \x03(\tR\x06failed2\xc9\x01\n" +
 	"\aHedging\x12Z\n" +
 	"\x05Quote\x12\x18.hedging.v1.QuoteRequest\x1a\x19.hedging.v1.QuoteResponse\"\x1c\x82\xd3\xe4\x93\x02\x16:\x01*\"\x11/hedging/v1/quote\x12b\n" +
-	"\aExecute\x12\x1a.hedging.v1.ExecuteRequest\x1a\x1b.hedging.v1.ExecuteResponse\"\x1e\x82\xd3\xe4\x93\x02\x18:\x01*\"\x13/hedging/v1/executeBp\n" +
-	"\x19dev.kratos.api.hedging.v1B\x0eHedgingProtoV1P\x01ZAgithub.com/liberty-group-tech/wello-proto/wello-hedging;hedgingv1b\x06proto3"
+	"\aExecute\x12\x1a.hedging.v1.ExecuteRequest\x1a\x1b.hedging.v1.ExecuteResponse\"\x1e\x82\xd3\xe4\x93\x02\x18:\x01*\"\x13/hedging/v1/executeBq\n" +
+	"\x19dev.kratos.api.hedging.v1B\x0eHedgingProtoV1P\x01ZBgithub.com/liberty-group-tech/wello-proto/wello-hedging/v1;hedgingb\x06proto3"
 
 var (
-	file_wello_hedging_hedging_proto_rawDescOnce sync.Once
-	file_wello_hedging_hedging_proto_rawDescData []byte
+	file_wello_hedging_v1_hedging_proto_rawDescOnce sync.Once
+	file_wello_hedging_v1_hedging_proto_rawDescData []byte
 )
 
-func file_wello_hedging_hedging_proto_rawDescGZIP() []byte {
-	file_wello_hedging_hedging_proto_rawDescOnce.Do(func() {
-		file_wello_hedging_hedging_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_wello_hedging_hedging_proto_rawDesc), len(file_wello_hedging_hedging_proto_rawDesc)))
+func file_wello_hedging_v1_hedging_proto_rawDescGZIP() []byte {
+	file_wello_hedging_v1_hedging_proto_rawDescOnce.Do(func() {
+		file_wello_hedging_v1_hedging_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_wello_hedging_v1_hedging_proto_rawDesc), len(file_wello_hedging_v1_hedging_proto_rawDesc)))
 	})
-	return file_wello_hedging_hedging_proto_rawDescData
+	return file_wello_hedging_v1_hedging_proto_rawDescData
 }
 
-var file_wello_hedging_hedging_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
-var file_wello_hedging_hedging_proto_goTypes = []any{
+var file_wello_hedging_v1_hedging_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_wello_hedging_v1_hedging_proto_goTypes = []any{
 	(*QuoteRequest)(nil),          // 0: hedging.v1.QuoteRequest
 	(*Quote)(nil),                 // 1: hedging.v1.Quote
 	(*QuoteResponse)(nil),         // 2: hedging.v1.QuoteResponse
@@ -698,7 +698,7 @@ var file_wello_hedging_hedging_proto_goTypes = []any{
 	(*ExecuteResponse_Data)(nil),  // 5: hedging.v1.ExecuteResponse.Data
 	(*timestamppb.Timestamp)(nil), // 6: google.protobuf.Timestamp
 }
-var file_wello_hedging_hedging_proto_depIdxs = []int32{
+var file_wello_hedging_v1_hedging_proto_depIdxs = []int32{
 	6, // 0: hedging.v1.Quote.created_at:type_name -> google.protobuf.Timestamp
 	6, // 1: hedging.v1.Quote.updated_at:type_name -> google.protobuf.Timestamp
 	6, // 2: hedging.v1.Quote.expires_at:type_name -> google.protobuf.Timestamp
@@ -717,27 +717,27 @@ var file_wello_hedging_hedging_proto_depIdxs = []int32{
 	0, // [0:7] is the sub-list for field type_name
 }
 
-func init() { file_wello_hedging_hedging_proto_init() }
-func file_wello_hedging_hedging_proto_init() {
-	if File_wello_hedging_hedging_proto != nil {
+func init() { file_wello_hedging_v1_hedging_proto_init() }
+func file_wello_hedging_v1_hedging_proto_init() {
+	if File_wello_hedging_v1_hedging_proto != nil {
 		return
 	}
-	file_wello_hedging_hedging_proto_msgTypes[0].OneofWrappers = []any{}
+	file_wello_hedging_v1_hedging_proto_msgTypes[0].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_wello_hedging_hedging_proto_rawDesc), len(file_wello_hedging_hedging_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_wello_hedging_v1_hedging_proto_rawDesc), len(file_wello_hedging_v1_hedging_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_wello_hedging_hedging_proto_goTypes,
-		DependencyIndexes: file_wello_hedging_hedging_proto_depIdxs,
-		MessageInfos:      file_wello_hedging_hedging_proto_msgTypes,
+		GoTypes:           file_wello_hedging_v1_hedging_proto_goTypes,
+		DependencyIndexes: file_wello_hedging_v1_hedging_proto_depIdxs,
+		MessageInfos:      file_wello_hedging_v1_hedging_proto_msgTypes,
 	}.Build()
-	File_wello_hedging_hedging_proto = out.File
-	file_wello_hedging_hedging_proto_goTypes = nil
-	file_wello_hedging_hedging_proto_depIdxs = nil
+	File_wello_hedging_v1_hedging_proto = out.File
+	file_wello_hedging_v1_hedging_proto_goTypes = nil
+	file_wello_hedging_v1_hedging_proto_depIdxs = nil
 }
