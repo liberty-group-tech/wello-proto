@@ -548,6 +548,50 @@ func (x *ExecuteResponse) GetData() *ExecuteResponse_Data {
 	return nil
 }
 
+type QuoteInfoRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	QuoteId       string                 `protobuf:"bytes,1,opt,name=quote_id,json=quoteId,proto3" json:"quote_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *QuoteInfoRequest) Reset() {
+	*x = QuoteInfoRequest{}
+	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *QuoteInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QuoteInfoRequest) ProtoMessage() {}
+
+func (x *QuoteInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use QuoteInfoRequest.ProtoReflect.Descriptor instead.
+func (*QuoteInfoRequest) Descriptor() ([]byte, []int) {
+	return file_wello_hedging_v1_hedging_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *QuoteInfoRequest) GetQuoteId() string {
+	if x != nil {
+		return x.QuoteId
+	}
+	return ""
+}
+
 type ExecuteResponse_Data struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Executed      []string               `protobuf:"bytes,1,rep,name=executed,proto3" json:"executed,omitempty"`
@@ -558,7 +602,7 @@ type ExecuteResponse_Data struct {
 
 func (x *ExecuteResponse_Data) Reset() {
 	*x = ExecuteResponse_Data{}
-	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[5]
+	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -570,7 +614,7 @@ func (x *ExecuteResponse_Data) String() string {
 func (*ExecuteResponse_Data) ProtoMessage() {}
 
 func (x *ExecuteResponse_Data) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[5]
+	mi := &file_wello_hedging_v1_hedging_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -621,9 +665,10 @@ const file_wello_hedging_v1_hedging_proto_rawDesc = "" +
 	" \x01(\tR\bproviderB\f\n" +
 	"\n" +
 	"_intent_idB\a\n" +
-	"\x05_type\"\xdc\x04\n" +
-	"\x05Quote\x12\x19\n" +
-	"\bquote_id\x18\x01 \x01(\tR\aquoteId\x12\x1b\n" +
+	"\x05_type\"\xe8\x04\n" +
+	"\x05Quote\x12%\n" +
+	"\bquote_id\x18\x01 \x01(\tB\n" +
+	"\xfaB\ar\x05:\x03qt_R\aquoteId\x12\x1b\n" +
 	"\tintent_id\x18\x02 \x01(\tR\bintentId\x12\x16\n" +
 	"\x06status\x18\x03 \x01(\tR\x06status\x12\x16\n" +
 	"\x06amount\x18\x04 \x01(\tR\x06amount\x12#\n" +
@@ -654,9 +699,10 @@ const file_wello_hedging_v1_hedging_proto_rawDesc = "" +
 	"request_id\x18\x04 \x01(\tR\trequestId\x128\n" +
 	"\ttimestamp\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12%\n" +
 	"\x04data\x18\n" +
-	" \x01(\v2\x11.hedging.v1.QuoteR\x04data\"z\n" +
-	"\x0eExecuteRequest\x12\"\n" +
-	"\bquote_id\x18\x01 \x01(\tB\a\xfaB\x04r\x02\x10\x01R\aquoteId\x12!\n" +
+	" \x01(\v2\x11.hedging.v1.QuoteR\x04data\"}\n" +
+	"\x0eExecuteRequest\x12%\n" +
+	"\bquote_id\x18\x01 \x01(\tB\n" +
+	"\xfaB\ar\x05:\x03qt_R\aquoteId\x12!\n" +
 	"\fauto_requote\x18\x02 \x01(\bR\vautoRequote\x12!\n" +
 	"\fslippage_bps\x18\x03 \x01(\x03R\vslippageBps\"\xa4\x02\n" +
 	"\x0fExecuteResponse\x12\x12\n" +
@@ -670,10 +716,14 @@ const file_wello_hedging_v1_hedging_proto_rawDesc = "" +
 	" \x01(\v2 .hedging.v1.ExecuteResponse.DataR\x04data\x1a:\n" +
 	"\x04Data\x12\x1a\n" +
 	"\bexecuted\x18\x01 \x03(\tR\bexecuted\x12\x16\n" +
-	"\x06failed\x18\x02 \x03(\tR\x06failed2\xc9\x01\n" +
+	"\x06failed\x18\x02 \x03(\tR\x06failed\"9\n" +
+	"\x10QuoteInfoRequest\x12%\n" +
+	"\bquote_id\x18\x01 \x01(\tB\n" +
+	"\xfaB\ar\x05:\x03qt_R\aquoteId2\xb5\x02\n" +
 	"\aHedging\x12Z\n" +
 	"\x05Quote\x12\x18.hedging.v1.QuoteRequest\x1a\x19.hedging.v1.QuoteResponse\"\x1c\x82\xd3\xe4\x93\x02\x16:\x01*\"\x11/hedging/v1/quote\x12b\n" +
-	"\aExecute\x12\x1a.hedging.v1.ExecuteRequest\x1a\x1b.hedging.v1.ExecuteResponse\"\x1e\x82\xd3\xe4\x93\x02\x18:\x01*\"\x13/hedging/v1/executeBq\n" +
+	"\aExecute\x12\x1a.hedging.v1.ExecuteRequest\x1a\x1b.hedging.v1.ExecuteResponse\"\x1e\x82\xd3\xe4\x93\x02\x18:\x01*\"\x13/hedging/v1/execute\x12j\n" +
+	"\tQuoteInfo\x12\x1c.hedging.v1.QuoteInfoRequest\x1a\x19.hedging.v1.QuoteResponse\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/hedging/v1/quote/{quote_id}Bq\n" +
 	"\x19dev.kratos.api.hedging.v1B\x0eHedgingProtoV1P\x01ZBgithub.com/liberty-group-tech/wello-proto/wello-hedging/v1;hedgingb\x06proto3"
 
 var (
@@ -688,33 +738,36 @@ func file_wello_hedging_v1_hedging_proto_rawDescGZIP() []byte {
 	return file_wello_hedging_v1_hedging_proto_rawDescData
 }
 
-var file_wello_hedging_v1_hedging_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_wello_hedging_v1_hedging_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_wello_hedging_v1_hedging_proto_goTypes = []any{
 	(*QuoteRequest)(nil),          // 0: hedging.v1.QuoteRequest
 	(*Quote)(nil),                 // 1: hedging.v1.Quote
 	(*QuoteResponse)(nil),         // 2: hedging.v1.QuoteResponse
 	(*ExecuteRequest)(nil),        // 3: hedging.v1.ExecuteRequest
 	(*ExecuteResponse)(nil),       // 4: hedging.v1.ExecuteResponse
-	(*ExecuteResponse_Data)(nil),  // 5: hedging.v1.ExecuteResponse.Data
-	(*timestamppb.Timestamp)(nil), // 6: google.protobuf.Timestamp
+	(*QuoteInfoRequest)(nil),      // 5: hedging.v1.QuoteInfoRequest
+	(*ExecuteResponse_Data)(nil),  // 6: hedging.v1.ExecuteResponse.Data
+	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
 }
 var file_wello_hedging_v1_hedging_proto_depIdxs = []int32{
-	6, // 0: hedging.v1.Quote.created_at:type_name -> google.protobuf.Timestamp
-	6, // 1: hedging.v1.Quote.updated_at:type_name -> google.protobuf.Timestamp
-	6, // 2: hedging.v1.Quote.expires_at:type_name -> google.protobuf.Timestamp
-	6, // 3: hedging.v1.QuoteResponse.timestamp:type_name -> google.protobuf.Timestamp
-	1, // 4: hedging.v1.QuoteResponse.data:type_name -> hedging.v1.Quote
-	6, // 5: hedging.v1.ExecuteResponse.timestamp:type_name -> google.protobuf.Timestamp
-	5, // 6: hedging.v1.ExecuteResponse.data:type_name -> hedging.v1.ExecuteResponse.Data
-	0, // 7: hedging.v1.Hedging.Quote:input_type -> hedging.v1.QuoteRequest
-	3, // 8: hedging.v1.Hedging.Execute:input_type -> hedging.v1.ExecuteRequest
-	2, // 9: hedging.v1.Hedging.Quote:output_type -> hedging.v1.QuoteResponse
-	4, // 10: hedging.v1.Hedging.Execute:output_type -> hedging.v1.ExecuteResponse
-	9, // [9:11] is the sub-list for method output_type
-	7, // [7:9] is the sub-list for method input_type
-	7, // [7:7] is the sub-list for extension type_name
-	7, // [7:7] is the sub-list for extension extendee
-	0, // [0:7] is the sub-list for field type_name
+	7,  // 0: hedging.v1.Quote.created_at:type_name -> google.protobuf.Timestamp
+	7,  // 1: hedging.v1.Quote.updated_at:type_name -> google.protobuf.Timestamp
+	7,  // 2: hedging.v1.Quote.expires_at:type_name -> google.protobuf.Timestamp
+	7,  // 3: hedging.v1.QuoteResponse.timestamp:type_name -> google.protobuf.Timestamp
+	1,  // 4: hedging.v1.QuoteResponse.data:type_name -> hedging.v1.Quote
+	7,  // 5: hedging.v1.ExecuteResponse.timestamp:type_name -> google.protobuf.Timestamp
+	6,  // 6: hedging.v1.ExecuteResponse.data:type_name -> hedging.v1.ExecuteResponse.Data
+	0,  // 7: hedging.v1.Hedging.Quote:input_type -> hedging.v1.QuoteRequest
+	3,  // 8: hedging.v1.Hedging.Execute:input_type -> hedging.v1.ExecuteRequest
+	5,  // 9: hedging.v1.Hedging.QuoteInfo:input_type -> hedging.v1.QuoteInfoRequest
+	2,  // 10: hedging.v1.Hedging.Quote:output_type -> hedging.v1.QuoteResponse
+	4,  // 11: hedging.v1.Hedging.Execute:output_type -> hedging.v1.ExecuteResponse
+	2,  // 12: hedging.v1.Hedging.QuoteInfo:output_type -> hedging.v1.QuoteResponse
+	10, // [10:13] is the sub-list for method output_type
+	7,  // [7:10] is the sub-list for method input_type
+	7,  // [7:7] is the sub-list for extension type_name
+	7,  // [7:7] is the sub-list for extension extendee
+	0,  // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_wello_hedging_v1_hedging_proto_init() }
@@ -729,7 +782,7 @@ func file_wello_hedging_v1_hedging_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_wello_hedging_v1_hedging_proto_rawDesc), len(file_wello_hedging_v1_hedging_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -25,6 +25,12 @@ service Hedging {
       body: "*"
     };
   }
+
+  rpc QuoteInfo(QuoteInfoRequest) returns (QuoteResponse) {
+    option (google.api.http) = {
+      get: "/hedging/v1/quote/{quote_id}"
+    };
+  }
 }
 
 message QuoteRequest {
@@ -41,7 +47,7 @@ message QuoteRequest {
 }
 
 message Quote {
-  string quote_id = 1;
+  string quote_id = 1 [(validate.rules).string.prefix = "qt_"];
   string intent_id = 2;
   string status = 3;
   string amount = 4;
@@ -73,7 +79,7 @@ message QuoteResponse {
 }
 
 message ExecuteRequest {
-  string quote_id = 1 [(validate.rules).string.min_len = 1];
+  string quote_id = 1 [(validate.rules).string.prefix = "qt_"];
   bool auto_requote = 2;
   int64 slippage_bps = 3;
 }
@@ -90,4 +96,8 @@ message ExecuteResponse {
     repeated string failed = 2;
   }
   Data data = 10;
+}
+
+message QuoteInfoRequest {
+  string quote_id = 1 [(validate.rules).string.prefix = "qt_"];
 }

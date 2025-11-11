@@ -21,16 +21,19 @@ const _ = http.SupportPackageIsVersion1
 
 const OperationHedgingExecute = "/hedging.v1.Hedging/Execute"
 const OperationHedgingQuote = "/hedging.v1.Hedging/Quote"
+const OperationHedgingQuoteInfo = "/hedging.v1.Hedging/QuoteInfo"
 
 type HedgingHTTPServer interface {
 	Execute(context.Context, *ExecuteRequest) (*ExecuteResponse, error)
 	Quote(context.Context, *QuoteRequest) (*QuoteResponse, error)
+	QuoteInfo(context.Context, *QuoteInfoRequest) (*QuoteResponse, error)
 }
 
 func RegisterHedgingHTTPServer(s *http.Server, srv HedgingHTTPServer) {
 	r := s.Route("/")
 	r.POST("/hedging/v1/quote", _Hedging_Quote0_HTTP_Handler(srv))
 	r.POST("/hedging/v1/execute", _Hedging_Execute0_HTTP_Handler(srv))
+	r.GET("/hedging/v1/quote/{quote_id}", _Hedging_QuoteInfo0_HTTP_Handler(srv))
 }
 
 func _Hedging_Quote0_HTTP_Handler(srv HedgingHTTPServer) func(ctx http.Context) error {
@@ -77,9 +80,32 @@ func _Hedging_Execute0_HTTP_Handler(srv HedgingHTTPServer) func(ctx http.Context
 	}
 }
 
+func _Hedging_QuoteInfo0_HTTP_Handler(srv HedgingHTTPServer) func(ctx http.Context) error {
+	return func(ctx http.Context) error {
+		var in QuoteInfoRequest
+		if err := ctx.BindQuery(&in); err != nil {
+			return err
+		}
+		if err := ctx.BindVars(&in); err != nil {
+			return err
+		}
+		http.SetOperation(ctx, OperationHedgingQuoteInfo)
+		h := ctx.Middleware(func(ctx context.Context, req interface{}) (interface{}, error) {
+			return srv.QuoteInfo(ctx, req.(*QuoteInfoRequest))
+		})
+		out, err := h(ctx, &in)
+		if err != nil {
+			return err
+		}
+		reply := out.(*QuoteResponse)
+		return ctx.Result(200, reply)
+	}
+}
+
 type HedgingHTTPClient interface {
 	Execute(ctx context.Context, req *ExecuteRequest, opts ...http.CallOption) (rsp *ExecuteResponse, err error)
 	Quote(ctx context.Context, req *QuoteRequest, opts ...http.CallOption) (rsp *QuoteResponse, err error)
+	QuoteInfo(ctx context.Context, req *QuoteInfoRequest, opts ...http.CallOption) (rsp *QuoteResponse, err error)
 }
 
 type HedgingHTTPClientImpl struct {
@@ -110,6 +136,19 @@ func (c *HedgingHTTPClientImpl) Quote(ctx context.Context, in *QuoteRequest, opt
 	opts = append(opts, http.Operation(OperationHedgingQuote))
 	opts = append(opts, http.PathTemplate(pattern))
 	err := c.cc.Invoke(ctx, "POST", path, in, &out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return &out, nil
+}
+
+func (c *HedgingHTTPClientImpl) QuoteInfo(ctx context.Context, in *QuoteInfoRequest, opts ...http.CallOption) (*QuoteResponse, error) {
+	var out QuoteResponse
+	pattern := "/hedging/v1/quote/{quote_id}"
+	path := binding.EncodeURL(pattern, in, true)
+	opts = append(opts, http.Operation(OperationHedgingQuoteInfo))
+	opts = append(opts, http.PathTemplate(pattern))
+	err := c.cc.Invoke(ctx, "GET", path, nil, &out, opts...)
 	if err != nil {
 		return nil, err
 	}

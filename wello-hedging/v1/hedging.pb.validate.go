@@ -250,7 +250,16 @@ func (m *Quote) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for QuoteId
+	if !strings.HasPrefix(m.GetQuoteId(), "qt_") {
+		err := QuoteValidationError{
+			field:  "QuoteId",
+			reason: "value does not have prefix \"qt_\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
 
 	// no validation rules for IntentId
 
@@ -632,10 +641,10 @@ func (m *ExecuteRequest) validate(all bool) error {
 
 	var errors []error
 
-	if utf8.RuneCountInString(m.GetQuoteId()) < 1 {
+	if !strings.HasPrefix(m.GetQuoteId(), "qt_") {
 		err := ExecuteRequestValidationError{
 			field:  "QuoteId",
-			reason: "value length must be at least 1 runes",
+			reason: "value does not have prefix \"qt_\"",
 		}
 		if !all {
 			return err
@@ -890,6 +899,117 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = ExecuteResponseValidationError{}
+
+// Validate checks the field values on QuoteInfoRequest with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *QuoteInfoRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on QuoteInfoRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// QuoteInfoRequestMultiError, or nil if none found.
+func (m *QuoteInfoRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *QuoteInfoRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if !strings.HasPrefix(m.GetQuoteId(), "qt_") {
+		err := QuoteInfoRequestValidationError{
+			field:  "QuoteId",
+			reason: "value does not have prefix \"qt_\"",
+		}
+		if !all {
+			return err
+		}
+		errors = append(errors, err)
+	}
+
+	if len(errors) > 0 {
+		return QuoteInfoRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// QuoteInfoRequestMultiError is an error wrapping multiple validation errors
+// returned by QuoteInfoRequest.ValidateAll() if the designated constraints
+// aren't met.
+type QuoteInfoRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m QuoteInfoRequestMultiError) Error() string {
+	msgs := make([]string, 0, len(m))
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m QuoteInfoRequestMultiError) AllErrors() []error { return m }
+
+// QuoteInfoRequestValidationError is the validation error returned by
+// QuoteInfoRequest.Validate if the designated constraints aren't met.
+type QuoteInfoRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e QuoteInfoRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e QuoteInfoRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e QuoteInfoRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e QuoteInfoRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e QuoteInfoRequestValidationError) ErrorName() string { return "QuoteInfoRequestValidationError" }
+
+// Error satisfies the builtin error interface
+func (e QuoteInfoRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sQuoteInfoRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = QuoteInfoRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = QuoteInfoRequestValidationError{}
 
 // Validate checks the field values on ExecuteResponse_Data with the rules
 // defined in the proto definition for this message. If any rules are

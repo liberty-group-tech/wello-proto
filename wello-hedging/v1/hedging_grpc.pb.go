@@ -19,8 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Hedging_Quote_FullMethodName   = "/hedging.v1.Hedging/Quote"
-	Hedging_Execute_FullMethodName = "/hedging.v1.Hedging/Execute"
+	Hedging_Quote_FullMethodName     = "/hedging.v1.Hedging/Quote"
+	Hedging_Execute_FullMethodName   = "/hedging.v1.Hedging/Execute"
+	Hedging_QuoteInfo_FullMethodName = "/hedging.v1.Hedging/QuoteInfo"
 )
 
 // HedgingClient is the client API for Hedging service.
@@ -29,6 +30,7 @@ const (
 type HedgingClient interface {
 	Quote(ctx context.Context, in *QuoteRequest, opts ...grpc.CallOption) (*QuoteResponse, error)
 	Execute(ctx context.Context, in *ExecuteRequest, opts ...grpc.CallOption) (*ExecuteResponse, error)
+	QuoteInfo(ctx context.Context, in *QuoteInfoRequest, opts ...grpc.CallOption) (*QuoteResponse, error)
 }
 
 type hedgingClient struct {
@@ -59,12 +61,23 @@ func (c *hedgingClient) Execute(ctx context.Context, in *ExecuteRequest, opts ..
 	return out, nil
 }
 
+func (c *hedgingClient) QuoteInfo(ctx context.Context, in *QuoteInfoRequest, opts ...grpc.CallOption) (*QuoteResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(QuoteResponse)
+	err := c.cc.Invoke(ctx, Hedging_QuoteInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // HedgingServer is the server API for Hedging service.
 // All implementations must embed UnimplementedHedgingServer
 // for forward compatibility.
 type HedgingServer interface {
 	Quote(context.Context, *QuoteRequest) (*QuoteResponse, error)
 	Execute(context.Context, *ExecuteRequest) (*ExecuteResponse, error)
+	QuoteInfo(context.Context, *QuoteInfoRequest) (*QuoteResponse, error)
 	mustEmbedUnimplementedHedgingServer()
 }
 
@@ -80,6 +93,9 @@ func (UnimplementedHedgingServer) Quote(context.Context, *QuoteRequest) (*QuoteR
 }
 func (UnimplementedHedgingServer) Execute(context.Context, *ExecuteRequest) (*ExecuteResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Execute not implemented")
+}
+func (UnimplementedHedgingServer) QuoteInfo(context.Context, *QuoteInfoRequest) (*QuoteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method QuoteInfo not implemented")
 }
 func (UnimplementedHedgingServer) mustEmbedUnimplementedHedgingServer() {}
 func (UnimplementedHedgingServer) testEmbeddedByValue()                 {}
@@ -138,6 +154,24 @@ func _Hedging_Execute_Handler(srv interface{}, ctx context.Context, dec func(int
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Hedging_QuoteInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QuoteInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(HedgingServer).QuoteInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Hedging_QuoteInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(HedgingServer).QuoteInfo(ctx, req.(*QuoteInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Hedging_ServiceDesc is the grpc.ServiceDesc for Hedging service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -152,6 +186,10 @@ var Hedging_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Execute",
 			Handler:    _Hedging_Execute_Handler,
+		},
+		{
+			MethodName: "QuoteInfo",
+			Handler:    _Hedging_QuoteInfo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
