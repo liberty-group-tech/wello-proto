@@ -816,7 +816,7 @@ var File_wello_ramp_core_v1_ramp_proto protoreflect.FileDescriptor
 
 const file_wello_ramp_core_v1_ramp_proto_rawDesc = "" +
 	"\n" +
-	"\x1dwello-ramp-core/v1/ramp.proto\x12\badmin.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc3\x01\n" +
+	"\x1dwello-ramp-core/v1/ramp.proto\x12\aramp.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc3\x01\n" +
 	"\x18CreateOnRampOrderRequest\x12\x19\n" +
 	"\bquote_id\x18\x01 \x01(\tR\aquoteId\x12!\n" +
 	"\freference_id\x18\x02 \x01(\tR\vreferenceId\x12\x1f\n" +
@@ -828,16 +828,16 @@ const file_wello_ramp_core_v1_ramp_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12!\n" +
 	"\freference_id\x18\x02 \x01(\tR\vreferenceId\x12\x1f\n" +
 	"\vmerchant_id\x18\x03 \x01(\tR\n" +
-	"merchantId\"\xe4\x01\n" +
+	"merchantId\"\xe3\x01\n" +
 	"\x16GetOnRampOrderResponse\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\tR\x04code\x12\x18\n" +
 	"\asuccess\x18\x02 \x01(\bR\asuccess\x12\x18\n" +
 	"\amessage\x18\x03 \x01(\tR\amessage\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x04 \x01(\tR\trequestId\x128\n" +
-	"\ttimestamp\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12)\n" +
+	"\ttimestamp\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12(\n" +
 	"\x04data\x18\n" +
-	" \x01(\v2\x15.admin.v1.OnRampOrderR\x04data\"\xcb\x03\n" +
+	" \x01(\v2\x14.ramp.v1.OnRampOrderR\x04data\"\xcb\x03\n" +
 	"\vOnRampOrder\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12!\n" +
 	"\freference_id\x18\x02 \x01(\tR\vreferenceId\x129\n" +
@@ -875,16 +875,16 @@ const file_wello_ramp_core_v1_ramp_proto_rawDesc = "" +
 	"\aFeeItem\x12\x12\n" +
 	"\x04type\x18\x01 \x01(\tR\x04type\x12\x16\n" +
 	"\x06amount\x18\x02 \x01(\tR\x06amount\x12\x1a\n" +
-	"\bcurrency\x18\x03 \x01(\tR\bcurrency\"\xd5\x01\n" +
+	"\bcurrency\x18\x03 \x01(\tR\bcurrency\"\xd4\x01\n" +
 	"\rQuoteResponse\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\tR\x04code\x12\x18\n" +
 	"\asuccess\x18\x02 \x01(\bR\asuccess\x12\x18\n" +
 	"\amessage\x18\x03 \x01(\tR\amessage\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x04 \x01(\tR\trequestId\x128\n" +
-	"\ttimestamp\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12#\n" +
+	"\ttimestamp\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\ttimestamp\x12\"\n" +
 	"\x04data\x18\n" +
-	" \x01(\v2\x0f.admin.v1.QuoteR\x04data\"\xfd\x03\n" +
+	" \x01(\v2\x0e.ramp.v1.QuoteR\x04data\"\xfc\x03\n" +
 	"\x05Quote\x12\x19\n" +
 	"\bquote_id\x18\x01 \x01(\tR\aquoteId\x129\n" +
 	"\n" +
@@ -901,16 +901,16 @@ const file_wello_ramp_core_v1_ramp_proto_rawDesc = "" +
 	"\rexchange_rate\x18\n" +
 	" \x01(\tR\fexchangeRate\x12\x1d\n" +
 	"\n" +
-	"fee_amount\x18\v \x01(\tR\tfeeAmount\x120\n" +
+	"fee_amount\x18\v \x01(\tR\tfeeAmount\x12/\n" +
 	"\n" +
-	"fees_items\x18\f \x03(\v2\x11.admin.v1.FeeItemR\tfeesItems\"-\n" +
+	"fees_items\x18\f \x03(\v2\x10.ramp.v1.FeeItemR\tfeesItems\"-\n" +
 	"\x10QuoteInfoRequest\x12\x19\n" +
-	"\bquote_id\x18\x01 \x01(\tR\aquoteId2\xad\x03\n" +
-	"\x04Ramp\x12x\n" +
-	"\x11CreateOnRampOrder\x12\".admin.v1.CreateOnRampOrderRequest\x1a .admin.v1.GetOnRampOrderResponse\"\x1d\x82\xd3\xe4\x93\x02\x17:\x01*\x1a\x12/ramp/v1/buy/order\x12t\n" +
-	"\x0eGetOnRampOrder\x12\x1f.admin.v1.GetOnRampOrderRequest\x1a .admin.v1.GetOnRampOrderResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\x12\x17/ramp/v1/buy/order/{id}\x12P\n" +
-	"\x05Quote\x12\x16.admin.v1.QuoteRequest\x1a\x17.admin.v1.QuoteResponse\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/ramp/v1/quote\x12c\n" +
-	"\tQuoteInfo\x12\x1a.admin.v1.QuoteInfoRequest\x1a\x17.admin.v1.QuoteResponse\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/ramp/v1/quote/{quote_id}Bj\n" +
+	"\bquote_id\x18\x01 \x01(\tR\aquoteId2\xa5\x03\n" +
+	"\x04Ramp\x12v\n" +
+	"\x11CreateOnRampOrder\x12!.ramp.v1.CreateOnRampOrderRequest\x1a\x1f.ramp.v1.GetOnRampOrderResponse\"\x1d\x82\xd3\xe4\x93\x02\x17:\x01*\x1a\x12/ramp/v1/buy/order\x12r\n" +
+	"\x0eGetOnRampOrder\x12\x1e.ramp.v1.GetOnRampOrderRequest\x1a\x1f.ramp.v1.GetOnRampOrderResponse\"\x1f\x82\xd3\xe4\x93\x02\x19\x12\x17/ramp/v1/buy/order/{id}\x12N\n" +
+	"\x05Quote\x12\x15.ramp.v1.QuoteRequest\x1a\x16.ramp.v1.QuoteResponse\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/ramp/v1/quote\x12a\n" +
+	"\tQuoteInfo\x12\x19.ramp.v1.QuoteInfoRequest\x1a\x16.ramp.v1.QuoteResponse\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/ramp/v1/quote/{quote_id}Bj\n" +
 	"\x16dev.kratos.api.ramp.v1B\vRampProtoV1P\x01ZAgithub.com/liberty-group-tech/wello-proto/wello-ramp-core/v1;rampb\x06proto3"
 
 var (
@@ -927,35 +927,35 @@ func file_wello_ramp_core_v1_ramp_proto_rawDescGZIP() []byte {
 
 var file_wello_ramp_core_v1_ramp_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_wello_ramp_core_v1_ramp_proto_goTypes = []any{
-	(*CreateOnRampOrderRequest)(nil), // 0: admin.v1.CreateOnRampOrderRequest
-	(*GetOnRampOrderRequest)(nil),    // 1: admin.v1.GetOnRampOrderRequest
-	(*GetOnRampOrderResponse)(nil),   // 2: admin.v1.GetOnRampOrderResponse
-	(*OnRampOrder)(nil),              // 3: admin.v1.OnRampOrder
-	(*QuoteRequest)(nil),             // 4: admin.v1.QuoteRequest
-	(*FeeItem)(nil),                  // 5: admin.v1.FeeItem
-	(*QuoteResponse)(nil),            // 6: admin.v1.QuoteResponse
-	(*Quote)(nil),                    // 7: admin.v1.Quote
-	(*QuoteInfoRequest)(nil),         // 8: admin.v1.QuoteInfoRequest
+	(*CreateOnRampOrderRequest)(nil), // 0: ramp.v1.CreateOnRampOrderRequest
+	(*GetOnRampOrderRequest)(nil),    // 1: ramp.v1.GetOnRampOrderRequest
+	(*GetOnRampOrderResponse)(nil),   // 2: ramp.v1.GetOnRampOrderResponse
+	(*OnRampOrder)(nil),              // 3: ramp.v1.OnRampOrder
+	(*QuoteRequest)(nil),             // 4: ramp.v1.QuoteRequest
+	(*FeeItem)(nil),                  // 5: ramp.v1.FeeItem
+	(*QuoteResponse)(nil),            // 6: ramp.v1.QuoteResponse
+	(*Quote)(nil),                    // 7: ramp.v1.Quote
+	(*QuoteInfoRequest)(nil),         // 8: ramp.v1.QuoteInfoRequest
 	(*timestamppb.Timestamp)(nil),    // 9: google.protobuf.Timestamp
 }
 var file_wello_ramp_core_v1_ramp_proto_depIdxs = []int32{
-	9,  // 0: admin.v1.GetOnRampOrderResponse.timestamp:type_name -> google.protobuf.Timestamp
-	3,  // 1: admin.v1.GetOnRampOrderResponse.data:type_name -> admin.v1.OnRampOrder
-	9,  // 2: admin.v1.OnRampOrder.created_at:type_name -> google.protobuf.Timestamp
-	9,  // 3: admin.v1.OnRampOrder.updated_at:type_name -> google.protobuf.Timestamp
-	9,  // 4: admin.v1.QuoteResponse.timestamp:type_name -> google.protobuf.Timestamp
-	7,  // 5: admin.v1.QuoteResponse.data:type_name -> admin.v1.Quote
-	9,  // 6: admin.v1.Quote.created_at:type_name -> google.protobuf.Timestamp
-	9,  // 7: admin.v1.Quote.valid_until:type_name -> google.protobuf.Timestamp
-	5,  // 8: admin.v1.Quote.fees_items:type_name -> admin.v1.FeeItem
-	0,  // 9: admin.v1.Ramp.CreateOnRampOrder:input_type -> admin.v1.CreateOnRampOrderRequest
-	1,  // 10: admin.v1.Ramp.GetOnRampOrder:input_type -> admin.v1.GetOnRampOrderRequest
-	4,  // 11: admin.v1.Ramp.Quote:input_type -> admin.v1.QuoteRequest
-	8,  // 12: admin.v1.Ramp.QuoteInfo:input_type -> admin.v1.QuoteInfoRequest
-	2,  // 13: admin.v1.Ramp.CreateOnRampOrder:output_type -> admin.v1.GetOnRampOrderResponse
-	2,  // 14: admin.v1.Ramp.GetOnRampOrder:output_type -> admin.v1.GetOnRampOrderResponse
-	6,  // 15: admin.v1.Ramp.Quote:output_type -> admin.v1.QuoteResponse
-	6,  // 16: admin.v1.Ramp.QuoteInfo:output_type -> admin.v1.QuoteResponse
+	9,  // 0: ramp.v1.GetOnRampOrderResponse.timestamp:type_name -> google.protobuf.Timestamp
+	3,  // 1: ramp.v1.GetOnRampOrderResponse.data:type_name -> ramp.v1.OnRampOrder
+	9,  // 2: ramp.v1.OnRampOrder.created_at:type_name -> google.protobuf.Timestamp
+	9,  // 3: ramp.v1.OnRampOrder.updated_at:type_name -> google.protobuf.Timestamp
+	9,  // 4: ramp.v1.QuoteResponse.timestamp:type_name -> google.protobuf.Timestamp
+	7,  // 5: ramp.v1.QuoteResponse.data:type_name -> ramp.v1.Quote
+	9,  // 6: ramp.v1.Quote.created_at:type_name -> google.protobuf.Timestamp
+	9,  // 7: ramp.v1.Quote.valid_until:type_name -> google.protobuf.Timestamp
+	5,  // 8: ramp.v1.Quote.fees_items:type_name -> ramp.v1.FeeItem
+	0,  // 9: ramp.v1.Ramp.CreateOnRampOrder:input_type -> ramp.v1.CreateOnRampOrderRequest
+	1,  // 10: ramp.v1.Ramp.GetOnRampOrder:input_type -> ramp.v1.GetOnRampOrderRequest
+	4,  // 11: ramp.v1.Ramp.Quote:input_type -> ramp.v1.QuoteRequest
+	8,  // 12: ramp.v1.Ramp.QuoteInfo:input_type -> ramp.v1.QuoteInfoRequest
+	2,  // 13: ramp.v1.Ramp.CreateOnRampOrder:output_type -> ramp.v1.GetOnRampOrderResponse
+	2,  // 14: ramp.v1.Ramp.GetOnRampOrder:output_type -> ramp.v1.GetOnRampOrderResponse
+	6,  // 15: ramp.v1.Ramp.Quote:output_type -> ramp.v1.QuoteResponse
+	6,  // 16: ramp.v1.Ramp.QuoteInfo:output_type -> ramp.v1.QuoteResponse
 	13, // [13:17] is the sub-list for method output_type
 	9,  // [9:13] is the sub-list for method input_type
 	9,  // [9:9] is the sub-list for extension type_name

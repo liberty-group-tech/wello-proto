@@ -74,6 +74,10 @@ export interface ExecuteResponse_Data {
   failed: string[];
 }
 
+export interface QuoteInfoRequest {
+  quoteId: string;
+}
+
 function createBaseQuoteRequest(): QuoteRequest {
   return {
     intentId: undefined,
@@ -1090,6 +1094,64 @@ export const ExecuteResponse_Data: MessageFns<ExecuteResponse_Data> = {
   },
 };
 
+function createBaseQuoteInfoRequest(): QuoteInfoRequest {
+  return { quoteId: "" };
+}
+
+export const QuoteInfoRequest: MessageFns<QuoteInfoRequest> = {
+  encode(message: QuoteInfoRequest, writer: BinaryWriter = new BinaryWriter()): BinaryWriter {
+    if (message.quoteId !== "") {
+      writer.uint32(10).string(message.quoteId);
+    }
+    return writer;
+  },
+
+  decode(input: BinaryReader | Uint8Array, length?: number): QuoteInfoRequest {
+    const reader = input instanceof BinaryReader ? input : new BinaryReader(input);
+    const end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseQuoteInfoRequest();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1: {
+          if (tag !== 10) {
+            break;
+          }
+
+          message.quoteId = reader.string();
+          continue;
+        }
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skip(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): QuoteInfoRequest {
+    return { quoteId: isSet(object.quoteId) ? globalThis.String(object.quoteId) : "" };
+  },
+
+  toJSON(message: QuoteInfoRequest): unknown {
+    const obj: any = {};
+    if (message.quoteId !== "") {
+      obj.quoteId = message.quoteId;
+    }
+    return obj;
+  },
+
+  create(base?: DeepPartial<QuoteInfoRequest>): QuoteInfoRequest {
+    return QuoteInfoRequest.fromPartial(base ?? {});
+  },
+  fromPartial(object: DeepPartial<QuoteInfoRequest>): QuoteInfoRequest {
+    const message = createBaseQuoteInfoRequest();
+    message.quoteId = object.quoteId ?? "";
+    return message;
+  },
+};
+
 export type HedgingDefinition = typeof HedgingDefinition;
 export const HedgingDefinition = {
   name: "Hedging",
@@ -1173,17 +1235,65 @@ export const HedgingDefinition = {
         },
       },
     },
+    quoteInfo: {
+      name: "QuoteInfo",
+      requestType: QuoteInfoRequest,
+      requestStream: false,
+      responseType: QuoteResponse,
+      responseStream: false,
+      options: {
+        _unknownFields: {
+          578365826: [
+            new Uint8Array([
+              30,
+              18,
+              28,
+              47,
+              104,
+              101,
+              100,
+              103,
+              105,
+              110,
+              103,
+              47,
+              118,
+              49,
+              47,
+              113,
+              117,
+              111,
+              116,
+              101,
+              47,
+              123,
+              113,
+              117,
+              111,
+              116,
+              101,
+              95,
+              105,
+              100,
+              125,
+            ]),
+          ],
+        },
+      },
+    },
   },
 } as const;
 
 export interface HedgingServiceImplementation<CallContextExt = {}> {
   quote(request: QuoteRequest, context: CallContext & CallContextExt): Promise<DeepPartial<QuoteResponse>>;
   execute(request: ExecuteRequest, context: CallContext & CallContextExt): Promise<DeepPartial<ExecuteResponse>>;
+  quoteInfo(request: QuoteInfoRequest, context: CallContext & CallContextExt): Promise<DeepPartial<QuoteResponse>>;
 }
 
 export interface HedgingClient<CallOptionsExt = {}> {
   quote(request: DeepPartial<QuoteRequest>, options?: CallOptions & CallOptionsExt): Promise<QuoteResponse>;
   execute(request: DeepPartial<ExecuteRequest>, options?: CallOptions & CallOptionsExt): Promise<ExecuteResponse>;
+  quoteInfo(request: DeepPartial<QuoteInfoRequest>, options?: CallOptions & CallOptionsExt): Promise<QuoteResponse>;
 }
 
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;

@@ -19,10 +19,10 @@ var _ = binding.EncodeURL
 
 const _ = http.SupportPackageIsVersion1
 
-const OperationRampCreateOnRampOrder = "/admin.v1.Ramp/CreateOnRampOrder"
-const OperationRampGetOnRampOrder = "/admin.v1.Ramp/GetOnRampOrder"
-const OperationRampQuote = "/admin.v1.Ramp/Quote"
-const OperationRampQuoteInfo = "/admin.v1.Ramp/QuoteInfo"
+const OperationRampCreateOnRampOrder = "/ramp.v1.Ramp/CreateOnRampOrder"
+const OperationRampGetOnRampOrder = "/ramp.v1.Ramp/GetOnRampOrder"
+const OperationRampQuote = "/ramp.v1.Ramp/Quote"
+const OperationRampQuoteInfo = "/ramp.v1.Ramp/QuoteInfo"
 
 type RampHTTPServer interface {
 	CreateOnRampOrder(context.Context, *CreateOnRampOrderRequest) (*GetOnRampOrderResponse, error)

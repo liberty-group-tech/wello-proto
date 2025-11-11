@@ -19,10 +19,10 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Ramp_CreateOnRampOrder_FullMethodName = "/admin.v1.Ramp/CreateOnRampOrder"
-	Ramp_GetOnRampOrder_FullMethodName    = "/admin.v1.Ramp/GetOnRampOrder"
-	Ramp_Quote_FullMethodName             = "/admin.v1.Ramp/Quote"
-	Ramp_QuoteInfo_FullMethodName         = "/admin.v1.Ramp/QuoteInfo"
+	Ramp_CreateOnRampOrder_FullMethodName = "/ramp.v1.Ramp/CreateOnRampOrder"
+	Ramp_GetOnRampOrder_FullMethodName    = "/ramp.v1.Ramp/GetOnRampOrder"
+	Ramp_Quote_FullMethodName             = "/ramp.v1.Ramp/Quote"
+	Ramp_QuoteInfo_FullMethodName         = "/ramp.v1.Ramp/QuoteInfo"
 )
 
 // RampClient is the client API for Ramp service.
@@ -210,7 +210,7 @@ func _Ramp_QuoteInfo_Handler(srv interface{}, ctx context.Context, dec func(inte
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Ramp_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "admin.v1.Ramp",
+	ServiceName: "ramp.v1.Ramp",
 	HandlerType: (*RampServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

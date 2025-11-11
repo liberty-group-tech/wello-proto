@@ -9,7 +9,7 @@ import { BinaryReader, BinaryWriter } from "@bufbuild/protobuf/wire";
 import type { CallContext, CallOptions } from "nice-grpc-common";
 import { Timestamp } from "../../google/protobuf/timestamp";
 
-export const protobufPackage = "admin.v1";
+export const protobufPackage = "ramp.v1";
 
 export interface CreateOnRampOrderRequest {
   quoteId: string;
@@ -1462,7 +1462,7 @@ export const QuoteInfoRequest: MessageFns<QuoteInfoRequest> = {
 export type RampDefinition = typeof RampDefinition;
 export const RampDefinition = {
   name: "Ramp",
-  fullName: "admin.v1.Ramp",
+  fullName: "ramp.v1.Ramp",
   methods: {
     createOnRampOrder: {
       name: "CreateOnRampOrder",

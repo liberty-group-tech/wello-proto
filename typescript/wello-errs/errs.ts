@@ -129,6 +129,8 @@ export enum ErrorReason {
   UserTurnkeyResultError = 200043,
   /** UserAlreadyExist - 用户已经存在 */
   UserAlreadyExist = 200044,
+  /** UserAccountOrPasswordError - 账号或密码错误 */
+  UserAccountOrPasswordError = 200045,
   /** CryptoNodeEndpointNotFound - Crypto模块错误 */
   CryptoNodeEndpointNotFound = 300001,
   /** CryptoNetworkNotSupport - CryptoNetwork不支持 */
@@ -420,6 +422,9 @@ export function errorReasonFromJSON(object: any): ErrorReason {
     case 200044:
     case "UserAlreadyExist":
       return ErrorReason.UserAlreadyExist;
+    case 200045:
+    case "UserAccountOrPasswordError":
+      return ErrorReason.UserAccountOrPasswordError;
     case 300001:
     case "CryptoNodeEndpointNotFound":
       return ErrorReason.CryptoNodeEndpointNotFound;
@@ -708,6 +713,8 @@ export function errorReasonToJSON(object: ErrorReason): string {
       return "UserTurnkeyResultError";
     case ErrorReason.UserAlreadyExist:
       return "UserAlreadyExist";
+    case ErrorReason.UserAccountOrPasswordError:
+      return "UserAccountOrPasswordError";
     case ErrorReason.CryptoNodeEndpointNotFound:
       return "CryptoNodeEndpointNotFound";
     case ErrorReason.CryptoNetworkNotSupport:
