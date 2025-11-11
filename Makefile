@@ -5,6 +5,8 @@ account:
 	protoc --proto_path=. \
 		--go_out=paths=source_relative:. \
 		--go-grpc_out=paths=source_relative:. \
+		--go-http_out=paths=source_relative:. \
+		--validate_out=paths=source_relative,lang=go:. \
 		$(shell find wello-account -name '*.proto')
 
 errs:
@@ -12,6 +14,7 @@ errs:
 		--go_out=paths=source_relative:. \
 		--go-grpc_out=paths=source_relative:. \
 		--go-http_out=paths=source_relative:. \
+		--go-errors_out=paths=source_relative:. \
 		--validate_out=paths=source_relative,lang=go:. \
 		$(shell find wello-errs -name '*.proto')
 
