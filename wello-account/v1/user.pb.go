@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v6.33.0
-// source: wello-account/user.proto
+// source: wello-account/v1/user.proto
 
 package userv1
 
@@ -55,11 +55,11 @@ func (x UserStatus) String() string {
 }
 
 func (UserStatus) Descriptor() protoreflect.EnumDescriptor {
-	return file_wello_account_user_proto_enumTypes[0].Descriptor()
+	return file_wello_account_v1_user_proto_enumTypes[0].Descriptor()
 }
 
 func (UserStatus) Type() protoreflect.EnumType {
-	return &file_wello_account_user_proto_enumTypes[0]
+	return &file_wello_account_v1_user_proto_enumTypes[0]
 }
 
 func (x UserStatus) Number() protoreflect.EnumNumber {
@@ -68,7 +68,7 @@ func (x UserStatus) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use UserStatus.Descriptor instead.
 func (UserStatus) EnumDescriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{0}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{0}
 }
 
 type GetSupportCountriesResp struct {
@@ -81,7 +81,7 @@ type GetSupportCountriesResp struct {
 
 func (x *GetSupportCountriesResp) Reset() {
 	*x = GetSupportCountriesResp{}
-	mi := &file_wello_account_user_proto_msgTypes[0]
+	mi := &file_wello_account_v1_user_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -93,7 +93,7 @@ func (x *GetSupportCountriesResp) String() string {
 func (*GetSupportCountriesResp) ProtoMessage() {}
 
 func (x *GetSupportCountriesResp) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[0]
+	mi := &file_wello_account_v1_user_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -106,7 +106,7 @@ func (x *GetSupportCountriesResp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSupportCountriesResp.ProtoReflect.Descriptor instead.
 func (*GetSupportCountriesResp) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{0}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *GetSupportCountriesResp) GetCount() int64 {
@@ -135,7 +135,7 @@ type MobileCodeItem struct {
 
 func (x *MobileCodeItem) Reset() {
 	*x = MobileCodeItem{}
-	mi := &file_wello_account_user_proto_msgTypes[1]
+	mi := &file_wello_account_v1_user_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -147,7 +147,7 @@ func (x *MobileCodeItem) String() string {
 func (*MobileCodeItem) ProtoMessage() {}
 
 func (x *MobileCodeItem) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[1]
+	mi := &file_wello_account_v1_user_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -160,7 +160,7 @@ func (x *MobileCodeItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MobileCodeItem.ProtoReflect.Descriptor instead.
 func (*MobileCodeItem) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{1}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *MobileCodeItem) GetMobileCode() string {
@@ -208,7 +208,7 @@ type SignFlowCreateReq struct {
 
 func (x *SignFlowCreateReq) Reset() {
 	*x = SignFlowCreateReq{}
-	mi := &file_wello_account_user_proto_msgTypes[2]
+	mi := &file_wello_account_v1_user_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -220,7 +220,7 @@ func (x *SignFlowCreateReq) String() string {
 func (*SignFlowCreateReq) ProtoMessage() {}
 
 func (x *SignFlowCreateReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[2]
+	mi := &file_wello_account_v1_user_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -233,7 +233,7 @@ func (x *SignFlowCreateReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SignFlowCreateReq.ProtoReflect.Descriptor instead.
 func (*SignFlowCreateReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{2}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *SignFlowCreateReq) GetSignFlowType() string {
@@ -308,7 +308,7 @@ type SignFlowCreateResp struct {
 
 func (x *SignFlowCreateResp) Reset() {
 	*x = SignFlowCreateResp{}
-	mi := &file_wello_account_user_proto_msgTypes[3]
+	mi := &file_wello_account_v1_user_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -320,7 +320,7 @@ func (x *SignFlowCreateResp) String() string {
 func (*SignFlowCreateResp) ProtoMessage() {}
 
 func (x *SignFlowCreateResp) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[3]
+	mi := &file_wello_account_v1_user_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -333,7 +333,7 @@ func (x *SignFlowCreateResp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SignFlowCreateResp.ProtoReflect.Descriptor instead.
 func (*SignFlowCreateResp) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{3}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *SignFlowCreateResp) GetFlowId() string {
@@ -352,7 +352,7 @@ type SignFlowSendReq struct {
 
 func (x *SignFlowSendReq) Reset() {
 	*x = SignFlowSendReq{}
-	mi := &file_wello_account_user_proto_msgTypes[4]
+	mi := &file_wello_account_v1_user_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -364,7 +364,7 @@ func (x *SignFlowSendReq) String() string {
 func (*SignFlowSendReq) ProtoMessage() {}
 
 func (x *SignFlowSendReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[4]
+	mi := &file_wello_account_v1_user_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -377,7 +377,7 @@ func (x *SignFlowSendReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SignFlowSendReq.ProtoReflect.Descriptor instead.
 func (*SignFlowSendReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{4}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *SignFlowSendReq) GetFlowId() string {
@@ -404,7 +404,7 @@ type SignFlowValidateReq struct {
 
 func (x *SignFlowValidateReq) Reset() {
 	*x = SignFlowValidateReq{}
-	mi := &file_wello_account_user_proto_msgTypes[5]
+	mi := &file_wello_account_v1_user_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -416,7 +416,7 @@ func (x *SignFlowValidateReq) String() string {
 func (*SignFlowValidateReq) ProtoMessage() {}
 
 func (x *SignFlowValidateReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[5]
+	mi := &file_wello_account_v1_user_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -429,7 +429,7 @@ func (x *SignFlowValidateReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SignFlowValidateReq.ProtoReflect.Descriptor instead.
 func (*SignFlowValidateReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{5}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *SignFlowValidateReq) GetFlowId() string {
@@ -506,7 +506,7 @@ type SignFlowValidateResp struct {
 
 func (x *SignFlowValidateResp) Reset() {
 	*x = SignFlowValidateResp{}
-	mi := &file_wello_account_user_proto_msgTypes[6]
+	mi := &file_wello_account_v1_user_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -518,7 +518,7 @@ func (x *SignFlowValidateResp) String() string {
 func (*SignFlowValidateResp) ProtoMessage() {}
 
 func (x *SignFlowValidateResp) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[6]
+	mi := &file_wello_account_v1_user_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -531,7 +531,7 @@ func (x *SignFlowValidateResp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SignFlowValidateResp.ProtoReflect.Descriptor instead.
 func (*SignFlowValidateResp) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{6}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *SignFlowValidateResp) GetRefreshToken() string {
@@ -573,7 +573,7 @@ type LoginByPasswordReq struct {
 
 func (x *LoginByPasswordReq) Reset() {
 	*x = LoginByPasswordReq{}
-	mi := &file_wello_account_user_proto_msgTypes[7]
+	mi := &file_wello_account_v1_user_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -585,7 +585,7 @@ func (x *LoginByPasswordReq) String() string {
 func (*LoginByPasswordReq) ProtoMessage() {}
 
 func (x *LoginByPasswordReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[7]
+	mi := &file_wello_account_v1_user_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -598,7 +598,7 @@ func (x *LoginByPasswordReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoginByPasswordReq.ProtoReflect.Descriptor instead.
 func (*LoginByPasswordReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{7}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *LoginByPasswordReq) GetMobileCode() string {
@@ -681,7 +681,7 @@ type LoginByPasswordResp struct {
 
 func (x *LoginByPasswordResp) Reset() {
 	*x = LoginByPasswordResp{}
-	mi := &file_wello_account_user_proto_msgTypes[8]
+	mi := &file_wello_account_v1_user_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -693,7 +693,7 @@ func (x *LoginByPasswordResp) String() string {
 func (*LoginByPasswordResp) ProtoMessage() {}
 
 func (x *LoginByPasswordResp) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[8]
+	mi := &file_wello_account_v1_user_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -706,7 +706,7 @@ func (x *LoginByPasswordResp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoginByPasswordResp.ProtoReflect.Descriptor instead.
 func (*LoginByPasswordResp) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{8}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *LoginByPasswordResp) GetAccessToken() string {
@@ -732,7 +732,7 @@ type CheckAccessTokenReq struct {
 
 func (x *CheckAccessTokenReq) Reset() {
 	*x = CheckAccessTokenReq{}
-	mi := &file_wello_account_user_proto_msgTypes[9]
+	mi := &file_wello_account_v1_user_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -744,7 +744,7 @@ func (x *CheckAccessTokenReq) String() string {
 func (*CheckAccessTokenReq) ProtoMessage() {}
 
 func (x *CheckAccessTokenReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[9]
+	mi := &file_wello_account_v1_user_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -757,7 +757,7 @@ func (x *CheckAccessTokenReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CheckAccessTokenReq.ProtoReflect.Descriptor instead.
 func (*CheckAccessTokenReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{9}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CheckAccessTokenReq) GetAccessToken() string {
@@ -777,7 +777,7 @@ type CheckAccessTokenReply struct {
 
 func (x *CheckAccessTokenReply) Reset() {
 	*x = CheckAccessTokenReply{}
-	mi := &file_wello_account_user_proto_msgTypes[10]
+	mi := &file_wello_account_v1_user_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -789,7 +789,7 @@ func (x *CheckAccessTokenReply) String() string {
 func (*CheckAccessTokenReply) ProtoMessage() {}
 
 func (x *CheckAccessTokenReply) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[10]
+	mi := &file_wello_account_v1_user_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -802,7 +802,7 @@ func (x *CheckAccessTokenReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CheckAccessTokenReply.ProtoReflect.Descriptor instead.
 func (*CheckAccessTokenReply) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{10}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CheckAccessTokenReply) GetUserId() uint64 {
@@ -828,7 +828,7 @@ type GetAccessTokenReq struct {
 
 func (x *GetAccessTokenReq) Reset() {
 	*x = GetAccessTokenReq{}
-	mi := &file_wello_account_user_proto_msgTypes[11]
+	mi := &file_wello_account_v1_user_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -840,7 +840,7 @@ func (x *GetAccessTokenReq) String() string {
 func (*GetAccessTokenReq) ProtoMessage() {}
 
 func (x *GetAccessTokenReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[11]
+	mi := &file_wello_account_v1_user_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -853,7 +853,7 @@ func (x *GetAccessTokenReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAccessTokenReq.ProtoReflect.Descriptor instead.
 func (*GetAccessTokenReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{11}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *GetAccessTokenReq) GetRefreshToken() string {
@@ -872,7 +872,7 @@ type GetAccessTokenReply struct {
 
 func (x *GetAccessTokenReply) Reset() {
 	*x = GetAccessTokenReply{}
-	mi := &file_wello_account_user_proto_msgTypes[12]
+	mi := &file_wello_account_v1_user_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -884,7 +884,7 @@ func (x *GetAccessTokenReply) String() string {
 func (*GetAccessTokenReply) ProtoMessage() {}
 
 func (x *GetAccessTokenReply) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[12]
+	mi := &file_wello_account_v1_user_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -897,7 +897,7 @@ func (x *GetAccessTokenReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAccessTokenReply.ProtoReflect.Descriptor instead.
 func (*GetAccessTokenReply) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{12}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetAccessTokenReply) GetAccessToken() string {
@@ -918,7 +918,7 @@ type GetUserInfoReq struct {
 
 func (x *GetUserInfoReq) Reset() {
 	*x = GetUserInfoReq{}
-	mi := &file_wello_account_user_proto_msgTypes[13]
+	mi := &file_wello_account_v1_user_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -930,7 +930,7 @@ func (x *GetUserInfoReq) String() string {
 func (*GetUserInfoReq) ProtoMessage() {}
 
 func (x *GetUserInfoReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[13]
+	mi := &file_wello_account_v1_user_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -943,7 +943,7 @@ func (x *GetUserInfoReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserInfoReq.ProtoReflect.Descriptor instead.
 func (*GetUserInfoReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{13}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetUserInfoReq) GetUserId() uint64 {
@@ -992,7 +992,7 @@ type GetUserInfoReply struct {
 
 func (x *GetUserInfoReply) Reset() {
 	*x = GetUserInfoReply{}
-	mi := &file_wello_account_user_proto_msgTypes[14]
+	mi := &file_wello_account_v1_user_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1004,7 +1004,7 @@ func (x *GetUserInfoReply) String() string {
 func (*GetUserInfoReply) ProtoMessage() {}
 
 func (x *GetUserInfoReply) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[14]
+	mi := &file_wello_account_v1_user_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1017,7 +1017,7 @@ func (x *GetUserInfoReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserInfoReply.ProtoReflect.Descriptor instead.
 func (*GetUserInfoReply) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{14}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GetUserInfoReply) GetUserId() uint64 {
@@ -1148,7 +1148,7 @@ type QueryUserInfoReq struct {
 
 func (x *QueryUserInfoReq) Reset() {
 	*x = QueryUserInfoReq{}
-	mi := &file_wello_account_user_proto_msgTypes[15]
+	mi := &file_wello_account_v1_user_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1160,7 +1160,7 @@ func (x *QueryUserInfoReq) String() string {
 func (*QueryUserInfoReq) ProtoMessage() {}
 
 func (x *QueryUserInfoReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[15]
+	mi := &file_wello_account_v1_user_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1173,7 +1173,7 @@ func (x *QueryUserInfoReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryUserInfoReq.ProtoReflect.Descriptor instead.
 func (*QueryUserInfoReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{15}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *QueryUserInfoReq) GetUserIds() []uint64 {
@@ -1192,7 +1192,7 @@ type QueryUserInfoReply struct {
 
 func (x *QueryUserInfoReply) Reset() {
 	*x = QueryUserInfoReply{}
-	mi := &file_wello_account_user_proto_msgTypes[16]
+	mi := &file_wello_account_v1_user_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1204,7 +1204,7 @@ func (x *QueryUserInfoReply) String() string {
 func (*QueryUserInfoReply) ProtoMessage() {}
 
 func (x *QueryUserInfoReply) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[16]
+	mi := &file_wello_account_v1_user_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1217,7 +1217,7 @@ func (x *QueryUserInfoReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use QueryUserInfoReply.ProtoReflect.Descriptor instead.
 func (*QueryUserInfoReply) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{16}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *QueryUserInfoReply) GetList() []*GetUserInfoReply {
@@ -1236,7 +1236,7 @@ type GetUserMobileReq struct {
 
 func (x *GetUserMobileReq) Reset() {
 	*x = GetUserMobileReq{}
-	mi := &file_wello_account_user_proto_msgTypes[17]
+	mi := &file_wello_account_v1_user_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1248,7 +1248,7 @@ func (x *GetUserMobileReq) String() string {
 func (*GetUserMobileReq) ProtoMessage() {}
 
 func (x *GetUserMobileReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[17]
+	mi := &file_wello_account_v1_user_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1261,7 +1261,7 @@ func (x *GetUserMobileReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserMobileReq.ProtoReflect.Descriptor instead.
 func (*GetUserMobileReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{17}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *GetUserMobileReq) GetUserId() uint64 {
@@ -1282,7 +1282,7 @@ type GetUserMobileReply struct {
 
 func (x *GetUserMobileReply) Reset() {
 	*x = GetUserMobileReply{}
-	mi := &file_wello_account_user_proto_msgTypes[18]
+	mi := &file_wello_account_v1_user_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1294,7 +1294,7 @@ func (x *GetUserMobileReply) String() string {
 func (*GetUserMobileReply) ProtoMessage() {}
 
 func (x *GetUserMobileReply) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[18]
+	mi := &file_wello_account_v1_user_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1307,7 +1307,7 @@ func (x *GetUserMobileReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserMobileReply.ProtoReflect.Descriptor instead.
 func (*GetUserMobileReply) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{18}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *GetUserMobileReply) GetUserId() uint64 {
@@ -1340,7 +1340,7 @@ type GetUserEmailReq struct {
 
 func (x *GetUserEmailReq) Reset() {
 	*x = GetUserEmailReq{}
-	mi := &file_wello_account_user_proto_msgTypes[19]
+	mi := &file_wello_account_v1_user_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1352,7 +1352,7 @@ func (x *GetUserEmailReq) String() string {
 func (*GetUserEmailReq) ProtoMessage() {}
 
 func (x *GetUserEmailReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[19]
+	mi := &file_wello_account_v1_user_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1365,7 +1365,7 @@ func (x *GetUserEmailReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserEmailReq.ProtoReflect.Descriptor instead.
 func (*GetUserEmailReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{19}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *GetUserEmailReq) GetUserId() uint64 {
@@ -1385,7 +1385,7 @@ type GetUserEmailReply struct {
 
 func (x *GetUserEmailReply) Reset() {
 	*x = GetUserEmailReply{}
-	mi := &file_wello_account_user_proto_msgTypes[20]
+	mi := &file_wello_account_v1_user_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1397,7 +1397,7 @@ func (x *GetUserEmailReply) String() string {
 func (*GetUserEmailReply) ProtoMessage() {}
 
 func (x *GetUserEmailReply) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[20]
+	mi := &file_wello_account_v1_user_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1410,7 +1410,7 @@ func (x *GetUserEmailReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserEmailReply.ProtoReflect.Descriptor instead.
 func (*GetUserEmailReply) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{20}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *GetUserEmailReply) GetUserId() uint64 {
@@ -1437,7 +1437,7 @@ type CheckUsernameReq struct {
 
 func (x *CheckUsernameReq) Reset() {
 	*x = CheckUsernameReq{}
-	mi := &file_wello_account_user_proto_msgTypes[21]
+	mi := &file_wello_account_v1_user_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1449,7 +1449,7 @@ func (x *CheckUsernameReq) String() string {
 func (*CheckUsernameReq) ProtoMessage() {}
 
 func (x *CheckUsernameReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[21]
+	mi := &file_wello_account_v1_user_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1462,7 +1462,7 @@ func (x *CheckUsernameReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CheckUsernameReq.ProtoReflect.Descriptor instead.
 func (*CheckUsernameReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{21}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *CheckUsernameReq) GetUserId() uint64 {
@@ -1489,7 +1489,7 @@ type SetupUsernameReq struct {
 
 func (x *SetupUsernameReq) Reset() {
 	*x = SetupUsernameReq{}
-	mi := &file_wello_account_user_proto_msgTypes[22]
+	mi := &file_wello_account_v1_user_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1501,7 +1501,7 @@ func (x *SetupUsernameReq) String() string {
 func (*SetupUsernameReq) ProtoMessage() {}
 
 func (x *SetupUsernameReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[22]
+	mi := &file_wello_account_v1_user_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1514,7 +1514,7 @@ func (x *SetupUsernameReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetupUsernameReq.ProtoReflect.Descriptor instead.
 func (*SetupUsernameReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{22}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *SetupUsernameReq) GetUserId() uint64 {
@@ -1541,7 +1541,7 @@ type SetupNicknameReq struct {
 
 func (x *SetupNicknameReq) Reset() {
 	*x = SetupNicknameReq{}
-	mi := &file_wello_account_user_proto_msgTypes[23]
+	mi := &file_wello_account_v1_user_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1553,7 +1553,7 @@ func (x *SetupNicknameReq) String() string {
 func (*SetupNicknameReq) ProtoMessage() {}
 
 func (x *SetupNicknameReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[23]
+	mi := &file_wello_account_v1_user_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1566,7 +1566,7 @@ func (x *SetupNicknameReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetupNicknameReq.ProtoReflect.Descriptor instead.
 func (*SetupNicknameReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{23}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *SetupNicknameReq) GetUserId() uint64 {
@@ -1593,7 +1593,7 @@ type SetupDobReq struct {
 
 func (x *SetupDobReq) Reset() {
 	*x = SetupDobReq{}
-	mi := &file_wello_account_user_proto_msgTypes[24]
+	mi := &file_wello_account_v1_user_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1605,7 +1605,7 @@ func (x *SetupDobReq) String() string {
 func (*SetupDobReq) ProtoMessage() {}
 
 func (x *SetupDobReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[24]
+	mi := &file_wello_account_v1_user_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1618,7 +1618,7 @@ func (x *SetupDobReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetupDobReq.ProtoReflect.Descriptor instead.
 func (*SetupDobReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{24}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *SetupDobReq) GetUserId() uint64 {
@@ -1645,7 +1645,7 @@ type SetupAvatarReq struct {
 
 func (x *SetupAvatarReq) Reset() {
 	*x = SetupAvatarReq{}
-	mi := &file_wello_account_user_proto_msgTypes[25]
+	mi := &file_wello_account_v1_user_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1657,7 +1657,7 @@ func (x *SetupAvatarReq) String() string {
 func (*SetupAvatarReq) ProtoMessage() {}
 
 func (x *SetupAvatarReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[25]
+	mi := &file_wello_account_v1_user_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1670,7 +1670,7 @@ func (x *SetupAvatarReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetupAvatarReq.ProtoReflect.Descriptor instead.
 func (*SetupAvatarReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{25}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *SetupAvatarReq) GetUserId() uint64 {
@@ -1697,7 +1697,7 @@ type UpdateFiatCurrencyReq struct {
 
 func (x *UpdateFiatCurrencyReq) Reset() {
 	*x = UpdateFiatCurrencyReq{}
-	mi := &file_wello_account_user_proto_msgTypes[26]
+	mi := &file_wello_account_v1_user_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1709,7 +1709,7 @@ func (x *UpdateFiatCurrencyReq) String() string {
 func (*UpdateFiatCurrencyReq) ProtoMessage() {}
 
 func (x *UpdateFiatCurrencyReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[26]
+	mi := &file_wello_account_v1_user_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1722,7 +1722,7 @@ func (x *UpdateFiatCurrencyReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateFiatCurrencyReq.ProtoReflect.Descriptor instead.
 func (*UpdateFiatCurrencyReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{26}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *UpdateFiatCurrencyReq) GetUserId() uint64 {
@@ -1749,7 +1749,7 @@ type UpdateNotificationOnReq struct {
 
 func (x *UpdateNotificationOnReq) Reset() {
 	*x = UpdateNotificationOnReq{}
-	mi := &file_wello_account_user_proto_msgTypes[27]
+	mi := &file_wello_account_v1_user_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1761,7 +1761,7 @@ func (x *UpdateNotificationOnReq) String() string {
 func (*UpdateNotificationOnReq) ProtoMessage() {}
 
 func (x *UpdateNotificationOnReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[27]
+	mi := &file_wello_account_v1_user_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1774,7 +1774,7 @@ func (x *UpdateNotificationOnReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateNotificationOnReq.ProtoReflect.Descriptor instead.
 func (*UpdateNotificationOnReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{27}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *UpdateNotificationOnReq) GetUserId() uint64 {
@@ -1802,7 +1802,7 @@ type SetupPasswordReq struct {
 
 func (x *SetupPasswordReq) Reset() {
 	*x = SetupPasswordReq{}
-	mi := &file_wello_account_user_proto_msgTypes[28]
+	mi := &file_wello_account_v1_user_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1814,7 +1814,7 @@ func (x *SetupPasswordReq) String() string {
 func (*SetupPasswordReq) ProtoMessage() {}
 
 func (x *SetupPasswordReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[28]
+	mi := &file_wello_account_v1_user_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1827,7 +1827,7 @@ func (x *SetupPasswordReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetupPasswordReq.ProtoReflect.Descriptor instead.
 func (*SetupPasswordReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{28}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *SetupPasswordReq) GetUserId() uint64 {
@@ -1861,7 +1861,7 @@ type BindEmailFlowCreateReq struct {
 
 func (x *BindEmailFlowCreateReq) Reset() {
 	*x = BindEmailFlowCreateReq{}
-	mi := &file_wello_account_user_proto_msgTypes[29]
+	mi := &file_wello_account_v1_user_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1873,7 +1873,7 @@ func (x *BindEmailFlowCreateReq) String() string {
 func (*BindEmailFlowCreateReq) ProtoMessage() {}
 
 func (x *BindEmailFlowCreateReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[29]
+	mi := &file_wello_account_v1_user_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1886,7 +1886,7 @@ func (x *BindEmailFlowCreateReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BindEmailFlowCreateReq.ProtoReflect.Descriptor instead.
 func (*BindEmailFlowCreateReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{29}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *BindEmailFlowCreateReq) GetUserId() uint64 {
@@ -1912,7 +1912,7 @@ type BindEmailFlowCreateReply struct {
 
 func (x *BindEmailFlowCreateReply) Reset() {
 	*x = BindEmailFlowCreateReply{}
-	mi := &file_wello_account_user_proto_msgTypes[30]
+	mi := &file_wello_account_v1_user_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1924,7 +1924,7 @@ func (x *BindEmailFlowCreateReply) String() string {
 func (*BindEmailFlowCreateReply) ProtoMessage() {}
 
 func (x *BindEmailFlowCreateReply) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[30]
+	mi := &file_wello_account_v1_user_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1937,7 +1937,7 @@ func (x *BindEmailFlowCreateReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BindEmailFlowCreateReply.ProtoReflect.Descriptor instead.
 func (*BindEmailFlowCreateReply) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{30}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *BindEmailFlowCreateReply) GetFlowId() string {
@@ -1956,7 +1956,7 @@ type BindEmailFlowSendReq struct {
 
 func (x *BindEmailFlowSendReq) Reset() {
 	*x = BindEmailFlowSendReq{}
-	mi := &file_wello_account_user_proto_msgTypes[31]
+	mi := &file_wello_account_v1_user_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1968,7 +1968,7 @@ func (x *BindEmailFlowSendReq) String() string {
 func (*BindEmailFlowSendReq) ProtoMessage() {}
 
 func (x *BindEmailFlowSendReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[31]
+	mi := &file_wello_account_v1_user_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1981,7 +1981,7 @@ func (x *BindEmailFlowSendReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BindEmailFlowSendReq.ProtoReflect.Descriptor instead.
 func (*BindEmailFlowSendReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{31}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *BindEmailFlowSendReq) GetFlowId() string {
@@ -2001,7 +2001,7 @@ type BindEmailFlowValidateReq struct {
 
 func (x *BindEmailFlowValidateReq) Reset() {
 	*x = BindEmailFlowValidateReq{}
-	mi := &file_wello_account_user_proto_msgTypes[32]
+	mi := &file_wello_account_v1_user_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2013,7 +2013,7 @@ func (x *BindEmailFlowValidateReq) String() string {
 func (*BindEmailFlowValidateReq) ProtoMessage() {}
 
 func (x *BindEmailFlowValidateReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[32]
+	mi := &file_wello_account_v1_user_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2026,7 +2026,7 @@ func (x *BindEmailFlowValidateReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BindEmailFlowValidateReq.ProtoReflect.Descriptor instead.
 func (*BindEmailFlowValidateReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{32}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *BindEmailFlowValidateReq) GetFlowId() string {
@@ -2053,7 +2053,7 @@ type BindOAuthFlowCreateReq struct {
 
 func (x *BindOAuthFlowCreateReq) Reset() {
 	*x = BindOAuthFlowCreateReq{}
-	mi := &file_wello_account_user_proto_msgTypes[33]
+	mi := &file_wello_account_v1_user_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2065,7 +2065,7 @@ func (x *BindOAuthFlowCreateReq) String() string {
 func (*BindOAuthFlowCreateReq) ProtoMessage() {}
 
 func (x *BindOAuthFlowCreateReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[33]
+	mi := &file_wello_account_v1_user_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2078,7 +2078,7 @@ func (x *BindOAuthFlowCreateReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BindOAuthFlowCreateReq.ProtoReflect.Descriptor instead.
 func (*BindOAuthFlowCreateReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{33}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *BindOAuthFlowCreateReq) GetUserId() uint64 {
@@ -2104,7 +2104,7 @@ type BindOAuthFlowCreateReply struct {
 
 func (x *BindOAuthFlowCreateReply) Reset() {
 	*x = BindOAuthFlowCreateReply{}
-	mi := &file_wello_account_user_proto_msgTypes[34]
+	mi := &file_wello_account_v1_user_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2116,7 +2116,7 @@ func (x *BindOAuthFlowCreateReply) String() string {
 func (*BindOAuthFlowCreateReply) ProtoMessage() {}
 
 func (x *BindOAuthFlowCreateReply) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[34]
+	mi := &file_wello_account_v1_user_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2129,7 +2129,7 @@ func (x *BindOAuthFlowCreateReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BindOAuthFlowCreateReply.ProtoReflect.Descriptor instead.
 func (*BindOAuthFlowCreateReply) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{34}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *BindOAuthFlowCreateReply) GetFlowId() string {
@@ -2149,7 +2149,7 @@ type BindOAuthFlowValidateReq struct {
 
 func (x *BindOAuthFlowValidateReq) Reset() {
 	*x = BindOAuthFlowValidateReq{}
-	mi := &file_wello_account_user_proto_msgTypes[35]
+	mi := &file_wello_account_v1_user_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2161,7 +2161,7 @@ func (x *BindOAuthFlowValidateReq) String() string {
 func (*BindOAuthFlowValidateReq) ProtoMessage() {}
 
 func (x *BindOAuthFlowValidateReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[35]
+	mi := &file_wello_account_v1_user_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2174,7 +2174,7 @@ func (x *BindOAuthFlowValidateReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BindOAuthFlowValidateReq.ProtoReflect.Descriptor instead.
 func (*BindOAuthFlowValidateReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{35}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *BindOAuthFlowValidateReq) GetFlowId() string {
@@ -2200,7 +2200,7 @@ type GetUserKycInfoReq struct {
 
 func (x *GetUserKycInfoReq) Reset() {
 	*x = GetUserKycInfoReq{}
-	mi := &file_wello_account_user_proto_msgTypes[36]
+	mi := &file_wello_account_v1_user_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2212,7 +2212,7 @@ func (x *GetUserKycInfoReq) String() string {
 func (*GetUserKycInfoReq) ProtoMessage() {}
 
 func (x *GetUserKycInfoReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[36]
+	mi := &file_wello_account_v1_user_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2225,7 +2225,7 @@ func (x *GetUserKycInfoReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserKycInfoReq.ProtoReflect.Descriptor instead.
 func (*GetUserKycInfoReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{36}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *GetUserKycInfoReq) GetUserId() uint64 {
@@ -2249,7 +2249,7 @@ type GetUserKycInfoReply struct {
 
 func (x *GetUserKycInfoReply) Reset() {
 	*x = GetUserKycInfoReply{}
-	mi := &file_wello_account_user_proto_msgTypes[37]
+	mi := &file_wello_account_v1_user_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2261,7 +2261,7 @@ func (x *GetUserKycInfoReply) String() string {
 func (*GetUserKycInfoReply) ProtoMessage() {}
 
 func (x *GetUserKycInfoReply) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[37]
+	mi := &file_wello_account_v1_user_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2274,7 +2274,7 @@ func (x *GetUserKycInfoReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserKycInfoReply.ProtoReflect.Descriptor instead.
 func (*GetUserKycInfoReply) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{37}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *GetUserKycInfoReply) GetUserId() uint64 {
@@ -2328,7 +2328,7 @@ type GetUserKycDetailInfoReq struct {
 
 func (x *GetUserKycDetailInfoReq) Reset() {
 	*x = GetUserKycDetailInfoReq{}
-	mi := &file_wello_account_user_proto_msgTypes[38]
+	mi := &file_wello_account_v1_user_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2340,7 +2340,7 @@ func (x *GetUserKycDetailInfoReq) String() string {
 func (*GetUserKycDetailInfoReq) ProtoMessage() {}
 
 func (x *GetUserKycDetailInfoReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[38]
+	mi := &file_wello_account_v1_user_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2353,7 +2353,7 @@ func (x *GetUserKycDetailInfoReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserKycDetailInfoReq.ProtoReflect.Descriptor instead.
 func (*GetUserKycDetailInfoReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{38}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *GetUserKycDetailInfoReq) GetUserId() uint64 {
@@ -2378,7 +2378,7 @@ type GetUserKycDetailInfoReply struct {
 
 func (x *GetUserKycDetailInfoReply) Reset() {
 	*x = GetUserKycDetailInfoReply{}
-	mi := &file_wello_account_user_proto_msgTypes[39]
+	mi := &file_wello_account_v1_user_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2390,7 +2390,7 @@ func (x *GetUserKycDetailInfoReply) String() string {
 func (*GetUserKycDetailInfoReply) ProtoMessage() {}
 
 func (x *GetUserKycDetailInfoReply) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[39]
+	mi := &file_wello_account_v1_user_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2403,7 +2403,7 @@ func (x *GetUserKycDetailInfoReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserKycDetailInfoReply.ProtoReflect.Descriptor instead.
 func (*GetUserKycDetailInfoReply) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{39}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *GetUserKycDetailInfoReply) GetUserId() uint64 {
@@ -2482,7 +2482,7 @@ type KycDetailInfo struct {
 
 func (x *KycDetailInfo) Reset() {
 	*x = KycDetailInfo{}
-	mi := &file_wello_account_user_proto_msgTypes[40]
+	mi := &file_wello_account_v1_user_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2494,7 +2494,7 @@ func (x *KycDetailInfo) String() string {
 func (*KycDetailInfo) ProtoMessage() {}
 
 func (x *KycDetailInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[40]
+	mi := &file_wello_account_v1_user_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2507,7 +2507,7 @@ func (x *KycDetailInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use KycDetailInfo.ProtoReflect.Descriptor instead.
 func (*KycDetailInfo) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{40}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *KycDetailInfo) GetFirstName() string {
@@ -2652,7 +2652,7 @@ type GetKycAccessTokenReq struct {
 
 func (x *GetKycAccessTokenReq) Reset() {
 	*x = GetKycAccessTokenReq{}
-	mi := &file_wello_account_user_proto_msgTypes[41]
+	mi := &file_wello_account_v1_user_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2664,7 +2664,7 @@ func (x *GetKycAccessTokenReq) String() string {
 func (*GetKycAccessTokenReq) ProtoMessage() {}
 
 func (x *GetKycAccessTokenReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[41]
+	mi := &file_wello_account_v1_user_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2677,7 +2677,7 @@ func (x *GetKycAccessTokenReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetKycAccessTokenReq.ProtoReflect.Descriptor instead.
 func (*GetKycAccessTokenReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{41}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *GetKycAccessTokenReq) GetUserId() uint64 {
@@ -2696,7 +2696,7 @@ type GetKycAccessTokenReply struct {
 
 func (x *GetKycAccessTokenReply) Reset() {
 	*x = GetKycAccessTokenReply{}
-	mi := &file_wello_account_user_proto_msgTypes[42]
+	mi := &file_wello_account_v1_user_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2708,7 +2708,7 @@ func (x *GetKycAccessTokenReply) String() string {
 func (*GetKycAccessTokenReply) ProtoMessage() {}
 
 func (x *GetKycAccessTokenReply) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[42]
+	mi := &file_wello_account_v1_user_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2721,7 +2721,7 @@ func (x *GetKycAccessTokenReply) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetKycAccessTokenReply.ProtoReflect.Descriptor instead.
 func (*GetKycAccessTokenReply) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{42}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *GetKycAccessTokenReply) GetToken() string {
@@ -2742,7 +2742,7 @@ type UploadKycResultReq struct {
 
 func (x *UploadKycResultReq) Reset() {
 	*x = UploadKycResultReq{}
-	mi := &file_wello_account_user_proto_msgTypes[43]
+	mi := &file_wello_account_v1_user_proto_msgTypes[43]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2754,7 +2754,7 @@ func (x *UploadKycResultReq) String() string {
 func (*UploadKycResultReq) ProtoMessage() {}
 
 func (x *UploadKycResultReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[43]
+	mi := &file_wello_account_v1_user_proto_msgTypes[43]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2767,7 +2767,7 @@ func (x *UploadKycResultReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UploadKycResultReq.ProtoReflect.Descriptor instead.
 func (*UploadKycResultReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{43}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{43}
 }
 
 func (x *UploadKycResultReq) GetUserId() uint64 {
@@ -2801,7 +2801,7 @@ type LogoutReq struct {
 
 func (x *LogoutReq) Reset() {
 	*x = LogoutReq{}
-	mi := &file_wello_account_user_proto_msgTypes[44]
+	mi := &file_wello_account_v1_user_proto_msgTypes[44]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2813,7 +2813,7 @@ func (x *LogoutReq) String() string {
 func (*LogoutReq) ProtoMessage() {}
 
 func (x *LogoutReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[44]
+	mi := &file_wello_account_v1_user_proto_msgTypes[44]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2826,7 +2826,7 @@ func (x *LogoutReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LogoutReq.ProtoReflect.Descriptor instead.
 func (*LogoutReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{44}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{44}
 }
 
 func (x *LogoutReq) GetUserId() uint64 {
@@ -2852,7 +2852,7 @@ type CloseAccountPreCheckReq struct {
 
 func (x *CloseAccountPreCheckReq) Reset() {
 	*x = CloseAccountPreCheckReq{}
-	mi := &file_wello_account_user_proto_msgTypes[45]
+	mi := &file_wello_account_v1_user_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2864,7 +2864,7 @@ func (x *CloseAccountPreCheckReq) String() string {
 func (*CloseAccountPreCheckReq) ProtoMessage() {}
 
 func (x *CloseAccountPreCheckReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[45]
+	mi := &file_wello_account_v1_user_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2877,7 +2877,7 @@ func (x *CloseAccountPreCheckReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CloseAccountPreCheckReq.ProtoReflect.Descriptor instead.
 func (*CloseAccountPreCheckReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{45}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *CloseAccountPreCheckReq) GetUserId() uint64 {
@@ -2897,7 +2897,7 @@ type CloseAccountPreCheckResp struct {
 
 func (x *CloseAccountPreCheckResp) Reset() {
 	*x = CloseAccountPreCheckResp{}
-	mi := &file_wello_account_user_proto_msgTypes[46]
+	mi := &file_wello_account_v1_user_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2909,7 +2909,7 @@ func (x *CloseAccountPreCheckResp) String() string {
 func (*CloseAccountPreCheckResp) ProtoMessage() {}
 
 func (x *CloseAccountPreCheckResp) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[46]
+	mi := &file_wello_account_v1_user_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2922,7 +2922,7 @@ func (x *CloseAccountPreCheckResp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CloseAccountPreCheckResp.ProtoReflect.Descriptor instead.
 func (*CloseAccountPreCheckResp) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{46}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *CloseAccountPreCheckResp) GetCanDelete() bool {
@@ -2949,7 +2949,7 @@ type CloseAccountReq struct {
 
 func (x *CloseAccountReq) Reset() {
 	*x = CloseAccountReq{}
-	mi := &file_wello_account_user_proto_msgTypes[47]
+	mi := &file_wello_account_v1_user_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2961,7 +2961,7 @@ func (x *CloseAccountReq) String() string {
 func (*CloseAccountReq) ProtoMessage() {}
 
 func (x *CloseAccountReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[47]
+	mi := &file_wello_account_v1_user_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2974,7 +2974,7 @@ func (x *CloseAccountReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CloseAccountReq.ProtoReflect.Descriptor instead.
 func (*CloseAccountReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{47}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *CloseAccountReq) GetUserId() uint64 {
@@ -3000,7 +3000,7 @@ type GetUserLimitsReq struct {
 
 func (x *GetUserLimitsReq) Reset() {
 	*x = GetUserLimitsReq{}
-	mi := &file_wello_account_user_proto_msgTypes[48]
+	mi := &file_wello_account_v1_user_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3012,7 +3012,7 @@ func (x *GetUserLimitsReq) String() string {
 func (*GetUserLimitsReq) ProtoMessage() {}
 
 func (x *GetUserLimitsReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[48]
+	mi := &file_wello_account_v1_user_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3025,7 +3025,7 @@ func (x *GetUserLimitsReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserLimitsReq.ProtoReflect.Descriptor instead.
 func (*GetUserLimitsReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{48}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *GetUserLimitsReq) GetUserId() uint64 {
@@ -3055,7 +3055,7 @@ type GetUserLimitsResp struct {
 
 func (x *GetUserLimitsResp) Reset() {
 	*x = GetUserLimitsResp{}
-	mi := &file_wello_account_user_proto_msgTypes[49]
+	mi := &file_wello_account_v1_user_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3067,7 +3067,7 @@ func (x *GetUserLimitsResp) String() string {
 func (*GetUserLimitsResp) ProtoMessage() {}
 
 func (x *GetUserLimitsResp) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[49]
+	mi := &file_wello_account_v1_user_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3080,7 +3080,7 @@ func (x *GetUserLimitsResp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserLimitsResp.ProtoReflect.Descriptor instead.
 func (*GetUserLimitsResp) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{49}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *GetUserLimitsResp) GetCurrency() string {
@@ -3178,7 +3178,7 @@ type GetUserSavedWalletsReq struct {
 
 func (x *GetUserSavedWalletsReq) Reset() {
 	*x = GetUserSavedWalletsReq{}
-	mi := &file_wello_account_user_proto_msgTypes[50]
+	mi := &file_wello_account_v1_user_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3190,7 +3190,7 @@ func (x *GetUserSavedWalletsReq) String() string {
 func (*GetUserSavedWalletsReq) ProtoMessage() {}
 
 func (x *GetUserSavedWalletsReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[50]
+	mi := &file_wello_account_v1_user_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3203,7 +3203,7 @@ func (x *GetUserSavedWalletsReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserSavedWalletsReq.ProtoReflect.Descriptor instead.
 func (*GetUserSavedWalletsReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{50}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{50}
 }
 
 func (x *GetUserSavedWalletsReq) GetUserId() uint64 {
@@ -3237,7 +3237,7 @@ type GetUserSavedWalletsResp struct {
 
 func (x *GetUserSavedWalletsResp) Reset() {
 	*x = GetUserSavedWalletsResp{}
-	mi := &file_wello_account_user_proto_msgTypes[51]
+	mi := &file_wello_account_v1_user_proto_msgTypes[51]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3249,7 +3249,7 @@ func (x *GetUserSavedWalletsResp) String() string {
 func (*GetUserSavedWalletsResp) ProtoMessage() {}
 
 func (x *GetUserSavedWalletsResp) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[51]
+	mi := &file_wello_account_v1_user_proto_msgTypes[51]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3262,7 +3262,7 @@ func (x *GetUserSavedWalletsResp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserSavedWalletsResp.ProtoReflect.Descriptor instead.
 func (*GetUserSavedWalletsResp) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{51}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{51}
 }
 
 func (x *GetUserSavedWalletsResp) GetCount() int64 {
@@ -3292,7 +3292,7 @@ type SavedWallet struct {
 
 func (x *SavedWallet) Reset() {
 	*x = SavedWallet{}
-	mi := &file_wello_account_user_proto_msgTypes[52]
+	mi := &file_wello_account_v1_user_proto_msgTypes[52]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3304,7 +3304,7 @@ func (x *SavedWallet) String() string {
 func (*SavedWallet) ProtoMessage() {}
 
 func (x *SavedWallet) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[52]
+	mi := &file_wello_account_v1_user_proto_msgTypes[52]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3317,7 +3317,7 @@ func (x *SavedWallet) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SavedWallet.ProtoReflect.Descriptor instead.
 func (*SavedWallet) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{52}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{52}
 }
 
 func (x *SavedWallet) GetId() uint64 {
@@ -3367,7 +3367,7 @@ type UserAddSavedWalletReq struct {
 
 func (x *UserAddSavedWalletReq) Reset() {
 	*x = UserAddSavedWalletReq{}
-	mi := &file_wello_account_user_proto_msgTypes[53]
+	mi := &file_wello_account_v1_user_proto_msgTypes[53]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3379,7 +3379,7 @@ func (x *UserAddSavedWalletReq) String() string {
 func (*UserAddSavedWalletReq) ProtoMessage() {}
 
 func (x *UserAddSavedWalletReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[53]
+	mi := &file_wello_account_v1_user_proto_msgTypes[53]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3392,7 +3392,7 @@ func (x *UserAddSavedWalletReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserAddSavedWalletReq.ProtoReflect.Descriptor instead.
 func (*UserAddSavedWalletReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{53}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{53}
 }
 
 func (x *UserAddSavedWalletReq) GetUserId() uint64 {
@@ -3433,7 +3433,7 @@ type UserDeleteSavedWalletReq struct {
 
 func (x *UserDeleteSavedWalletReq) Reset() {
 	*x = UserDeleteSavedWalletReq{}
-	mi := &file_wello_account_user_proto_msgTypes[54]
+	mi := &file_wello_account_v1_user_proto_msgTypes[54]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3445,7 +3445,7 @@ func (x *UserDeleteSavedWalletReq) String() string {
 func (*UserDeleteSavedWalletReq) ProtoMessage() {}
 
 func (x *UserDeleteSavedWalletReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[54]
+	mi := &file_wello_account_v1_user_proto_msgTypes[54]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3458,7 +3458,7 @@ func (x *UserDeleteSavedWalletReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserDeleteSavedWalletReq.ProtoReflect.Descriptor instead.
 func (*UserDeleteSavedWalletReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{54}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{54}
 }
 
 func (x *UserDeleteSavedWalletReq) GetUserId() uint64 {
@@ -3488,7 +3488,7 @@ type UserUpdateSavedWalletReq struct {
 
 func (x *UserUpdateSavedWalletReq) Reset() {
 	*x = UserUpdateSavedWalletReq{}
-	mi := &file_wello_account_user_proto_msgTypes[55]
+	mi := &file_wello_account_v1_user_proto_msgTypes[55]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3500,7 +3500,7 @@ func (x *UserUpdateSavedWalletReq) String() string {
 func (*UserUpdateSavedWalletReq) ProtoMessage() {}
 
 func (x *UserUpdateSavedWalletReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[55]
+	mi := &file_wello_account_v1_user_proto_msgTypes[55]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3513,7 +3513,7 @@ func (x *UserUpdateSavedWalletReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UserUpdateSavedWalletReq.ProtoReflect.Descriptor instead.
 func (*UserUpdateSavedWalletReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{55}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{55}
 }
 
 func (x *UserUpdateSavedWalletReq) GetUserId() uint64 {
@@ -3561,7 +3561,7 @@ type BindInviterReq struct {
 
 func (x *BindInviterReq) Reset() {
 	*x = BindInviterReq{}
-	mi := &file_wello_account_user_proto_msgTypes[56]
+	mi := &file_wello_account_v1_user_proto_msgTypes[56]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3573,7 +3573,7 @@ func (x *BindInviterReq) String() string {
 func (*BindInviterReq) ProtoMessage() {}
 
 func (x *BindInviterReq) ProtoReflect() protoreflect.Message {
-	mi := &file_wello_account_user_proto_msgTypes[56]
+	mi := &file_wello_account_v1_user_proto_msgTypes[56]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3586,7 +3586,7 @@ func (x *BindInviterReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BindInviterReq.ProtoReflect.Descriptor instead.
 func (*BindInviterReq) Descriptor() ([]byte, []int) {
-	return file_wello_account_user_proto_rawDescGZIP(), []int{56}
+	return file_wello_account_v1_user_proto_rawDescGZIP(), []int{56}
 }
 
 func (x *BindInviterReq) GetUserId() uint64 {
@@ -3603,11 +3603,11 @@ func (x *BindInviterReq) GetInviteCode() string {
 	return ""
 }
 
-var File_wello_account_user_proto protoreflect.FileDescriptor
+var File_wello_account_v1_user_proto protoreflect.FileDescriptor
 
-const file_wello_account_user_proto_rawDesc = "" +
+const file_wello_account_v1_user_proto_rawDesc = "" +
 	"\n" +
-	"\x18wello-account/user.proto\x12\x0fuser.service.v1\x1a\x1bgoogle/protobuf/empty.proto\"d\n" +
+	"\x1bwello-account/v1/user.proto\x12\x0fuser.service.v1\x1a\x1bgoogle/protobuf/empty.proto\"d\n" +
 	"\x17GetSupportCountriesResp\x12\x14\n" +
 	"\x05count\x18\x01 \x01(\x03R\x05count\x123\n" +
 	"\x04list\x18\x02 \x03(\v2\x1f.user.service.v1.MobileCodeItemR\x04list\"\x8b\x01\n" +
@@ -3921,23 +3921,23 @@ const file_wello_account_user_proto_rawDesc = "" +
 	"\x15UserDeleteSavedWallet\x12).user.service.v1.UserDeleteSavedWalletReq\x1a\x16.google.protobuf.Empty\"\x00\x12\\\n" +
 	"\x15UserUpdateSavedWallet\x12).user.service.v1.UserUpdateSavedWalletReq\x1a\x16.google.protobuf.Empty\"\x00\x12H\n" +
 	"\vBindInviter\x12\x1f.user.service.v1.BindInviterReq\x1a\x16.google.protobuf.Empty\"\x00\x12Y\n" +
-	"\x13GetSupportCountries\x12\x16.google.protobuf.Empty\x1a(.user.service.v1.GetSupportCountriesResp\"\x00B@Z>github.com/liberty-group-tech/wello-proto/wello-account;userv1b\x06proto3"
+	"\x13GetSupportCountries\x12\x16.google.protobuf.Empty\x1a(.user.service.v1.GetSupportCountriesResp\"\x00BCZAgithub.com/liberty-group-tech/wello-proto/wello-account/v1;userv1b\x06proto3"
 
 var (
-	file_wello_account_user_proto_rawDescOnce sync.Once
-	file_wello_account_user_proto_rawDescData []byte
+	file_wello_account_v1_user_proto_rawDescOnce sync.Once
+	file_wello_account_v1_user_proto_rawDescData []byte
 )
 
-func file_wello_account_user_proto_rawDescGZIP() []byte {
-	file_wello_account_user_proto_rawDescOnce.Do(func() {
-		file_wello_account_user_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_wello_account_user_proto_rawDesc), len(file_wello_account_user_proto_rawDesc)))
+func file_wello_account_v1_user_proto_rawDescGZIP() []byte {
+	file_wello_account_v1_user_proto_rawDescOnce.Do(func() {
+		file_wello_account_v1_user_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_wello_account_v1_user_proto_rawDesc), len(file_wello_account_v1_user_proto_rawDesc)))
 	})
-	return file_wello_account_user_proto_rawDescData
+	return file_wello_account_v1_user_proto_rawDescData
 }
 
-var file_wello_account_user_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_wello_account_user_proto_msgTypes = make([]protoimpl.MessageInfo, 57)
-var file_wello_account_user_proto_goTypes = []any{
+var file_wello_account_v1_user_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_wello_account_v1_user_proto_msgTypes = make([]protoimpl.MessageInfo, 57)
+var file_wello_account_v1_user_proto_goTypes = []any{
 	(UserStatus)(0),                   // 0: user.service.v1.UserStatus
 	(*GetSupportCountriesResp)(nil),   // 1: user.service.v1.GetSupportCountriesResp
 	(*MobileCodeItem)(nil),            // 2: user.service.v1.MobileCodeItem
@@ -3998,7 +3998,7 @@ var file_wello_account_user_proto_goTypes = []any{
 	(*BindInviterReq)(nil),            // 57: user.service.v1.BindInviterReq
 	(*emptypb.Empty)(nil),             // 58: google.protobuf.Empty
 }
-var file_wello_account_user_proto_depIdxs = []int32{
+var file_wello_account_v1_user_proto_depIdxs = []int32{
 	2,  // 0: user.service.v1.GetSupportCountriesResp.list:type_name -> user.service.v1.MobileCodeItem
 	0,  // 1: user.service.v1.GetUserInfoReply.status:type_name -> user.service.v1.UserStatus
 	15, // 2: user.service.v1.QueryUserInfoReply.list:type_name -> user.service.v1.GetUserInfoReply
@@ -4089,27 +4089,27 @@ var file_wello_account_user_proto_depIdxs = []int32{
 	0,  // [0:5] is the sub-list for field type_name
 }
 
-func init() { file_wello_account_user_proto_init() }
-func file_wello_account_user_proto_init() {
-	if File_wello_account_user_proto != nil {
+func init() { file_wello_account_v1_user_proto_init() }
+func file_wello_account_v1_user_proto_init() {
+	if File_wello_account_v1_user_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_wello_account_user_proto_rawDesc), len(file_wello_account_user_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_wello_account_v1_user_proto_rawDesc), len(file_wello_account_v1_user_proto_rawDesc)),
 			NumEnums:      1,
 			NumMessages:   57,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_wello_account_user_proto_goTypes,
-		DependencyIndexes: file_wello_account_user_proto_depIdxs,
-		EnumInfos:         file_wello_account_user_proto_enumTypes,
-		MessageInfos:      file_wello_account_user_proto_msgTypes,
+		GoTypes:           file_wello_account_v1_user_proto_goTypes,
+		DependencyIndexes: file_wello_account_v1_user_proto_depIdxs,
+		EnumInfos:         file_wello_account_v1_user_proto_enumTypes,
+		MessageInfos:      file_wello_account_v1_user_proto_msgTypes,
 	}.Build()
-	File_wello_account_user_proto = out.File
-	file_wello_account_user_proto_goTypes = nil
-	file_wello_account_user_proto_depIdxs = nil
+	File_wello_account_v1_user_proto = out.File
+	file_wello_account_v1_user_proto_goTypes = nil
+	file_wello_account_v1_user_proto_depIdxs = nil
 }

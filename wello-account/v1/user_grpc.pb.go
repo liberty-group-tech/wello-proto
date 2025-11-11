@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.33.0
-// source: wello-account/user.proto
+// source: wello-account/v1/user.proto
 
 package userv1
 
@@ -1638,5 +1638,5 @@ var User_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "wello-account/user.proto",
+	Metadata: "wello-account/v1/user.proto",
 }
