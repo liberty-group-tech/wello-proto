@@ -3,7 +3,9 @@ module github.com/liberty-group-tech/wello-proto
 go 1.24.0
 
 require (
+	github.com/envoyproxy/protoc-gen-validate v1.2.1
 	github.com/go-kratos/kratos/v2 v2.9.1
+	google.golang.org/genproto v0.0.0-20231212172506-995d672761c0
 	google.golang.org/genproto/googleapis/api v0.0.0-20251103181224-f26f9409b101
 	google.golang.org/grpc v1.76.0
 	google.golang.org/protobuf v1.36.10

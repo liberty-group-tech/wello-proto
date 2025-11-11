@@ -7,494 +7,443 @@ option go_package = "github.com/liberty-group-tech/wello-proto/wello-account;use
 import "google/protobuf/empty.proto";
 
 service User {
-// 注册登录流程第一步(主要是选择登录注册的方式)
-rpc SignFlowCreate (SignFlowCreateReq) returns (SignFlowCreateResp) {}
-// 注册登录流程第一步(发送对应的验证码SMS/Email)
-rpc SignFlowSend (SignFlowSendReq) returns (google.protobuf.Empty) {}
-// 注册登录流程第三步(验证验证码&登录注册账号)
-rpc SignFlowValidate (SignFlowValidateReq) returns (SignFlowValidateResp) {}
-// 检查是否登录
-rpc CheckAccessToken (CheckAccessTokenReq) returns (CheckAccessTokenReply) {}
-// 刷新登录Token时长
-rpc GetAccessToken (GetAccessTokenReq) returns (GetAccessTokenReply) {}
-// 获取用户简单信息
-rpc GetUserInfo (GetUserInfoReq) returns (GetUserInfoReply) {}
-// 批量查询指定用户信息
-rpc QueryUserInfo (QueryUserInfoReq) returns (QueryUserInfoReply) {}
-// 获取用户手机号
-rpc GetUserMobile (GetUserMobileReq) returns (GetUserMobileReply) {}
-// 获取用户邮箱
-rpc GetUserEmail (GetUserEmailReq) returns (GetUserEmailReply) {}
-// 检查Username是否存在
-rpc CheckUsername (CheckUsernameReq) returns (google.protobuf.Empty) {}
-// 设置Username
-rpc SetupUsername (SetupUsernameReq) returns (google.protobuf.Empty) {}
-// 设置昵称
-rpc SetupNickname (SetupNicknameReq) returns (google.protobuf.Empty) {}
-// 设置DOB
-rpc SetupDob (SetupDobReq) returns (google.protobuf.Empty) {}
-// 设置头像
-rpc SetupAvatar (SetupAvatarReq) returns (google.protobuf.Empty) {}
-// 更新FiatCurrency
-rpc UpdateFiatCurrency (UpdateFiatCurrencyReq) returns (google.protobuf.Empty) {}
-// 更新NotificationOn
-rpc UpdateNotificationOn (UpdateNotificationOnReq) returns (google.protobuf.Empty) {}
-// 设置账号密码(旧密码)
-rpc SetupPassword (SetupPasswordReq) returns (google.protobuf.Empty) {}
-// 绑定邮箱第一步(创建Flow)
-rpc BindEmailFlowCreate (BindEmailFlowCreateReq) returns (BindEmailFlowCreateReply) {}
-// 绑定邮箱第二步(发送邮箱验证码)
-rpc BindEmailFlowSend (BindEmailFlowSendReq) returns (google.protobuf.Empty) {}
-// 绑定邮箱第三步(验证验证码)
-rpc BindEmailFlowValidate (BindEmailFlowValidateReq) returns (google.protobuf.Empty) {}
-// 绑定OAuth第一步(创建Flow)
-rpc BindOAuthFlowCreate (BindOAuthFlowCreateReq) returns (BindOAuthFlowCreateReply) {}
-// 绑定OAuth第二步(验证Token并绑定)
-rpc BindOAuthFlowValidate (BindOAuthFlowValidateReq) returns (google.protobuf.Empty) {}
-// 获取用户KYC简单信息
-rpc GetUserKycInfo (GetUserKycInfoReq) returns (GetUserKycInfoReply) {}
-// 获取用户KYC详细信息
-rpc GetUserKycDetailInfo (GetUserKycDetailInfoReq) returns (GetUserKycDetailInfoReply) {}
-// 获取KYC初始化用的AccessToken
-rpc GetKycAccessToken (GetKycAccessTokenReq) returns (GetKycAccessTokenReply) {}
-// 上传KYC结果
-rpc UploadKycResult (UploadKycResultReq) returns (google.protobuf.Empty) {}
-// 更新用户KYC信息(Task用)
-rpc UpdateKycDetailPending (google.protobuf.Empty) returns (google.protobuf.Empty) {}
-rpc UpdateKycDetailAll (google.protobuf.Empty) returns (google.protobuf.Empty) {}
-// 退出登录
-rpc Logout (LogoutReq) returns (google.protobuf.Empty) {}
-// 注销账户预检查
-rpc CloseAccountPreCheck (CloseAccountPreCheckReq) returns (CloseAccountPreCheckResp) {}
-// 注销账户
-rpc CloseAccount (CloseAccountReq) returns (google.protobuf.Empty) {}
-// 获取用户的UserLimits
-rpc GetUserLimits (GetUserLimitsReq) returns (GetUserLimitsResp) {}
-// 获取用户SavedWallet列表
-rpc GetUserSavedWallets (GetUserSavedWalletsReq) returns (GetUserSavedWalletsResp) {}
-// 用户新增SavedWallet
-rpc UserAddSavedWallet (UserAddSavedWalletReq) returns (google.protobuf.Empty) {}
-// 用户删除SavedWallet
-rpc UserDeleteSavedWallet (UserDeleteSavedWalletReq) returns (google.protobuf.Empty) {}
-// 用户编辑SavedWallet
-rpc UserUpdateSavedWallet (UserUpdateSavedWalletReq) returns (google.protobuf.Empty) {}
-// 绑定邀请人
-rpc BindInviter (BindInviterReq) returns (google.protobuf.Empty) {}
-// 获取用户邀请人数
-rpc GetUserInviteCount (GetUserInviteCountReq) returns (GetUserInviteCountResp) {}
-// 获取支持的国家和手机区号
-rpc GetSupportCountries (google.protobuf.Empty) returns (GetSupportCountriesResp) {}
-}
-
-message GetSupportCountriesResp {
-int64 count = 1;
-repeated MobileCodeItem list = 2;
-}
-
-message MobileCodeItem {
-string mobile_code = 1; // 手机区号
-string flag = 2; // 对应的国家Logo
-string country_code = 3;
-string country_name = 4;
-}
-
-message SignFlowCreateReq {
-string sign_flow_type = 1;
-string mobile_code = 2;
-string mobile_number = 3;
-string email = 4;
-string oauth_platform = 5;
-string locale = 6;
-string client_type = 7;
-string ip = 8;
-string country_code = 9;
-}
-
-message SignFlowCreateResp {
-string flow_id = 1; // FlowID
-}
-
-message SignFlowSendReq {
-string flow_id = 1;
-}
-
-message SignFlowValidateReq {
-string flow_id = 1;
-string data = 2;
-string user_agent = 3;
-string forter_mobile_uid = 4;
-string brand = 5;
-string device_model = 6;
-string os_version = 7;
-int64 app_build = 8;
-string app_version = 9;
-}
-
-message SignFlowValidateResp {
-string refresh_token = 1;
-string access_token = 2;
-bool signup = 3;
-}
-
-message CheckAccessTokenReq {
-string access_token = 1;
-}
-
-message CheckAccessTokenReply {
-uint64 user_id = 1;
-bool ok = 2;
-}
-
-message GetAccessTokenReq {
-string refresh_token = 1;
-}
-
-message GetAccessTokenReply {
-string access_token = 1;
-}
-
-message GetUserInfoReq {
-uint64 user_id = 1;
-string internal_user_id = 2;
-string external_user_id = 3;
-}
-
-message GetUserInfoReply {
-uint64 user_id = 1;
-UserStatus status = 2;
-string locale = 3;
-string username = 4;
-string nickname = 5;
-string avatar = 6;
-string fiat_currency = 7;
-bool password = 8;
-string internal_user_id = 9;
-string external_user_id = 10;
-string dob = 11;
-string email = 12;
-string mobile = 13;
-bool notification_on = 14;
-string intercom_hmac_ios = 15;
-string intercom_hmac_android = 16;
-string invite_code = 17;
-}
-
-message QueryUserInfoReq {
-repeated uint64 user_ids = 1;
-}
-
-message QueryUserInfoReply {
-repeated GetUserInfoReply list = 1;
-}
-
-enum UserStatus {
-Normal = 0;
-Disabled = 1;
-Deleted = 2;
-}
-
-message GetUserMobileReq {
-uint64 user_id = 1;
-}
-
-message GetUserMobileReply {
-uint64 user_id = 1;
-string mobile_code = 2;
-string mobile_number = 3;
-}
-
-message GetUserEmailReq {
-uint64 user_id = 1;
-}
-
-message GetUserEmailReply {
-uint64 user_id = 1;
-string email = 2;
-}
-
-message CheckUsernameReq {
-uint64 user_id = 1;
-string username = 2;
-}
-
-message SetupUsernameReq {
-uint64 user_id = 1;
-string username = 2;
-}
-
-message SetupNicknameReq {
-uint64 user_id = 1;
-string nickname = 2;
-}
-
-message SetupDobReq {
-uint64 user_id = 1;
-string dob = 2;
-}
-
-message SetupAvatarReq {
-uint64 user_id = 1;
-string avatar = 2;
-}
-
-message UpdateFiatCurrencyReq {
-uint64 user_id = 1;
-string fiat_currency = 2;
-}
-
-message UpdateNotificationOnReq {
-uint64 user_id = 1;
-bool notification_on = 2;
-}
-
-message SetupPasswordReq {
-uint64 user_id = 1;
-string old_password = 2;
-string new_password = 3;
-}
-
-message BindEmailFlowCreateReq {
-uint64 user_id = 1;
-string email = 2;
-}
-
-message BindEmailFlowCreateReply {
-string flow_id = 1;
-}
-
-message BindEmailFlowSendReq {
-string flow_id = 1;
-}
-
-message BindEmailFlowValidateReq {
-string flow_id = 1;
-string code = 2;
-}
-
-message BindOAuthFlowCreateReq {
-uint64 user_id = 1;
-string platform = 2;
-}
-
-message BindOAuthFlowCreateReply {
-string flow_id = 1;
-}
-
-message BindOAuthFlowValidateReq {
-string flow_id = 1;
-string token = 2;
-}
-
-message GetUserKycInfoReq {
-uint64 user_id = 1;
-}
-
-message GetUserKycInfoReply {
-uint64 user_id = 1;
-uint64 kyc_type = 2;
-uint32 kyc_level = 3;
-string kyc_status = 4;
-string edd_tag = 5;
-string remark = 6;
-}
-
-message GetUserKycDetailInfoReq {
-uint64 user_id = 1;
-}
-
-message GetUserKycDetailInfoReply {
-uint64 user_id = 1;
-uint64 kyc_type = 2;
-uint32 kyc_level = 3;
-string kyc_status = 4;
-string edd_tag = 5;
-string next_step = 6;
-KycDetailInfo detail_info = 7;
-}
-
-message KycDetailInfo {
-string first_name = 1;
-string middle_name = 2;
-string last_name = 3;
-string gender = 4;
-string dob = 5;
-string country = 6;
-string state = 7;
-string city = 8;
-string address = 9;
-string preferred_address = 10;
-string alternative_address = 11;
-string postal_code = 12;
-string id_type = 13;
-string id_number = 14;
-string id_expired_date = 15;
-string kyc_vendor = 16;
-string remark = 17;
-uint64 apply_times = 18;
-string email = 19;
-}
-
-message GetKycAccessTokenReq {
-uint64 user_id = 1;
-}
-
-message GetKycAccessTokenReply {
-string token = 1;
-}
-
-message UploadKycResultReq {
-uint64 user_id = 1;
-string next_step = 2;
-string review_status = 3;
-}
-
-message LogoutReq {
-uint64 user_id = 1;
-string refresh_token = 2;
-}
-
-message CloseAccountPreCheckReq {
-uint64 user_id = 1;
-}
-
-message CloseAccountPreCheckResp {
-bool can_delete = 1;
-bool has_orders = 2;
-}
-
-message CloseAccountReq {
-uint64 user_id = 1;
-string reason = 2;
-}
-
-message GetUserLimitsReq {
-uint64 user_id = 1;
-}
-
-message GetUserLimitsResp {
-string currency = 1;
-string deposit_daily = 2;
-string deposit_monthly = 3;
-string deposit_yearly = 4;
-string deposit_lifetime = 5;
-string withdraw_daily = 6;
-string withdraw_monthly = 7;
-string withdraw_yearly = 8;
-string withdraw_lifetime = 9;
-string transaction_daily = 10;
-string transaction_weekly = 11;
-string transaction_monthly = 12;
-}
-
-message GetUserSavedWalletsReq {
-uint64 user_id = 1;
-int64 offset = 2;
-int64 limit = 3;
-}
-
-message GetUserSavedWalletsResp {
-int64 count = 1;
-repeated SavedWallet list = 2;
-}
-
-message SavedWallet {
-uint64 id = 1;
-uint64 user_id = 2;
-string network_type = 3;
-string address = 4;
-string name = 5;
-}
-
-message UserAddSavedWalletReq {
-uint64 user_id = 1;
-string name = 2;
-string address = 3;
-string network_type = 4;
-}
-
-message UserDeleteSavedWalletReq {
-uint64 user_id = 1;
-uint64 id = 2;
-}
-
-message UserUpdateSavedWalletReq {
-uint64 user_id = 1;
-uint64 id = 2;
-string name = 3;
-string address = 4;
-string network_type = 5;
-}
-
-message BindInviterReq {
-uint64 user_id = 1;
-string invite_code = 2;
-}
-
-message GetUserInviteCountReq {
-uint64 user_id = 1;
-}
-
-message GetUserInviteCountResp {
-uint64 count = 1;
-string max_reward = 2; // 最大奖励
-}
-
-message GetUserListReq {
-uint64 offset = 1;
-uint64 limit = 2;
-bool omit_count = 3;
-uint64 user_id = 4;
-uint64 status = 5;
-int64 start_time = 6;
-int64 end_time = 7;
-string email = 8;
-string mobile_number = 9;
-}
-
-message GetUserListResp {
-int64 count = 1;
-repeated UserDetailInfo list = 2;
-}
-
-message UserDetailInfo {
-uint64 user_id = 1;
-string username = 2;
-string nickname = 3;
-string avatar = 4;
-string fiat_currency = 5;
-bool notification_on = 6;
-string locale = 7;
-string dob = 8;
-int64 created_at = 9;
-int64 updated_at = 10;
-int64 deleted_at = 11;
-uint64 status = 12;
-string email = 13;
-string mobile_code = 14;
-string mobile_number = 15;
-string country_code = 16;
-string internal_user_id = 17;
-string external_user_id = 18;
-string invite_code = 19;
-uint64 inviter = 20;
-}
-
-message GetUserDetailInfoReq {
-uint64 user_id = 1;
-}
-
-message GetUserKycListReq {
-uint64 offset = 1;
-uint64 limit = 2;
-bool omit_count = 3;
-uint64 user_id = 4;
-int64 start_time = 6;
-int64 end_time = 7;
-string email = 8;
-string mobile_number = 9;
-}
-
-message GetUserKycListResp {
-int64 count = 1;
-repeated GetUserKycDetailInfoReply list = 2;
-}
+    // 注册登录流程第一步(主要是选择登录注册的方式)
+    rpc SignFlowCreate (SignFlowCreateReq) returns (SignFlowCreateResp) {}
+    // 注册登录流程第一步(发送对应的验证码SMS/Email)
+    rpc SignFlowSend (SignFlowSendReq) returns (google.protobuf.Empty) {}
+    // 注册登录流程第三步(验证验证码&登录注册账号)
+    rpc SignFlowValidate (SignFlowValidateReq) returns (SignFlowValidateResp) {}
+    // Login
+    rpc LoginByPassword (LoginByPasswordReq) returns (LoginByPasswordResp) {}
+    // 检查是否登录
+    rpc CheckAccessToken (CheckAccessTokenReq) returns (CheckAccessTokenReply) {}
+    // 刷新登录Token时长
+    rpc GetAccessToken (GetAccessTokenReq) returns (GetAccessTokenReply) {}
+    // 获取用户简单信息
+    rpc GetUserInfo (GetUserInfoReq) returns (GetUserInfoReply) {}
+    // 批量查询指定用户信息
+    rpc QueryUserInfo (QueryUserInfoReq) returns (QueryUserInfoReply) {}
+    // 获取用户手机号
+    rpc GetUserMobile (GetUserMobileReq) returns (GetUserMobileReply) {}
+    // 获取用户邮箱
+    rpc GetUserEmail (GetUserEmailReq) returns (GetUserEmailReply) {}
+    // 检查Username是否存在
+    rpc CheckUsername (CheckUsernameReq) returns (google.protobuf.Empty) {}
+    // 设置Username
+    rpc SetupUsername (SetupUsernameReq) returns (google.protobuf.Empty) {}
+    // 设置昵称
+    rpc SetupNickname (SetupNicknameReq) returns (google.protobuf.Empty) {}
+    // 设置DOB
+    rpc SetupDob (SetupDobReq) returns (google.protobuf.Empty) {}
+    // 设置头像
+    rpc SetupAvatar (SetupAvatarReq) returns (google.protobuf.Empty) {}
+    // 更新FiatCurrency
+    rpc UpdateFiatCurrency (UpdateFiatCurrencyReq) returns (google.protobuf.Empty) {}
+    // 更新NotificationOn
+    rpc UpdateNotificationOn (UpdateNotificationOnReq) returns (google.protobuf.Empty) {}
+    // 设置账号密码(旧密码)
+    rpc SetupPassword (SetupPasswordReq) returns (google.protobuf.Empty) {}
+    // 绑定邮箱第一步(创建Flow)
+    rpc BindEmailFlowCreate (BindEmailFlowCreateReq) returns (BindEmailFlowCreateReply) {}
+    // 绑定邮箱第二步(发送邮箱验证码)
+    rpc BindEmailFlowSend (BindEmailFlowSendReq) returns (google.protobuf.Empty) {}
+    // 绑定邮箱第三步(验证验证码)
+    rpc BindEmailFlowValidate (BindEmailFlowValidateReq) returns (google.protobuf.Empty) {}
+    // 绑定OAuth第一步(创建Flow)
+    rpc BindOAuthFlowCreate (BindOAuthFlowCreateReq) returns (BindOAuthFlowCreateReply) {}
+    // 绑定OAuth第二步(验证Token并绑定)
+    rpc BindOAuthFlowValidate (BindOAuthFlowValidateReq) returns (google.protobuf.Empty) {}
+    // 获取用户KYC简单信息
+    rpc GetUserKycInfo (GetUserKycInfoReq) returns (GetUserKycInfoReply) {}
+    // 获取用户KYC详细信息
+    rpc GetUserKycDetailInfo (GetUserKycDetailInfoReq) returns (GetUserKycDetailInfoReply) {}
+    // 获取KYC初始化用的AccessToken
+    rpc GetKycAccessToken (GetKycAccessTokenReq) returns (GetKycAccessTokenReply) {}
+    // 上传KYC结果
+    rpc UploadKycResult (UploadKycResultReq) returns (google.protobuf.Empty) {}
+    // 更新用户KYC信息(Task用)
+    rpc UpdateKycDetailPending (google.protobuf.Empty) returns (google.protobuf.Empty) {}
+    rpc UpdateKycDetailAll (google.protobuf.Empty) returns (google.protobuf.Empty) {}
+    // 退出登录
+    rpc Logout (LogoutReq) returns (google.protobuf.Empty) {}
+    // 注销账户预检查
+    rpc CloseAccountPreCheck (CloseAccountPreCheckReq) returns (CloseAccountPreCheckResp) {}
+    // 注销账户
+    rpc CloseAccount (CloseAccountReq) returns (google.protobuf.Empty) {}
+    // 获取用户的UserLimits
+    rpc GetUserLimits (GetUserLimitsReq) returns (GetUserLimitsResp) {}
+    // 获取用户SavedWallet列表
+    rpc GetUserSavedWallets (GetUserSavedWalletsReq) returns (GetUserSavedWalletsResp) {}
+    // 用户新增SavedWallet
+    rpc UserAddSavedWallet (UserAddSavedWalletReq) returns (google.protobuf.Empty) {}
+    // 用户删除SavedWallet
+    rpc UserDeleteSavedWallet (UserDeleteSavedWalletReq) returns (google.protobuf.Empty) {}
+    // 用户编辑SavedWallet
+    rpc UserUpdateSavedWallet (UserUpdateSavedWalletReq) returns (google.protobuf.Empty) {}
+    // 绑定邀请人
+    rpc BindInviter (BindInviterReq) returns (google.protobuf.Empty) {}
+    // 获取支持的国家和手机区号
+    rpc GetSupportCountries (google.protobuf.Empty) returns (GetSupportCountriesResp) {}
+  }
+  
+  message GetSupportCountriesResp {
+    int64 count = 1;
+    repeated MobileCodeItem list = 2;
+  }
+  
+  message MobileCodeItem {
+    string mobile_code = 1; // 手机区号
+    string flag = 2; // 对应的国家Logo
+    string country_code = 3;
+    string country_name = 4;
+  }
+  
+  message SignFlowCreateReq {
+    string sign_flow_type = 1;
+    string mobile_code = 2;
+    string mobile_number = 3;
+    string email = 4;
+    string oauth_platform = 5;
+    string locale = 6;
+    string client_type = 7;
+    string ip = 8;
+    string country_code = 9;
+  }
+  
+  message SignFlowCreateResp {
+    string flow_id = 1; // FlowID
+  }
+  
+  message SignFlowSendReq {
+    string flow_id = 1;
+  }
+  
+  message SignFlowValidateReq {
+    string flow_id = 1;
+    string data = 2;
+    string user_agent = 3;
+    string forter_mobile_uid = 4;
+    string brand = 5;
+    string device_model = 6;
+    string os_version = 7;
+    int64 app_build = 8;
+    string app_version = 9;
+  }
+  
+  message SignFlowValidateResp {
+    string refresh_token = 1;
+    string access_token = 2;
+    bool signup = 3;
+  }
+  
+  message LoginByPasswordReq {
+    string mobile_code = 1;
+    string mobile_number = 2;
+    string country_code = 3;
+    string email = 4;
+    string locale = 5;
+    string user_agent = 6;
+    string client_type = 7;
+    string ip = 8;
+    string forter_mobile_uid = 9;
+    string password = 10;
+  }
+  
+  message LoginByPasswordResp {
+    string access_token = 1;
+    string refresh_token = 2;
+  }
+  
+  message CheckAccessTokenReq {
+    string access_token = 1;
+  }
+  
+  message CheckAccessTokenReply {
+    uint64 user_id = 1;
+    bool ok = 2;
+  }
+  
+  message GetAccessTokenReq {
+    string refresh_token = 1;
+  }
+  
+  message GetAccessTokenReply {
+    string access_token = 1;
+  }
+  
+  message GetUserInfoReq {
+    uint64 user_id = 1;
+    string internal_user_id = 2;
+    string external_user_id = 3;
+  }
+  
+  message GetUserInfoReply {
+    uint64 user_id = 1;
+    UserStatus status = 2;
+    string locale = 3;
+    string username = 4;
+    string nickname = 5;
+    string avatar = 6;
+    string fiat_currency = 7;
+    bool password = 8;
+    string internal_user_id = 9;
+    string external_user_id = 10;
+    string dob = 11;
+    string email = 12;
+    string mobile = 13;
+    bool notification_on = 14;
+    string intercom_hmac_ios = 15;
+    string intercom_hmac_android = 16;
+    string invite_code = 17;
+  }
+  
+  message QueryUserInfoReq {
+    repeated uint64 user_ids = 1;
+  }
+  
+  message QueryUserInfoReply {
+    repeated GetUserInfoReply list = 1;
+  }
+  
+  enum UserStatus {
+    Normal = 0;
+    Disabled = 1;
+    Deleted = 2;
+  }
+  
+  message GetUserMobileReq {
+    uint64 user_id = 1;
+  }
+  
+  message GetUserMobileReply {
+    uint64 user_id = 1;
+    string mobile_code = 2;
+    string mobile_number = 3;
+  }
+  
+  message GetUserEmailReq {
+    uint64 user_id = 1;
+  }
+  
+  message GetUserEmailReply {
+    uint64 user_id = 1;
+    string email = 2;
+  }
+  
+  message CheckUsernameReq {
+    uint64 user_id = 1;
+    string username = 2;
+  }
+  
+  message SetupUsernameReq {
+    uint64 user_id = 1;
+    string username = 2;
+  }
+  
+  message SetupNicknameReq {
+    uint64 user_id = 1;
+    string nickname = 2;
+  }
+  
+  message SetupDobReq {
+    uint64 user_id = 1;
+    string dob = 2;
+  }
+  
+  message SetupAvatarReq {
+    uint64 user_id = 1;
+    string avatar = 2;
+  }
+  
+  message UpdateFiatCurrencyReq {
+    uint64 user_id = 1;
+    string fiat_currency = 2;
+  }
+  
+  message UpdateNotificationOnReq {
+    uint64 user_id = 1;
+    bool notification_on = 2;
+  }
+  
+  message SetupPasswordReq {
+    uint64 user_id = 1;
+    string old_password = 2;
+    string new_password = 3;
+  }
+  
+  message BindEmailFlowCreateReq {
+    uint64 user_id = 1;
+    string email = 2;
+  }
+  
+  message BindEmailFlowCreateReply {
+    string flow_id = 1;
+  }
+  
+  message BindEmailFlowSendReq {
+    string flow_id = 1;
+  }
+  
+  message BindEmailFlowValidateReq {
+    string flow_id = 1;
+    string code = 2;
+  }
+  
+  message BindOAuthFlowCreateReq {
+    uint64 user_id = 1;
+    string platform = 2;
+  }
+  
+  message BindOAuthFlowCreateReply {
+    string flow_id = 1;
+  }
+  
+  message BindOAuthFlowValidateReq {
+    string flow_id = 1;
+    string token = 2;
+  }
+  
+  message GetUserKycInfoReq {
+    uint64 user_id = 1;
+  }
+  
+  message GetUserKycInfoReply {
+    uint64 user_id = 1;
+    uint64 kyc_type = 2;
+    uint32 kyc_level = 3;
+    string kyc_status = 4;
+    string edd_tag = 5;
+    string remark = 6;
+  }
+  
+  message GetUserKycDetailInfoReq {
+    uint64 user_id = 1;
+  }
+  
+  message GetUserKycDetailInfoReply {
+    uint64 user_id = 1;
+    uint64 kyc_type = 2;
+    uint32 kyc_level = 3;
+    string kyc_status = 4;
+    string edd_tag = 5;
+    string next_step = 6;
+    KycDetailInfo detail_info = 7;
+  }
+  
+  message KycDetailInfo {
+    string first_name = 1;
+    string middle_name = 2;
+    string last_name = 3;
+    string gender = 4;
+    string dob = 5;
+    string country = 6;
+    string state = 7;
+    string city = 8;
+    string address = 9;
+    string preferred_address = 10;
+    string alternative_address = 11;
+    string postal_code = 12;
+    string id_type = 13;
+    string id_number = 14;
+    string id_expired_date = 15;
+    string kyc_vendor = 16;
+    string remark = 17;
+    uint64 apply_times = 18;
+    string email = 19;
+  }
+  
+  message GetKycAccessTokenReq {
+    uint64 user_id = 1;
+  }
+  
+  message GetKycAccessTokenReply {
+    string token = 1;
+  }
+  
+  message UploadKycResultReq {
+    uint64 user_id = 1;
+    string next_step = 2;
+    string review_status = 3;
+  }
+  
+  message LogoutReq {
+    uint64 user_id = 1;
+    string refresh_token = 2;
+  }
+  
+  message CloseAccountPreCheckReq {
+    uint64 user_id = 1;
+  }
+  
+  message CloseAccountPreCheckResp {
+    bool can_delete = 1;
+    bool has_orders = 2;
+  }
+  
+  message CloseAccountReq {
+    uint64 user_id = 1;
+    string reason = 2;
+  }
+  
+  message GetUserLimitsReq {
+    uint64 user_id = 1;
+  }
+  
+  message GetUserLimitsResp {
+    string currency = 1;
+    string deposit_daily = 2;
+    string deposit_monthly = 3;
+    string deposit_yearly = 4;
+    string deposit_lifetime = 5;
+    string withdraw_daily = 6;
+    string withdraw_monthly = 7;
+    string withdraw_yearly = 8;
+    string withdraw_lifetime = 9;
+    string transaction_daily = 10;
+    string transaction_weekly = 11;
+    string transaction_monthly = 12;
+  }
+  
+  message GetUserSavedWalletsReq {
+    uint64 user_id = 1;
+    int64 offset = 2;
+    int64 limit = 3;
+  }
+  
+  message GetUserSavedWalletsResp {
+    int64 count = 1;
+    repeated SavedWallet list = 2;
+  }
+  
+  message SavedWallet {
+    uint64 id = 1;
+    uint64 user_id = 2;
+    string network_type = 3;
+    string address = 4;
+    string name = 5;
+  }
+  
+  message UserAddSavedWalletReq {
+    uint64 user_id = 1;
+    string name = 2;
+    string address = 3;
+    string network_type = 4;
+  }
+  
+  message UserDeleteSavedWalletReq {
+    uint64 user_id = 1;
+    uint64 id = 2;
+  }
+  
+  message UserUpdateSavedWalletReq {
+    uint64 user_id = 1;
+    uint64 id = 2;
+    string name = 3;
+    string address = 4;
+    string network_type = 5;
+  }
+  
+  message BindInviterReq {
+    uint64 user_id = 1;
+    string invite_code = 2;
+  }

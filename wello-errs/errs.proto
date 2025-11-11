@@ -74,6 +74,7 @@ enum ErrorReason {
   UserTurnkeyCallError = 200042; // Turnkey调用失败
   UserTurnkeyResultError = 200043; // Turnkey返回结果错误
   UserAlreadyExist = 200044; // 用户已经存在
+  UserAccountOrPasswordError = 200045; // 账号或密码错误
 
   // Crypto模块错误
   CryptoNodeEndpointNotFound = 300001; // 节点Endpoint找不到或者没有活跃的(5min)
