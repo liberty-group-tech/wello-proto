@@ -4,86 +4,282 @@ package user.service.v1;
 
 option go_package = "github.com/liberty-group-tech/wello-proto/wello-account/v1;userv1";
 
+import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 
 service User {
     // 注册登录流程第一步(主要是选择登录注册的方式)
-    rpc SignFlowCreate (SignFlowCreateReq) returns (SignFlowCreateResp) {}
+    rpc SignFlowCreate (SignFlowCreateReq) returns (SignFlowCreateResp) {
+      option (google.api.http) = {
+        post: "/account-service/v1/sign-flow-create"
+        body: "*"
+      };
+    }
     // 注册登录流程第一步(发送对应的验证码SMS/Email)
-    rpc SignFlowSend (SignFlowSendReq) returns (google.protobuf.Empty) {}
+    rpc SignFlowSend (SignFlowSendReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/sign-flow-send"
+        body: "*"
+      };
+    }
     // 注册登录流程第三步(验证验证码&登录注册账号)
-    rpc SignFlowValidate (SignFlowValidateReq) returns (SignFlowValidateResp) {}
+    rpc SignFlowValidate (SignFlowValidateReq) returns (SignFlowValidateResp) {
+      option (google.api.http) = {
+        post: "/account-service/v1/sign-flow-validate"
+        body: "*"
+      };
+    }
     // Login
-    rpc LoginByPassword (LoginByPasswordReq) returns (LoginByPasswordResp) {}
+    rpc LoginByPassword (LoginByPasswordReq) returns (LoginByPasswordResp) {
+      option (google.api.http) = {
+        post: "/account-service/v1/login-by-password"
+        body: "*"
+      };
+    }
     // 检查是否登录
-    rpc CheckAccessToken (CheckAccessTokenReq) returns (CheckAccessTokenReply) {}
+    rpc CheckAccessToken (CheckAccessTokenReq) returns (CheckAccessTokenReply) {
+      option (google.api.http) = {
+        post: "/account-service/v1/check-access-token"
+        body: "*"
+      };
+    }
     // 刷新登录Token时长
-    rpc GetAccessToken (GetAccessTokenReq) returns (GetAccessTokenReply) {}
+    rpc GetAccessToken (GetAccessTokenReq) returns (GetAccessTokenReply) {
+      option (google.api.http) = {
+        post: "/account-service/v1/get-access-token"
+        body: "*"
+      };
+    }
     // 获取用户简单信息
-    rpc GetUserInfo (GetUserInfoReq) returns (GetUserInfoReply) {}
+    rpc GetUserInfo (GetUserInfoReq) returns (GetUserInfoReply) {
+      option (google.api.http) = {
+        post: "/account-service/v1/get-user-info"
+        body: "*"
+      };
+    }
     // 批量查询指定用户信息
-    rpc QueryUserInfo (QueryUserInfoReq) returns (QueryUserInfoReply) {}
+    rpc QueryUserInfo (QueryUserInfoReq) returns (QueryUserInfoReply) {
+      option (google.api.http) = {
+        post: "/account-service/v1/query-user-info"
+        body: "*"
+      };
+    }
     // 获取用户手机号
-    rpc GetUserMobile (GetUserMobileReq) returns (GetUserMobileReply) {}
+    rpc GetUserMobile (GetUserMobileReq) returns (GetUserMobileReply) {
+      option (google.api.http) = {
+        post: "/account-service/v1/get-user-mobile"
+        body: "*"
+      };
+    }
     // 获取用户邮箱
-    rpc GetUserEmail (GetUserEmailReq) returns (GetUserEmailReply) {}
+    rpc GetUserEmail (GetUserEmailReq) returns (GetUserEmailReply) {
+      option (google.api.http) = {
+        post: "/account-service/v1/get-user-email"
+        body: "*"
+      };
+    }
     // 检查Username是否存在
-    rpc CheckUsername (CheckUsernameReq) returns (google.protobuf.Empty) {}
+    rpc CheckUsername (CheckUsernameReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/check-username"
+        body: "*"
+      };
+    }
     // 设置Username
-    rpc SetupUsername (SetupUsernameReq) returns (google.protobuf.Empty) {}
+    rpc SetupUsername (SetupUsernameReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/setup-username"
+        body: "*"
+      };
+    }
     // 设置昵称
-    rpc SetupNickname (SetupNicknameReq) returns (google.protobuf.Empty) {}
+    rpc SetupNickname (SetupNicknameReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/setup-nickname"
+        body: "*"
+      };
+    }
     // 设置DOB
-    rpc SetupDob (SetupDobReq) returns (google.protobuf.Empty) {}
+    rpc SetupDob (SetupDobReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/setup-dob"
+        body: "*"
+      };
+    }
     // 设置头像
-    rpc SetupAvatar (SetupAvatarReq) returns (google.protobuf.Empty) {}
+    rpc SetupAvatar (SetupAvatarReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/setup-avatar"
+        body: "*"
+      };
+    }
     // 更新FiatCurrency
-    rpc UpdateFiatCurrency (UpdateFiatCurrencyReq) returns (google.protobuf.Empty) {}
+    rpc UpdateFiatCurrency (UpdateFiatCurrencyReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/update-fiat-currency"
+        body: "*"
+      };
+    }
     // 更新NotificationOn
-    rpc UpdateNotificationOn (UpdateNotificationOnReq) returns (google.protobuf.Empty) {}
+    rpc UpdateNotificationOn (UpdateNotificationOnReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/update-notification-on"
+        body: "*"
+      };
+    }
     // 设置账号密码(旧密码)
-    rpc SetupPassword (SetupPasswordReq) returns (google.protobuf.Empty) {}
+    rpc SetupPassword (SetupPasswordReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/setup-password"
+        body: "*"
+      };
+    }
     // 绑定邮箱第一步(创建Flow)
-    rpc BindEmailFlowCreate (BindEmailFlowCreateReq) returns (BindEmailFlowCreateReply) {}
+    rpc BindEmailFlowCreate (BindEmailFlowCreateReq) returns (BindEmailFlowCreateReply) {
+      option (google.api.http) = {
+        post: "/account-service/v1/bind-email-flow-create"
+        body: "*"
+      };
+    }
     // 绑定邮箱第二步(发送邮箱验证码)
-    rpc BindEmailFlowSend (BindEmailFlowSendReq) returns (google.protobuf.Empty) {}
+    rpc BindEmailFlowSend (BindEmailFlowSendReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/bind-email-flow-send"
+        body: "*"
+      };
+    }
     // 绑定邮箱第三步(验证验证码)
-    rpc BindEmailFlowValidate (BindEmailFlowValidateReq) returns (google.protobuf.Empty) {}
+    rpc BindEmailFlowValidate (BindEmailFlowValidateReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/bind-email-flow-validate"
+        body: "*"
+      };
+    }
     // 绑定OAuth第一步(创建Flow)
-    rpc BindOAuthFlowCreate (BindOAuthFlowCreateReq) returns (BindOAuthFlowCreateReply) {}
+    rpc BindOAuthFlowCreate (BindOAuthFlowCreateReq) returns (BindOAuthFlowCreateReply) {
+      option (google.api.http) = {
+        post: "/account-service/v1/bind-oauth-flow-create"
+        body: "*"
+      };
+    }
     // 绑定OAuth第二步(验证Token并绑定)
-    rpc BindOAuthFlowValidate (BindOAuthFlowValidateReq) returns (google.protobuf.Empty) {}
+    rpc BindOAuthFlowValidate (BindOAuthFlowValidateReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/bind-oauth-flow-validate"
+        body: "*"
+      };
+    }
     // 获取用户KYC简单信息
-    rpc GetUserKycInfo (GetUserKycInfoReq) returns (GetUserKycInfoReply) {}
+    rpc GetUserKycInfo (GetUserKycInfoReq) returns (GetUserKycInfoReply) {
+      option (google.api.http) = {
+        post: "/account-service/v1/get-user-kyc-info"
+        body: "*"
+      };
+    }
     // 获取用户KYC详细信息
-    rpc GetUserKycDetailInfo (GetUserKycDetailInfoReq) returns (GetUserKycDetailInfoReply) {}
+    rpc GetUserKycDetailInfo (GetUserKycDetailInfoReq) returns (GetUserKycDetailInfoReply) {
+      option (google.api.http) = {
+        post: "/account-service/v1/get-user-kyc-detail-info"
+        body: "*"
+      };
+    }
     // 获取KYC初始化用的AccessToken
-    rpc GetKycAccessToken (GetKycAccessTokenReq) returns (GetKycAccessTokenReply) {}
+    rpc GetKycAccessToken (GetKycAccessTokenReq) returns (GetKycAccessTokenReply) {
+      option (google.api.http) = {
+        post: "/account-service/v1/get-kyc-access-token"
+        body: "*"
+      };
+    }
     // 上传KYC结果
-    rpc UploadKycResult (UploadKycResultReq) returns (google.protobuf.Empty) {}
+    rpc UploadKycResult (UploadKycResultReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/upload-kyc-result"
+        body: "*"
+      };
+    }
     // 更新用户KYC信息(Task用)
-    rpc UpdateKycDetailPending (google.protobuf.Empty) returns (google.protobuf.Empty) {}
-    rpc UpdateKycDetailAll (google.protobuf.Empty) returns (google.protobuf.Empty) {}
+    rpc UpdateKycDetailPending (google.protobuf.Empty) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/update-kyc-detail-pending"
+        body: "*"
+      };
+    }
+    rpc UpdateKycDetailAll (google.protobuf.Empty) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/update-kyc-detail-all"
+        body: "*"
+      };
+    }
     // 退出登录
-    rpc Logout (LogoutReq) returns (google.protobuf.Empty) {}
+    rpc Logout (LogoutReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/logout"
+        body: "*"
+      };
+    }
     // 注销账户预检查
-    rpc CloseAccountPreCheck (CloseAccountPreCheckReq) returns (CloseAccountPreCheckResp) {}
+    rpc CloseAccountPreCheck (CloseAccountPreCheckReq) returns (CloseAccountPreCheckResp) {
+      option (google.api.http) = {
+        post: "/account-service/v1/close-account-pre-check"
+        body: "*"
+      };
+    }
     // 注销账户
-    rpc CloseAccount (CloseAccountReq) returns (google.protobuf.Empty) {}
+    rpc CloseAccount (CloseAccountReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/close-account"
+        body: "*"
+      };
+    }
     // 获取用户的UserLimits
-    rpc GetUserLimits (GetUserLimitsReq) returns (GetUserLimitsResp) {}
+    rpc GetUserLimits (GetUserLimitsReq) returns (GetUserLimitsResp) {
+      option (google.api.http) = {
+        post: "/account-service/v1/get-user-limits"
+        body: "*"
+      };
+    }
     // 获取用户SavedWallet列表
-    rpc GetUserSavedWallets (GetUserSavedWalletsReq) returns (GetUserSavedWalletsResp) {}
+    rpc GetUserSavedWallets (GetUserSavedWalletsReq) returns (GetUserSavedWalletsResp) {
+      option (google.api.http) = {
+        post: "/account-service/v1/get-user-saved-wallets"
+        body: "*"
+      };
+    }
     // 用户新增SavedWallet
-    rpc UserAddSavedWallet (UserAddSavedWalletReq) returns (google.protobuf.Empty) {}
+    rpc UserAddSavedWallet (UserAddSavedWalletReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/user-add-saved-wallet"
+        body: "*"
+      };
+    }
     // 用户删除SavedWallet
-    rpc UserDeleteSavedWallet (UserDeleteSavedWalletReq) returns (google.protobuf.Empty) {}
+    rpc UserDeleteSavedWallet (UserDeleteSavedWalletReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/user-delete-saved-wallet"
+        body: "*"
+      };
+    }
     // 用户编辑SavedWallet
-    rpc UserUpdateSavedWallet (UserUpdateSavedWalletReq) returns (google.protobuf.Empty) {}
+    rpc UserUpdateSavedWallet (UserUpdateSavedWalletReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/user-update-saved-wallet"
+        body: "*"
+      };
+    }
     // 绑定邀请人
-    rpc BindInviter (BindInviterReq) returns (google.protobuf.Empty) {}
+    rpc BindInviter (BindInviterReq) returns (google.protobuf.Empty) {
+      option (google.api.http) = {
+        post: "/account-service/v1/bind-inviter"
+        body: "*"
+      };
+    }
     // 获取支持的国家和手机区号
-    rpc GetSupportCountries (google.protobuf.Empty) returns (GetSupportCountriesResp) {}
+    rpc GetSupportCountries (google.protobuf.Empty) returns (GetSupportCountriesResp) {
+      option (google.api.http) = {
+        post: "/account-service/v1/get-support-countries"
+        body: "*"
+      };
+    }
   }
   
   message GetSupportCountriesResp {

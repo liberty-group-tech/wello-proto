@@ -7,6 +7,7 @@
 package userv1
 
 import (
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
@@ -3607,7 +3608,7 @@ var File_wello_account_v1_user_proto protoreflect.FileDescriptor
 
 const file_wello_account_v1_user_proto_rawDesc = "" +
 	"\n" +
-	"\x1bwello-account/v1/user.proto\x12\x0fuser.service.v1\x1a\x1bgoogle/protobuf/empty.proto\"d\n" +
+	"\x1bwello-account/v1/user.proto\x12\x0fuser.service.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1bgoogle/protobuf/empty.proto\"d\n" +
 	"\x17GetSupportCountriesResp\x12\x14\n" +
 	"\x05count\x18\x01 \x01(\x03R\x05count\x123\n" +
 	"\x04list\x18\x02 \x03(\v2\x1f.user.service.v1.MobileCodeItemR\x04list\"\x8b\x01\n" +
@@ -3881,47 +3882,47 @@ const file_wello_account_v1_user_proto_rawDesc = "" +
 	"\n" +
 	"\x06Normal\x10\x00\x12\f\n" +
 	"\bDisabled\x10\x01\x12\v\n" +
-	"\aDeleted\x10\x022\x92\x1b\n" +
-	"\x04User\x12[\n" +
-	"\x0eSignFlowCreate\x12\".user.service.v1.SignFlowCreateReq\x1a#.user.service.v1.SignFlowCreateResp\"\x00\x12J\n" +
-	"\fSignFlowSend\x12 .user.service.v1.SignFlowSendReq\x1a\x16.google.protobuf.Empty\"\x00\x12a\n" +
-	"\x10SignFlowValidate\x12$.user.service.v1.SignFlowValidateReq\x1a%.user.service.v1.SignFlowValidateResp\"\x00\x12^\n" +
-	"\x0fLoginByPassword\x12#.user.service.v1.LoginByPasswordReq\x1a$.user.service.v1.LoginByPasswordResp\"\x00\x12b\n" +
-	"\x10CheckAccessToken\x12$.user.service.v1.CheckAccessTokenReq\x1a&.user.service.v1.CheckAccessTokenReply\"\x00\x12\\\n" +
-	"\x0eGetAccessToken\x12\".user.service.v1.GetAccessTokenReq\x1a$.user.service.v1.GetAccessTokenReply\"\x00\x12S\n" +
-	"\vGetUserInfo\x12\x1f.user.service.v1.GetUserInfoReq\x1a!.user.service.v1.GetUserInfoReply\"\x00\x12Y\n" +
-	"\rQueryUserInfo\x12!.user.service.v1.QueryUserInfoReq\x1a#.user.service.v1.QueryUserInfoReply\"\x00\x12Y\n" +
-	"\rGetUserMobile\x12!.user.service.v1.GetUserMobileReq\x1a#.user.service.v1.GetUserMobileReply\"\x00\x12V\n" +
-	"\fGetUserEmail\x12 .user.service.v1.GetUserEmailReq\x1a\".user.service.v1.GetUserEmailReply\"\x00\x12L\n" +
-	"\rCheckUsername\x12!.user.service.v1.CheckUsernameReq\x1a\x16.google.protobuf.Empty\"\x00\x12L\n" +
-	"\rSetupUsername\x12!.user.service.v1.SetupUsernameReq\x1a\x16.google.protobuf.Empty\"\x00\x12L\n" +
-	"\rSetupNickname\x12!.user.service.v1.SetupNicknameReq\x1a\x16.google.protobuf.Empty\"\x00\x12B\n" +
-	"\bSetupDob\x12\x1c.user.service.v1.SetupDobReq\x1a\x16.google.protobuf.Empty\"\x00\x12H\n" +
-	"\vSetupAvatar\x12\x1f.user.service.v1.SetupAvatarReq\x1a\x16.google.protobuf.Empty\"\x00\x12V\n" +
-	"\x12UpdateFiatCurrency\x12&.user.service.v1.UpdateFiatCurrencyReq\x1a\x16.google.protobuf.Empty\"\x00\x12Z\n" +
-	"\x14UpdateNotificationOn\x12(.user.service.v1.UpdateNotificationOnReq\x1a\x16.google.protobuf.Empty\"\x00\x12L\n" +
-	"\rSetupPassword\x12!.user.service.v1.SetupPasswordReq\x1a\x16.google.protobuf.Empty\"\x00\x12k\n" +
-	"\x13BindEmailFlowCreate\x12'.user.service.v1.BindEmailFlowCreateReq\x1a).user.service.v1.BindEmailFlowCreateReply\"\x00\x12T\n" +
-	"\x11BindEmailFlowSend\x12%.user.service.v1.BindEmailFlowSendReq\x1a\x16.google.protobuf.Empty\"\x00\x12\\\n" +
-	"\x15BindEmailFlowValidate\x12).user.service.v1.BindEmailFlowValidateReq\x1a\x16.google.protobuf.Empty\"\x00\x12k\n" +
-	"\x13BindOAuthFlowCreate\x12'.user.service.v1.BindOAuthFlowCreateReq\x1a).user.service.v1.BindOAuthFlowCreateReply\"\x00\x12\\\n" +
-	"\x15BindOAuthFlowValidate\x12).user.service.v1.BindOAuthFlowValidateReq\x1a\x16.google.protobuf.Empty\"\x00\x12\\\n" +
-	"\x0eGetUserKycInfo\x12\".user.service.v1.GetUserKycInfoReq\x1a$.user.service.v1.GetUserKycInfoReply\"\x00\x12n\n" +
-	"\x14GetUserKycDetailInfo\x12(.user.service.v1.GetUserKycDetailInfoReq\x1a*.user.service.v1.GetUserKycDetailInfoReply\"\x00\x12e\n" +
-	"\x11GetKycAccessToken\x12%.user.service.v1.GetKycAccessTokenReq\x1a'.user.service.v1.GetKycAccessTokenReply\"\x00\x12P\n" +
-	"\x0fUploadKycResult\x12#.user.service.v1.UploadKycResultReq\x1a\x16.google.protobuf.Empty\"\x00\x12J\n" +
-	"\x16UpdateKycDetailPending\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"\x00\x12F\n" +
-	"\x12UpdateKycDetailAll\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"\x00\x12>\n" +
-	"\x06Logout\x12\x1a.user.service.v1.LogoutReq\x1a\x16.google.protobuf.Empty\"\x00\x12m\n" +
-	"\x14CloseAccountPreCheck\x12(.user.service.v1.CloseAccountPreCheckReq\x1a).user.service.v1.CloseAccountPreCheckResp\"\x00\x12J\n" +
-	"\fCloseAccount\x12 .user.service.v1.CloseAccountReq\x1a\x16.google.protobuf.Empty\"\x00\x12X\n" +
-	"\rGetUserLimits\x12!.user.service.v1.GetUserLimitsReq\x1a\".user.service.v1.GetUserLimitsResp\"\x00\x12j\n" +
-	"\x13GetUserSavedWallets\x12'.user.service.v1.GetUserSavedWalletsReq\x1a(.user.service.v1.GetUserSavedWalletsResp\"\x00\x12V\n" +
-	"\x12UserAddSavedWallet\x12&.user.service.v1.UserAddSavedWalletReq\x1a\x16.google.protobuf.Empty\"\x00\x12\\\n" +
-	"\x15UserDeleteSavedWallet\x12).user.service.v1.UserDeleteSavedWalletReq\x1a\x16.google.protobuf.Empty\"\x00\x12\\\n" +
-	"\x15UserUpdateSavedWallet\x12).user.service.v1.UserUpdateSavedWalletReq\x1a\x16.google.protobuf.Empty\"\x00\x12H\n" +
-	"\vBindInviter\x12\x1f.user.service.v1.BindInviterReq\x1a\x16.google.protobuf.Empty\"\x00\x12Y\n" +
-	"\x13GetSupportCountries\x12\x16.google.protobuf.Empty\x1a(.user.service.v1.GetSupportCountriesResp\"\x00BCZAgithub.com/liberty-group-tech/wello-proto/wello-account/v1;userv1b\x06proto3"
+	"\aDeleted\x10\x022\x9a*\n" +
+	"\x04User\x12\x8a\x01\n" +
+	"\x0eSignFlowCreate\x12\".user.service.v1.SignFlowCreateReq\x1a#.user.service.v1.SignFlowCreateResp\"/\x82\xd3\xe4\x93\x02):\x01*\"$/account-service/v1/sign-flow-create\x12w\n" +
+	"\fSignFlowSend\x12 .user.service.v1.SignFlowSendReq\x1a\x16.google.protobuf.Empty\"-\x82\xd3\xe4\x93\x02':\x01*\"\"/account-service/v1/sign-flow-send\x12\x92\x01\n" +
+	"\x10SignFlowValidate\x12$.user.service.v1.SignFlowValidateReq\x1a%.user.service.v1.SignFlowValidateResp\"1\x82\xd3\xe4\x93\x02+:\x01*\"&/account-service/v1/sign-flow-validate\x12\x8e\x01\n" +
+	"\x0fLoginByPassword\x12#.user.service.v1.LoginByPasswordReq\x1a$.user.service.v1.LoginByPasswordResp\"0\x82\xd3\xe4\x93\x02*:\x01*\"%/account-service/v1/login-by-password\x12\x93\x01\n" +
+	"\x10CheckAccessToken\x12$.user.service.v1.CheckAccessTokenReq\x1a&.user.service.v1.CheckAccessTokenReply\"1\x82\xd3\xe4\x93\x02+:\x01*\"&/account-service/v1/check-access-token\x12\x8b\x01\n" +
+	"\x0eGetAccessToken\x12\".user.service.v1.GetAccessTokenReq\x1a$.user.service.v1.GetAccessTokenReply\"/\x82\xd3\xe4\x93\x02):\x01*\"$/account-service/v1/get-access-token\x12\x7f\n" +
+	"\vGetUserInfo\x12\x1f.user.service.v1.GetUserInfoReq\x1a!.user.service.v1.GetUserInfoReply\",\x82\xd3\xe4\x93\x02&:\x01*\"!/account-service/v1/get-user-info\x12\x87\x01\n" +
+	"\rQueryUserInfo\x12!.user.service.v1.QueryUserInfoReq\x1a#.user.service.v1.QueryUserInfoReply\".\x82\xd3\xe4\x93\x02(:\x01*\"#/account-service/v1/query-user-info\x12\x87\x01\n" +
+	"\rGetUserMobile\x12!.user.service.v1.GetUserMobileReq\x1a#.user.service.v1.GetUserMobileReply\".\x82\xd3\xe4\x93\x02(:\x01*\"#/account-service/v1/get-user-mobile\x12\x83\x01\n" +
+	"\fGetUserEmail\x12 .user.service.v1.GetUserEmailReq\x1a\".user.service.v1.GetUserEmailReply\"-\x82\xd3\xe4\x93\x02':\x01*\"\"/account-service/v1/get-user-email\x12y\n" +
+	"\rCheckUsername\x12!.user.service.v1.CheckUsernameReq\x1a\x16.google.protobuf.Empty\"-\x82\xd3\xe4\x93\x02':\x01*\"\"/account-service/v1/check-username\x12y\n" +
+	"\rSetupUsername\x12!.user.service.v1.SetupUsernameReq\x1a\x16.google.protobuf.Empty\"-\x82\xd3\xe4\x93\x02':\x01*\"\"/account-service/v1/setup-username\x12y\n" +
+	"\rSetupNickname\x12!.user.service.v1.SetupNicknameReq\x1a\x16.google.protobuf.Empty\"-\x82\xd3\xe4\x93\x02':\x01*\"\"/account-service/v1/setup-nickname\x12j\n" +
+	"\bSetupDob\x12\x1c.user.service.v1.SetupDobReq\x1a\x16.google.protobuf.Empty\"(\x82\xd3\xe4\x93\x02\":\x01*\"\x1d/account-service/v1/setup-dob\x12s\n" +
+	"\vSetupAvatar\x12\x1f.user.service.v1.SetupAvatarReq\x1a\x16.google.protobuf.Empty\"+\x82\xd3\xe4\x93\x02%:\x01*\" /account-service/v1/setup-avatar\x12\x89\x01\n" +
+	"\x12UpdateFiatCurrency\x12&.user.service.v1.UpdateFiatCurrencyReq\x1a\x16.google.protobuf.Empty\"3\x82\xd3\xe4\x93\x02-:\x01*\"(/account-service/v1/update-fiat-currency\x12\x8f\x01\n" +
+	"\x14UpdateNotificationOn\x12(.user.service.v1.UpdateNotificationOnReq\x1a\x16.google.protobuf.Empty\"5\x82\xd3\xe4\x93\x02/:\x01*\"*/account-service/v1/update-notification-on\x12y\n" +
+	"\rSetupPassword\x12!.user.service.v1.SetupPasswordReq\x1a\x16.google.protobuf.Empty\"-\x82\xd3\xe4\x93\x02':\x01*\"\"/account-service/v1/setup-password\x12\xa0\x01\n" +
+	"\x13BindEmailFlowCreate\x12'.user.service.v1.BindEmailFlowCreateReq\x1a).user.service.v1.BindEmailFlowCreateReply\"5\x82\xd3\xe4\x93\x02/:\x01*\"*/account-service/v1/bind-email-flow-create\x12\x87\x01\n" +
+	"\x11BindEmailFlowSend\x12%.user.service.v1.BindEmailFlowSendReq\x1a\x16.google.protobuf.Empty\"3\x82\xd3\xe4\x93\x02-:\x01*\"(/account-service/v1/bind-email-flow-send\x12\x93\x01\n" +
+	"\x15BindEmailFlowValidate\x12).user.service.v1.BindEmailFlowValidateReq\x1a\x16.google.protobuf.Empty\"7\x82\xd3\xe4\x93\x021:\x01*\",/account-service/v1/bind-email-flow-validate\x12\xa0\x01\n" +
+	"\x13BindOAuthFlowCreate\x12'.user.service.v1.BindOAuthFlowCreateReq\x1a).user.service.v1.BindOAuthFlowCreateReply\"5\x82\xd3\xe4\x93\x02/:\x01*\"*/account-service/v1/bind-oauth-flow-create\x12\x93\x01\n" +
+	"\x15BindOAuthFlowValidate\x12).user.service.v1.BindOAuthFlowValidateReq\x1a\x16.google.protobuf.Empty\"7\x82\xd3\xe4\x93\x021:\x01*\",/account-service/v1/bind-oauth-flow-validate\x12\x8c\x01\n" +
+	"\x0eGetUserKycInfo\x12\".user.service.v1.GetUserKycInfoReq\x1a$.user.service.v1.GetUserKycInfoReply\"0\x82\xd3\xe4\x93\x02*:\x01*\"%/account-service/v1/get-user-kyc-info\x12\xa5\x01\n" +
+	"\x14GetUserKycDetailInfo\x12(.user.service.v1.GetUserKycDetailInfoReq\x1a*.user.service.v1.GetUserKycDetailInfoReply\"7\x82\xd3\xe4\x93\x021:\x01*\",/account-service/v1/get-user-kyc-detail-info\x12\x98\x01\n" +
+	"\x11GetKycAccessToken\x12%.user.service.v1.GetKycAccessTokenReq\x1a'.user.service.v1.GetKycAccessTokenReply\"3\x82\xd3\xe4\x93\x02-:\x01*\"(/account-service/v1/get-kyc-access-token\x12\x80\x01\n" +
+	"\x0fUploadKycResult\x12#.user.service.v1.UploadKycResultReq\x1a\x16.google.protobuf.Empty\"0\x82\xd3\xe4\x93\x02*:\x01*\"%/account-service/v1/upload-kyc-result\x12\x82\x01\n" +
+	"\x16UpdateKycDetailPending\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"8\x82\xd3\xe4\x93\x022:\x01*\"-/account-service/v1/update-kyc-detail-pending\x12z\n" +
+	"\x12UpdateKycDetailAll\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"4\x82\xd3\xe4\x93\x02.:\x01*\")/account-service/v1/update-kyc-detail-all\x12c\n" +
+	"\x06Logout\x12\x1a.user.service.v1.LogoutReq\x1a\x16.google.protobuf.Empty\"%\x82\xd3\xe4\x93\x02\x1f:\x01*\"\x1a/account-service/v1/logout\x12\xa3\x01\n" +
+	"\x14CloseAccountPreCheck\x12(.user.service.v1.CloseAccountPreCheckReq\x1a).user.service.v1.CloseAccountPreCheckResp\"6\x82\xd3\xe4\x93\x020:\x01*\"+/account-service/v1/close-account-pre-check\x12v\n" +
+	"\fCloseAccount\x12 .user.service.v1.CloseAccountReq\x1a\x16.google.protobuf.Empty\",\x82\xd3\xe4\x93\x02&:\x01*\"!/account-service/v1/close-account\x12\x86\x01\n" +
+	"\rGetUserLimits\x12!.user.service.v1.GetUserLimitsReq\x1a\".user.service.v1.GetUserLimitsResp\".\x82\xd3\xe4\x93\x02(:\x01*\"#/account-service/v1/get-user-limits\x12\x9f\x01\n" +
+	"\x13GetUserSavedWallets\x12'.user.service.v1.GetUserSavedWalletsReq\x1a(.user.service.v1.GetUserSavedWalletsResp\"5\x82\xd3\xe4\x93\x02/:\x01*\"*/account-service/v1/get-user-saved-wallets\x12\x8a\x01\n" +
+	"\x12UserAddSavedWallet\x12&.user.service.v1.UserAddSavedWalletReq\x1a\x16.google.protobuf.Empty\"4\x82\xd3\xe4\x93\x02.:\x01*\")/account-service/v1/user-add-saved-wallet\x12\x93\x01\n" +
+	"\x15UserDeleteSavedWallet\x12).user.service.v1.UserDeleteSavedWalletReq\x1a\x16.google.protobuf.Empty\"7\x82\xd3\xe4\x93\x021:\x01*\",/account-service/v1/user-delete-saved-wallet\x12\x93\x01\n" +
+	"\x15UserUpdateSavedWallet\x12).user.service.v1.UserUpdateSavedWalletReq\x1a\x16.google.protobuf.Empty\"7\x82\xd3\xe4\x93\x021:\x01*\",/account-service/v1/user-update-saved-wallet\x12s\n" +
+	"\vBindInviter\x12\x1f.user.service.v1.BindInviterReq\x1a\x16.google.protobuf.Empty\"+\x82\xd3\xe4\x93\x02%:\x01*\" /account-service/v1/bind-inviter\x12\x8d\x01\n" +
+	"\x13GetSupportCountries\x12\x16.google.protobuf.Empty\x1a(.user.service.v1.GetSupportCountriesResp\"4\x82\xd3\xe4\x93\x02.:\x01*\")/account-service/v1/get-support-countriesBCZAgithub.com/liberty-group-tech/wello-proto/wello-account/v1;userv1b\x06proto3"
 
 var (
 	file_wello_account_v1_user_proto_rawDescOnce sync.Once
