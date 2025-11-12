@@ -16,7 +16,6 @@ export interface QuoteRequest {
   amount: string;
   baseCurrency: string;
   quoteCurrency: string;
-  side: string;
   direction: string;
   type?: string | undefined;
   network: string;
@@ -31,7 +30,6 @@ export interface Quote {
   amount: string;
   baseCurrency: string;
   quoteCurrency: string;
-  side: string;
   direction: string;
   type: string;
   price: string;
@@ -84,7 +82,6 @@ function createBaseQuoteRequest(): QuoteRequest {
     amount: "",
     baseCurrency: "",
     quoteCurrency: "",
-    side: "",
     direction: "",
     type: undefined,
     network: "",
@@ -107,23 +104,20 @@ export const QuoteRequest: MessageFns<QuoteRequest> = {
     if (message.quoteCurrency !== "") {
       writer.uint32(34).string(message.quoteCurrency);
     }
-    if (message.side !== "") {
-      writer.uint32(42).string(message.side);
-    }
     if (message.direction !== "") {
-      writer.uint32(50).string(message.direction);
+      writer.uint32(42).string(message.direction);
     }
     if (message.type !== undefined) {
-      writer.uint32(58).string(message.type);
+      writer.uint32(50).string(message.type);
     }
     if (message.network !== "") {
-      writer.uint32(66).string(message.network);
+      writer.uint32(58).string(message.network);
     }
     if (message.paymentMethod !== "") {
-      writer.uint32(74).string(message.paymentMethod);
+      writer.uint32(66).string(message.paymentMethod);
     }
     if (message.provider !== "") {
-      writer.uint32(82).string(message.provider);
+      writer.uint32(74).string(message.provider);
     }
     return writer;
   },
@@ -172,7 +166,7 @@ export const QuoteRequest: MessageFns<QuoteRequest> = {
             break;
           }
 
-          message.side = reader.string();
+          message.direction = reader.string();
           continue;
         }
         case 6: {
@@ -180,7 +174,7 @@ export const QuoteRequest: MessageFns<QuoteRequest> = {
             break;
           }
 
-          message.direction = reader.string();
+          message.type = reader.string();
           continue;
         }
         case 7: {
@@ -188,7 +182,7 @@ export const QuoteRequest: MessageFns<QuoteRequest> = {
             break;
           }
 
-          message.type = reader.string();
+          message.network = reader.string();
           continue;
         }
         case 8: {
@@ -196,19 +190,11 @@ export const QuoteRequest: MessageFns<QuoteRequest> = {
             break;
           }
 
-          message.network = reader.string();
+          message.paymentMethod = reader.string();
           continue;
         }
         case 9: {
           if (tag !== 74) {
-            break;
-          }
-
-          message.paymentMethod = reader.string();
-          continue;
-        }
-        case 10: {
-          if (tag !== 82) {
             break;
           }
 
@@ -230,7 +216,6 @@ export const QuoteRequest: MessageFns<QuoteRequest> = {
       amount: isSet(object.amount) ? globalThis.String(object.amount) : "",
       baseCurrency: isSet(object.baseCurrency) ? globalThis.String(object.baseCurrency) : "",
       quoteCurrency: isSet(object.quoteCurrency) ? globalThis.String(object.quoteCurrency) : "",
-      side: isSet(object.side) ? globalThis.String(object.side) : "",
       direction: isSet(object.direction) ? globalThis.String(object.direction) : "",
       type: isSet(object.type) ? globalThis.String(object.type) : undefined,
       network: isSet(object.network) ? globalThis.String(object.network) : "",
@@ -252,9 +237,6 @@ export const QuoteRequest: MessageFns<QuoteRequest> = {
     }
     if (message.quoteCurrency !== "") {
       obj.quoteCurrency = message.quoteCurrency;
-    }
-    if (message.side !== "") {
-      obj.side = message.side;
     }
     if (message.direction !== "") {
       obj.direction = message.direction;
@@ -283,7 +265,6 @@ export const QuoteRequest: MessageFns<QuoteRequest> = {
     message.amount = object.amount ?? "";
     message.baseCurrency = object.baseCurrency ?? "";
     message.quoteCurrency = object.quoteCurrency ?? "";
-    message.side = object.side ?? "";
     message.direction = object.direction ?? "";
     message.type = object.type ?? undefined;
     message.network = object.network ?? "";
@@ -301,7 +282,6 @@ function createBaseQuote(): Quote {
     amount: "",
     baseCurrency: "",
     quoteCurrency: "",
-    side: "",
     direction: "",
     type: "",
     price: "",
@@ -336,41 +316,38 @@ export const Quote: MessageFns<Quote> = {
     if (message.quoteCurrency !== "") {
       writer.uint32(50).string(message.quoteCurrency);
     }
-    if (message.side !== "") {
-      writer.uint32(58).string(message.side);
-    }
     if (message.direction !== "") {
-      writer.uint32(66).string(message.direction);
+      writer.uint32(58).string(message.direction);
     }
     if (message.type !== "") {
-      writer.uint32(74).string(message.type);
+      writer.uint32(66).string(message.type);
     }
     if (message.price !== "") {
-      writer.uint32(82).string(message.price);
+      writer.uint32(74).string(message.price);
     }
     if (message.total !== "") {
-      writer.uint32(90).string(message.total);
+      writer.uint32(82).string(message.total);
     }
     if (message.externalId !== "") {
-      writer.uint32(98).string(message.externalId);
+      writer.uint32(90).string(message.externalId);
     }
     if (message.network !== "") {
-      writer.uint32(106).string(message.network);
+      writer.uint32(98).string(message.network);
     }
     if (message.paymentMethod !== "") {
-      writer.uint32(114).string(message.paymentMethod);
+      writer.uint32(106).string(message.paymentMethod);
     }
     if (message.provider !== "") {
-      writer.uint32(122).string(message.provider);
+      writer.uint32(114).string(message.provider);
     }
     if (message.createdAt !== undefined) {
-      Timestamp.encode(toTimestamp(message.createdAt), writer.uint32(130).fork()).join();
+      Timestamp.encode(toTimestamp(message.createdAt), writer.uint32(122).fork()).join();
     }
     if (message.updatedAt !== undefined) {
-      Timestamp.encode(toTimestamp(message.updatedAt), writer.uint32(138).fork()).join();
+      Timestamp.encode(toTimestamp(message.updatedAt), writer.uint32(130).fork()).join();
     }
     if (message.expiresAt !== undefined) {
-      Timestamp.encode(toTimestamp(message.expiresAt), writer.uint32(146).fork()).join();
+      Timestamp.encode(toTimestamp(message.expiresAt), writer.uint32(138).fork()).join();
     }
     return writer;
   },
@@ -435,7 +412,7 @@ export const Quote: MessageFns<Quote> = {
             break;
           }
 
-          message.side = reader.string();
+          message.direction = reader.string();
           continue;
         }
         case 8: {
@@ -443,7 +420,7 @@ export const Quote: MessageFns<Quote> = {
             break;
           }
 
-          message.direction = reader.string();
+          message.type = reader.string();
           continue;
         }
         case 9: {
@@ -451,7 +428,7 @@ export const Quote: MessageFns<Quote> = {
             break;
           }
 
-          message.type = reader.string();
+          message.price = reader.string();
           continue;
         }
         case 10: {
@@ -459,7 +436,7 @@ export const Quote: MessageFns<Quote> = {
             break;
           }
 
-          message.price = reader.string();
+          message.total = reader.string();
           continue;
         }
         case 11: {
@@ -467,7 +444,7 @@ export const Quote: MessageFns<Quote> = {
             break;
           }
 
-          message.total = reader.string();
+          message.externalId = reader.string();
           continue;
         }
         case 12: {
@@ -475,7 +452,7 @@ export const Quote: MessageFns<Quote> = {
             break;
           }
 
-          message.externalId = reader.string();
+          message.network = reader.string();
           continue;
         }
         case 13: {
@@ -483,7 +460,7 @@ export const Quote: MessageFns<Quote> = {
             break;
           }
 
-          message.network = reader.string();
+          message.paymentMethod = reader.string();
           continue;
         }
         case 14: {
@@ -491,7 +468,7 @@ export const Quote: MessageFns<Quote> = {
             break;
           }
 
-          message.paymentMethod = reader.string();
+          message.provider = reader.string();
           continue;
         }
         case 15: {
@@ -499,7 +476,7 @@ export const Quote: MessageFns<Quote> = {
             break;
           }
 
-          message.provider = reader.string();
+          message.createdAt = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           continue;
         }
         case 16: {
@@ -507,19 +484,11 @@ export const Quote: MessageFns<Quote> = {
             break;
           }
 
-          message.createdAt = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.updatedAt = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           continue;
         }
         case 17: {
           if (tag !== 138) {
-            break;
-          }
-
-          message.updatedAt = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
-          continue;
-        }
-        case 18: {
-          if (tag !== 146) {
             break;
           }
 
@@ -543,7 +512,6 @@ export const Quote: MessageFns<Quote> = {
       amount: isSet(object.amount) ? globalThis.String(object.amount) : "",
       baseCurrency: isSet(object.baseCurrency) ? globalThis.String(object.baseCurrency) : "",
       quoteCurrency: isSet(object.quoteCurrency) ? globalThis.String(object.quoteCurrency) : "",
-      side: isSet(object.side) ? globalThis.String(object.side) : "",
       direction: isSet(object.direction) ? globalThis.String(object.direction) : "",
       type: isSet(object.type) ? globalThis.String(object.type) : "",
       price: isSet(object.price) ? globalThis.String(object.price) : "",
@@ -577,9 +545,6 @@ export const Quote: MessageFns<Quote> = {
     }
     if (message.quoteCurrency !== "") {
       obj.quoteCurrency = message.quoteCurrency;
-    }
-    if (message.side !== "") {
-      obj.side = message.side;
     }
     if (message.direction !== "") {
       obj.direction = message.direction;
@@ -628,7 +593,6 @@ export const Quote: MessageFns<Quote> = {
     message.amount = object.amount ?? "";
     message.baseCurrency = object.baseCurrency ?? "";
     message.quoteCurrency = object.quoteCurrency ?? "";
-    message.side = object.side ?? "";
     message.direction = object.direction ?? "";
     message.type = object.type ?? "";
     message.price = object.price ?? "";

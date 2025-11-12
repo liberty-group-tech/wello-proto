@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package withdraw.v1;
+
+import "google/protobuf/timestamp.proto";
+import "validate/validate.proto";
+
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-crypto-hub/v1;withdraw";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.withdraw.v1";
+option java_outer_classname = "WithdrawProtoV1";
+
+message CreateWithdrawOrderRequest {
+  string reference_id = 1;
+  string amount = 2;
+  string currency = 3;
+  string network = 4;
+  string address = 5;
+  string channel = 6;
+}
+
+message CreateWithdrawOrderResponse {
+  string code = 1;
+  bool success = 2;
+  string message = 3;
+  string request_id = 4;
+  google.protobuf.Timestamp timestamp = 5;
+
+
+  WithdrawOrder data = 10;
+}
+
+message GetWithdrawOrderRequest {
+  string id = 1 [(validate.rules).string.prefix = "cw_"];
+}
+
+message GetWithdrawOrderResponse {
+  string code = 1;
+  bool success = 2;
+  string message = 3;
+  string request_id = 4;
+  google.protobuf.Timestamp timestamp = 5;
+  WithdrawOrder data = 10;
+
+}
+
+message WithdrawOrder {
+  string id = 1 [(validate.rules).string.prefix = "cw_"];
+  string address = 2;
+  string network = 3;
+  string status = 4;
+  string tx_hash = 5; 
+  string amount = 6;
+  string gas = 7;
+  google.protobuf.Timestamp created_at = 8;
+  google.protobuf.Timestamp updated_at = 9;
+}
+
+// === Deposit 服务定义 ===
+service DepositService {
+  rpc CreateWithdrawOrder(CreateWithdrawOrderRequest) returns (CreateWithdrawOrderResponse);
+  rpc GetWithdrawOrder(GetWithdrawOrderRequest) returns (GetWithdrawOrderResponse);
+}

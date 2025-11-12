@@ -90,17 +90,6 @@ func (m *QuoteRequest) validate(all bool) error {
 		errors = append(errors, err)
 	}
 
-	if _, ok := _QuoteRequest_Side_InLookup[m.GetSide()]; !ok {
-		err := QuoteRequestValidationError{
-			field:  "Side",
-			reason: "value must be in list [buy sell]",
-		}
-		if !all {
-			return err
-		}
-		errors = append(errors, err)
-	}
-
 	if _, ok := _QuoteRequest_Direction_InLookup[m.GetDirection()]; !ok {
 		err := QuoteRequestValidationError{
 			field:  "Direction",
@@ -214,11 +203,6 @@ var _ interface {
 	ErrorName() string
 } = QuoteRequestValidationError{}
 
-var _QuoteRequest_Side_InLookup = map[string]struct{}{
-	"buy":  {},
-	"sell": {},
-}
-
 var _QuoteRequest_Direction_InLookup = map[string]struct{}{
 	"pay":     {},
 	"receive": {},
@@ -270,8 +254,6 @@ func (m *Quote) validate(all bool) error {
 	// no validation rules for BaseCurrency
 
 	// no validation rules for QuoteCurrency
-
-	// no validation rules for Side
 
 	// no validation rules for Direction
 
