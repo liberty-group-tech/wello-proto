@@ -4,6 +4,7 @@ package crypto.deposit.v1;
 
 import "google/protobuf/timestamp.proto";
 import "validate/validate.proto";
+import "google/api/annotations.proto";
 
 option go_package = "github.com/liberty-group-tech/wello-proto/wello-crypto-hub/deposit/v1;depositv1";
 option java_multiple_files = true;
@@ -56,6 +57,15 @@ message DepositOrder {
 }
 
 service DepositService {
-  rpc CreateDepositOrder(CreateDepositOrderRequest) returns (CreateDepositOrderResponse);
-  rpc GetDepositOrder(GetDepositOrderRequest) returns (GetDepositOrderResponse);
+  rpc CreateDepositOrder(CreateDepositOrderRequest) returns (CreateDepositOrderResponse){
+    option (google.api.http) = {
+      post: "/crypto-hub/v1/deposit/create"
+      body: "*"
+    };
+  }
+  rpc GetDepositOrder(GetDepositOrderRequest) returns (GetDepositOrderResponse){
+    option (google.api.http) = {
+      get: "/crypto-hub/v1/deposit/info"
+    };
+  }
 }

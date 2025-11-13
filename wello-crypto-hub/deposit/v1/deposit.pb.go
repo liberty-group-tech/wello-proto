@@ -8,6 +8,7 @@ package depositv1
 
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -423,7 +424,7 @@ var File_wello_crypto_hub_deposit_v1_deposit_proto protoreflect.FileDescriptor
 
 const file_wello_crypto_hub_deposit_v1_deposit_proto_rawDesc = "" +
 	"\n" +
-	")wello-crypto-hub/deposit/v1/deposit.proto\x12\x11crypto.deposit.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17validate/validate.proto\"\xa6\x01\n" +
+	")wello-crypto-hub/deposit/v1/deposit.proto\x12\x11crypto.deposit.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17validate/validate.proto\x1a\x1cgoogle/api/annotations.proto\"\xa6\x01\n" +
 	"\x19CreateDepositOrderRequest\x12!\n" +
 	"\freference_id\x18\x01 \x01(\tR\vreferenceId\x12\x16\n" +
 	"\x06amount\x18\x02 \x01(\tR\x06amount\x12\x1a\n" +
@@ -464,10 +465,10 @@ const file_wello_crypto_hub_deposit_v1_deposit_proto_rawDesc = "" +
 	"\n" +
 	"updated_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x129\n" +
 	"\n" +
-	"expires_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt2\xed\x01\n" +
-	"\x0eDepositService\x12q\n" +
-	"\x12CreateDepositOrder\x12,.crypto.deposit.v1.CreateDepositOrderRequest\x1a-.crypto.deposit.v1.CreateDepositOrderResponse\x12h\n" +
-	"\x0fGetDepositOrder\x12).crypto.deposit.v1.GetDepositOrderRequest\x1a*.crypto.deposit.v1.GetDepositOrderResponseB~\n" +
+	"expires_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt2\xbe\x02\n" +
+	"\x0eDepositService\x12\x9b\x01\n" +
+	"\x12CreateDepositOrder\x12,.crypto.deposit.v1.CreateDepositOrderRequest\x1a-.crypto.deposit.v1.CreateDepositOrderResponse\"(\x82\xd3\xe4\x93\x02\":\x01*\"\x1d/crypto-hub/v1/deposit/create\x12\x8d\x01\n" +
+	"\x0fGetDepositOrder\x12).crypto.deposit.v1.GetDepositOrderRequest\x1a*.crypto.deposit.v1.GetDepositOrderResponse\"#\x82\xd3\xe4\x93\x02\x1d\x12\x1b/crypto-hub/v1/deposit/infoB~\n" +
 	"\x19dev.kratos.api.deposit.v1B\x0eDepositProtoV1P\x01ZOgithub.com/liberty-group-tech/wello-proto/wello-crypto-hub/deposit/v1;depositv1b\x06proto3"
 
 var (

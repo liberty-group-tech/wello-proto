@@ -4,6 +4,7 @@ package crypto.withdraw.v1;
 
 import "google/protobuf/timestamp.proto";
 import "validate/validate.proto";
+import "google/api/annotations.proto";
 
 option go_package = "github.com/liberty-group-tech/wello-proto/wello-crypto-hub/withdraw/v1;withdrawv1";
 option java_multiple_files = true;
@@ -56,8 +57,17 @@ message WithdrawOrder {
   google.protobuf.Timestamp updated_at = 9;
 }
 
-// === Deposit 服务定义 ===
-service DepositService {
-  rpc CreateWithdrawOrder(CreateWithdrawOrderRequest) returns (CreateWithdrawOrderResponse);
-  rpc GetWithdrawOrder(GetWithdrawOrderRequest) returns (GetWithdrawOrderResponse);
+// === Withdraw 服务定义 ===
+service WithdrawService {
+  rpc CreateWithdrawOrder(CreateWithdrawOrderRequest) returns (CreateWithdrawOrderResponse){
+    option (google.api.http) = {
+      post: "/crypto-hub/v1/withdraw/create"
+      body: "*"
+    };
+  }
+  rpc GetWithdrawOrder(GetWithdrawOrderRequest) returns (GetWithdrawOrderResponse){
+    option (google.api.http) = {
+      get: "/crypto-hub/v1/withdraw/info"
+    };
+  }
 }

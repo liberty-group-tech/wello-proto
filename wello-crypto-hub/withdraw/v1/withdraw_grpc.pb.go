@@ -19,143 +19,143 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	DepositService_CreateWithdrawOrder_FullMethodName = "/crypto.withdraw.v1.DepositService/CreateWithdrawOrder"
-	DepositService_GetWithdrawOrder_FullMethodName    = "/crypto.withdraw.v1.DepositService/GetWithdrawOrder"
+	WithdrawService_CreateWithdrawOrder_FullMethodName = "/crypto.withdraw.v1.WithdrawService/CreateWithdrawOrder"
+	WithdrawService_GetWithdrawOrder_FullMethodName    = "/crypto.withdraw.v1.WithdrawService/GetWithdrawOrder"
 )
 
-// DepositServiceClient is the client API for DepositService service.
+// WithdrawServiceClient is the client API for WithdrawService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 //
-// === Deposit 服务定义 ===
-type DepositServiceClient interface {
+// === Withdraw 服务定义 ===
+type WithdrawServiceClient interface {
 	CreateWithdrawOrder(ctx context.Context, in *CreateWithdrawOrderRequest, opts ...grpc.CallOption) (*CreateWithdrawOrderResponse, error)
 	GetWithdrawOrder(ctx context.Context, in *GetWithdrawOrderRequest, opts ...grpc.CallOption) (*GetWithdrawOrderResponse, error)
 }
 
-type depositServiceClient struct {
+type withdrawServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewDepositServiceClient(cc grpc.ClientConnInterface) DepositServiceClient {
-	return &depositServiceClient{cc}
+func NewWithdrawServiceClient(cc grpc.ClientConnInterface) WithdrawServiceClient {
+	return &withdrawServiceClient{cc}
 }
 
-func (c *depositServiceClient) CreateWithdrawOrder(ctx context.Context, in *CreateWithdrawOrderRequest, opts ...grpc.CallOption) (*CreateWithdrawOrderResponse, error) {
+func (c *withdrawServiceClient) CreateWithdrawOrder(ctx context.Context, in *CreateWithdrawOrderRequest, opts ...grpc.CallOption) (*CreateWithdrawOrderResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CreateWithdrawOrderResponse)
-	err := c.cc.Invoke(ctx, DepositService_CreateWithdrawOrder_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WithdrawService_CreateWithdrawOrder_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *depositServiceClient) GetWithdrawOrder(ctx context.Context, in *GetWithdrawOrderRequest, opts ...grpc.CallOption) (*GetWithdrawOrderResponse, error) {
+func (c *withdrawServiceClient) GetWithdrawOrder(ctx context.Context, in *GetWithdrawOrderRequest, opts ...grpc.CallOption) (*GetWithdrawOrderResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetWithdrawOrderResponse)
-	err := c.cc.Invoke(ctx, DepositService_GetWithdrawOrder_FullMethodName, in, out, cOpts...)
+	err := c.cc.Invoke(ctx, WithdrawService_GetWithdrawOrder_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// DepositServiceServer is the server API for DepositService service.
-// All implementations must embed UnimplementedDepositServiceServer
+// WithdrawServiceServer is the server API for WithdrawService service.
+// All implementations must embed UnimplementedWithdrawServiceServer
 // for forward compatibility.
 //
-// === Deposit 服务定义 ===
-type DepositServiceServer interface {
+// === Withdraw 服务定义 ===
+type WithdrawServiceServer interface {
 	CreateWithdrawOrder(context.Context, *CreateWithdrawOrderRequest) (*CreateWithdrawOrderResponse, error)
 	GetWithdrawOrder(context.Context, *GetWithdrawOrderRequest) (*GetWithdrawOrderResponse, error)
-	mustEmbedUnimplementedDepositServiceServer()
+	mustEmbedUnimplementedWithdrawServiceServer()
 }
 
-// UnimplementedDepositServiceServer must be embedded to have
+// UnimplementedWithdrawServiceServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedDepositServiceServer struct{}
+type UnimplementedWithdrawServiceServer struct{}
 
-func (UnimplementedDepositServiceServer) CreateWithdrawOrder(context.Context, *CreateWithdrawOrderRequest) (*CreateWithdrawOrderResponse, error) {
+func (UnimplementedWithdrawServiceServer) CreateWithdrawOrder(context.Context, *CreateWithdrawOrderRequest) (*CreateWithdrawOrderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateWithdrawOrder not implemented")
 }
-func (UnimplementedDepositServiceServer) GetWithdrawOrder(context.Context, *GetWithdrawOrderRequest) (*GetWithdrawOrderResponse, error) {
+func (UnimplementedWithdrawServiceServer) GetWithdrawOrder(context.Context, *GetWithdrawOrderRequest) (*GetWithdrawOrderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetWithdrawOrder not implemented")
 }
-func (UnimplementedDepositServiceServer) mustEmbedUnimplementedDepositServiceServer() {}
-func (UnimplementedDepositServiceServer) testEmbeddedByValue()                        {}
+func (UnimplementedWithdrawServiceServer) mustEmbedUnimplementedWithdrawServiceServer() {}
+func (UnimplementedWithdrawServiceServer) testEmbeddedByValue()                         {}
 
-// UnsafeDepositServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to DepositServiceServer will
+// UnsafeWithdrawServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to WithdrawServiceServer will
 // result in compilation errors.
-type UnsafeDepositServiceServer interface {
-	mustEmbedUnimplementedDepositServiceServer()
+type UnsafeWithdrawServiceServer interface {
+	mustEmbedUnimplementedWithdrawServiceServer()
 }
 
-func RegisterDepositServiceServer(s grpc.ServiceRegistrar, srv DepositServiceServer) {
-	// If the following call pancis, it indicates UnimplementedDepositServiceServer was
+func RegisterWithdrawServiceServer(s grpc.ServiceRegistrar, srv WithdrawServiceServer) {
+	// If the following call pancis, it indicates UnimplementedWithdrawServiceServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&DepositService_ServiceDesc, srv)
+	s.RegisterService(&WithdrawService_ServiceDesc, srv)
 }
 
-func _DepositService_CreateWithdrawOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WithdrawService_CreateWithdrawOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateWithdrawOrderRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DepositServiceServer).CreateWithdrawOrder(ctx, in)
+		return srv.(WithdrawServiceServer).CreateWithdrawOrder(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DepositService_CreateWithdrawOrder_FullMethodName,
+		FullMethod: WithdrawService_CreateWithdrawOrder_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DepositServiceServer).CreateWithdrawOrder(ctx, req.(*CreateWithdrawOrderRequest))
+		return srv.(WithdrawServiceServer).CreateWithdrawOrder(ctx, req.(*CreateWithdrawOrderRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _DepositService_GetWithdrawOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _WithdrawService_GetWithdrawOrder_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetWithdrawOrderRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(DepositServiceServer).GetWithdrawOrder(ctx, in)
+		return srv.(WithdrawServiceServer).GetWithdrawOrder(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: DepositService_GetWithdrawOrder_FullMethodName,
+		FullMethod: WithdrawService_GetWithdrawOrder_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(DepositServiceServer).GetWithdrawOrder(ctx, req.(*GetWithdrawOrderRequest))
+		return srv.(WithdrawServiceServer).GetWithdrawOrder(ctx, req.(*GetWithdrawOrderRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// DepositService_ServiceDesc is the grpc.ServiceDesc for DepositService service.
+// WithdrawService_ServiceDesc is the grpc.ServiceDesc for WithdrawService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var DepositService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "crypto.withdraw.v1.DepositService",
-	HandlerType: (*DepositServiceServer)(nil),
+var WithdrawService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "crypto.withdraw.v1.WithdrawService",
+	HandlerType: (*WithdrawServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "CreateWithdrawOrder",
-			Handler:    _DepositService_CreateWithdrawOrder_Handler,
+			Handler:    _WithdrawService_CreateWithdrawOrder_Handler,
 		},
 		{
 			MethodName: "GetWithdrawOrder",
-			Handler:    _DepositService_GetWithdrawOrder_Handler,
+			Handler:    _WithdrawService_GetWithdrawOrder_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -8,6 +8,7 @@ package withdrawv1
 
 import (
 	_ "github.com/envoyproxy/protoc-gen-validate/validate"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -431,7 +432,7 @@ var File_wello_crypto_hub_withdraw_v1_withdraw_proto protoreflect.FileDescriptor
 
 const file_wello_crypto_hub_withdraw_v1_withdraw_proto_rawDesc = "" +
 	"\n" +
-	"+wello-crypto-hub/withdraw/v1/withdraw.proto\x12\x12crypto.withdraw.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17validate/validate.proto\"\xc1\x01\n" +
+	"+wello-crypto-hub/withdraw/v1/withdraw.proto\x12\x12crypto.withdraw.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17validate/validate.proto\x1a\x1cgoogle/api/annotations.proto\"\xc1\x01\n" +
 	"\x1aCreateWithdrawOrderRequest\x12!\n" +
 	"\freference_id\x18\x01 \x01(\tR\vreferenceId\x12\x16\n" +
 	"\x06amount\x18\x02 \x01(\tR\x06amount\x12\x1a\n" +
@@ -472,10 +473,10 @@ const file_wello_crypto_hub_withdraw_v1_withdraw_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"updated_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt2\xf7\x01\n" +
-	"\x0eDepositService\x12v\n" +
-	"\x13CreateWithdrawOrder\x12..crypto.withdraw.v1.CreateWithdrawOrderRequest\x1a/.crypto.withdraw.v1.CreateWithdrawOrderResponse\x12m\n" +
-	"\x10GetWithdrawOrder\x12+.crypto.withdraw.v1.GetWithdrawOrderRequest\x1a,.crypto.withdraw.v1.GetWithdrawOrderResponseB\x82\x01\n" +
+	"updated_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt2\xcb\x02\n" +
+	"\x0fWithdrawService\x12\xa1\x01\n" +
+	"\x13CreateWithdrawOrder\x12..crypto.withdraw.v1.CreateWithdrawOrderRequest\x1a/.crypto.withdraw.v1.CreateWithdrawOrderResponse\")\x82\xd3\xe4\x93\x02#:\x01*\"\x1e/crypto-hub/v1/withdraw/create\x12\x93\x01\n" +
+	"\x10GetWithdrawOrder\x12+.crypto.withdraw.v1.GetWithdrawOrderRequest\x1a,.crypto.withdraw.v1.GetWithdrawOrderResponse\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/crypto-hub/v1/withdraw/infoB\x82\x01\n" +
 	"\x1adev.kratos.api.withdraw.v1B\x0fWithdrawProtoV1P\x01ZQgithub.com/liberty-group-tech/wello-proto/wello-crypto-hub/withdraw/v1;withdrawv1b\x06proto3"
 
 var (
@@ -506,10 +507,10 @@ var file_wello_crypto_hub_withdraw_v1_withdraw_proto_depIdxs = []int32{
 	4, // 3: crypto.withdraw.v1.GetWithdrawOrderResponse.data:type_name -> crypto.withdraw.v1.WithdrawOrder
 	5, // 4: crypto.withdraw.v1.WithdrawOrder.created_at:type_name -> google.protobuf.Timestamp
 	5, // 5: crypto.withdraw.v1.WithdrawOrder.updated_at:type_name -> google.protobuf.Timestamp
-	0, // 6: crypto.withdraw.v1.DepositService.CreateWithdrawOrder:input_type -> crypto.withdraw.v1.CreateWithdrawOrderRequest
-	2, // 7: crypto.withdraw.v1.DepositService.GetWithdrawOrder:input_type -> crypto.withdraw.v1.GetWithdrawOrderRequest
-	1, // 8: crypto.withdraw.v1.DepositService.CreateWithdrawOrder:output_type -> crypto.withdraw.v1.CreateWithdrawOrderResponse
-	3, // 9: crypto.withdraw.v1.DepositService.GetWithdrawOrder:output_type -> crypto.withdraw.v1.GetWithdrawOrderResponse
+	0, // 6: crypto.withdraw.v1.WithdrawService.CreateWithdrawOrder:input_type -> crypto.withdraw.v1.CreateWithdrawOrderRequest
+	2, // 7: crypto.withdraw.v1.WithdrawService.GetWithdrawOrder:input_type -> crypto.withdraw.v1.GetWithdrawOrderRequest
+	1, // 8: crypto.withdraw.v1.WithdrawService.CreateWithdrawOrder:output_type -> crypto.withdraw.v1.CreateWithdrawOrderResponse
+	3, // 9: crypto.withdraw.v1.WithdrawService.GetWithdrawOrder:output_type -> crypto.withdraw.v1.GetWithdrawOrderResponse
 	8, // [8:10] is the sub-list for method output_type
 	6, // [6:8] is the sub-list for method input_type
 	6, // [6:6] is the sub-list for extension type_name
