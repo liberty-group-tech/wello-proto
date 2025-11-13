@@ -38,12 +38,11 @@ message QuoteRequest {
   string amount = 2 [(validate.rules).string.min_len = 1];
   string base_currency = 3 [(validate.rules).string.min_len = 1];
   string quote_currency = 4 [(validate.rules).string.min_len = 1];
-  string side = 5 [(validate.rules).string = {in: ["buy", "sell"]}];
-  string direction = 6 [(validate.rules).string = {in: ["pay", "receive"]}];
-  optional string type = 7 [(validate.rules).string = {in: ["firm", "indicative"]}];
-  string network = 8;
-  string payment_method = 9;
-  string provider = 10;
+  string direction = 5 [(validate.rules).string = {in: ["pay", "receive"]}];
+  optional string type = 6 [(validate.rules).string = {in: ["firm", "indicative"]}];
+  string network = 7;
+  string payment_method = 8;
+  string provider = 9;
 }
 
 message Quote {
@@ -53,18 +52,17 @@ message Quote {
   string amount = 4;
   string base_currency = 5;
   string quote_currency = 6;
-  string side = 7;
-  string direction = 8;
-  string type = 9;
-  string price = 10;
-  string total = 11;
-  string external_id = 12;
-  string network = 13;
-  string payment_method = 14;
-  string provider = 15;
-  google.protobuf.Timestamp created_at = 16;
-  google.protobuf.Timestamp updated_at = 17;
-  google.protobuf.Timestamp expires_at = 18;
+  string direction = 7;
+  string type = 8;
+  string price = 9;
+  string total = 10;
+  string external_id = 11;
+  string network = 12;
+  string payment_method = 13;
+  string provider = 14;
+  google.protobuf.Timestamp created_at = 15;
+  google.protobuf.Timestamp updated_at = 16;
+  google.protobuf.Timestamp expires_at = 17;
 }
 
 message QuoteResponse {

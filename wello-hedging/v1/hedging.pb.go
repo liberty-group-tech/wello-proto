@@ -30,12 +30,11 @@ type QuoteRequest struct {
 	Amount        string                 `protobuf:"bytes,2,opt,name=amount,proto3" json:"amount,omitempty"`
 	BaseCurrency  string                 `protobuf:"bytes,3,opt,name=base_currency,json=baseCurrency,proto3" json:"base_currency,omitempty"`
 	QuoteCurrency string                 `protobuf:"bytes,4,opt,name=quote_currency,json=quoteCurrency,proto3" json:"quote_currency,omitempty"`
-	Side          string                 `protobuf:"bytes,5,opt,name=side,proto3" json:"side,omitempty"`
-	Direction     string                 `protobuf:"bytes,6,opt,name=direction,proto3" json:"direction,omitempty"`
-	Type          *string                `protobuf:"bytes,7,opt,name=type,proto3,oneof" json:"type,omitempty"`
-	Network       string                 `protobuf:"bytes,8,opt,name=network,proto3" json:"network,omitempty"`
-	PaymentMethod string                 `protobuf:"bytes,9,opt,name=payment_method,json=paymentMethod,proto3" json:"payment_method,omitempty"`
-	Provider      string                 `protobuf:"bytes,10,opt,name=provider,proto3" json:"provider,omitempty"`
+	Direction     string                 `protobuf:"bytes,5,opt,name=direction,proto3" json:"direction,omitempty"`
+	Type          *string                `protobuf:"bytes,6,opt,name=type,proto3,oneof" json:"type,omitempty"`
+	Network       string                 `protobuf:"bytes,7,opt,name=network,proto3" json:"network,omitempty"`
+	PaymentMethod string                 `protobuf:"bytes,8,opt,name=payment_method,json=paymentMethod,proto3" json:"payment_method,omitempty"`
+	Provider      string                 `protobuf:"bytes,9,opt,name=provider,proto3" json:"provider,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -98,13 +97,6 @@ func (x *QuoteRequest) GetQuoteCurrency() string {
 	return ""
 }
 
-func (x *QuoteRequest) GetSide() string {
-	if x != nil {
-		return x.Side
-	}
-	return ""
-}
-
 func (x *QuoteRequest) GetDirection() string {
 	if x != nil {
 		return x.Direction
@@ -148,18 +140,17 @@ type Quote struct {
 	Amount        string                 `protobuf:"bytes,4,opt,name=amount,proto3" json:"amount,omitempty"`
 	BaseCurrency  string                 `protobuf:"bytes,5,opt,name=base_currency,json=baseCurrency,proto3" json:"base_currency,omitempty"`
 	QuoteCurrency string                 `protobuf:"bytes,6,opt,name=quote_currency,json=quoteCurrency,proto3" json:"quote_currency,omitempty"`
-	Side          string                 `protobuf:"bytes,7,opt,name=side,proto3" json:"side,omitempty"`
-	Direction     string                 `protobuf:"bytes,8,opt,name=direction,proto3" json:"direction,omitempty"`
-	Type          string                 `protobuf:"bytes,9,opt,name=type,proto3" json:"type,omitempty"`
-	Price         string                 `protobuf:"bytes,10,opt,name=price,proto3" json:"price,omitempty"`
-	Total         string                 `protobuf:"bytes,11,opt,name=total,proto3" json:"total,omitempty"`
-	ExternalId    string                 `protobuf:"bytes,12,opt,name=external_id,json=externalId,proto3" json:"external_id,omitempty"`
-	Network       string                 `protobuf:"bytes,13,opt,name=network,proto3" json:"network,omitempty"`
-	PaymentMethod string                 `protobuf:"bytes,14,opt,name=payment_method,json=paymentMethod,proto3" json:"payment_method,omitempty"`
-	Provider      string                 `protobuf:"bytes,15,opt,name=provider,proto3" json:"provider,omitempty"`
-	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,17,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	ExpiresAt     *timestamppb.Timestamp `protobuf:"bytes,18,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
+	Direction     string                 `protobuf:"bytes,7,opt,name=direction,proto3" json:"direction,omitempty"`
+	Type          string                 `protobuf:"bytes,8,opt,name=type,proto3" json:"type,omitempty"`
+	Price         string                 `protobuf:"bytes,9,opt,name=price,proto3" json:"price,omitempty"`
+	Total         string                 `protobuf:"bytes,10,opt,name=total,proto3" json:"total,omitempty"`
+	ExternalId    string                 `protobuf:"bytes,11,opt,name=external_id,json=externalId,proto3" json:"external_id,omitempty"`
+	Network       string                 `protobuf:"bytes,12,opt,name=network,proto3" json:"network,omitempty"`
+	PaymentMethod string                 `protobuf:"bytes,13,opt,name=payment_method,json=paymentMethod,proto3" json:"payment_method,omitempty"`
+	Provider      string                 `protobuf:"bytes,14,opt,name=provider,proto3" json:"provider,omitempty"`
+	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,15,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,16,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	ExpiresAt     *timestamppb.Timestamp `protobuf:"bytes,17,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -232,13 +223,6 @@ func (x *Quote) GetBaseCurrency() string {
 func (x *Quote) GetQuoteCurrency() string {
 	if x != nil {
 		return x.QuoteCurrency
-	}
-	return ""
-}
-
-func (x *Quote) GetSide() string {
-	if x != nil {
-		return x.Side
 	}
 	return ""
 }
@@ -649,23 +633,21 @@ var File_wello_hedging_v1_hedging_proto protoreflect.FileDescriptor
 const file_wello_hedging_v1_hedging_proto_rawDesc = "" +
 	"\n" +
 	"\x1ewello-hedging/v1/hedging.proto\x12\n" +
-	"hedging.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xae\x03\n" +
+	"hedging.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17validate/validate.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x88\x03\n" +
 	"\fQuoteRequest\x12 \n" +
 	"\tintent_id\x18\x01 \x01(\tH\x00R\bintentId\x88\x01\x01\x12\x1f\n" +
 	"\x06amount\x18\x02 \x01(\tB\a\xfaB\x04r\x02\x10\x01R\x06amount\x12,\n" +
 	"\rbase_currency\x18\x03 \x01(\tB\a\xfaB\x04r\x02\x10\x01R\fbaseCurrency\x12.\n" +
-	"\x0equote_currency\x18\x04 \x01(\tB\a\xfaB\x04r\x02\x10\x01R\rquoteCurrency\x12$\n" +
-	"\x04side\x18\x05 \x01(\tB\x10\xfaB\rr\vR\x03buyR\x04sellR\x04side\x121\n" +
-	"\tdirection\x18\x06 \x01(\tB\x13\xfaB\x10r\x0eR\x03payR\areceiveR\tdirection\x120\n" +
-	"\x04type\x18\a \x01(\tB\x17\xfaB\x14r\x12R\x04firmR\n" +
+	"\x0equote_currency\x18\x04 \x01(\tB\a\xfaB\x04r\x02\x10\x01R\rquoteCurrency\x121\n" +
+	"\tdirection\x18\x05 \x01(\tB\x13\xfaB\x10r\x0eR\x03payR\areceiveR\tdirection\x120\n" +
+	"\x04type\x18\x06 \x01(\tB\x17\xfaB\x14r\x12R\x04firmR\n" +
 	"indicativeH\x01R\x04type\x88\x01\x01\x12\x18\n" +
-	"\anetwork\x18\b \x01(\tR\anetwork\x12%\n" +
-	"\x0epayment_method\x18\t \x01(\tR\rpaymentMethod\x12\x1a\n" +
-	"\bprovider\x18\n" +
-	" \x01(\tR\bproviderB\f\n" +
+	"\anetwork\x18\a \x01(\tR\anetwork\x12%\n" +
+	"\x0epayment_method\x18\b \x01(\tR\rpaymentMethod\x12\x1a\n" +
+	"\bprovider\x18\t \x01(\tR\bproviderB\f\n" +
 	"\n" +
 	"_intent_idB\a\n" +
-	"\x05_type\"\xe8\x04\n" +
+	"\x05_type\"\xd4\x04\n" +
 	"\x05Quote\x12%\n" +
 	"\bquote_id\x18\x01 \x01(\tB\n" +
 	"\xfaB\ar\x05:\x03qt_R\aquoteId\x12\x1b\n" +
@@ -673,24 +655,23 @@ const file_wello_hedging_v1_hedging_proto_rawDesc = "" +
 	"\x06status\x18\x03 \x01(\tR\x06status\x12\x16\n" +
 	"\x06amount\x18\x04 \x01(\tR\x06amount\x12#\n" +
 	"\rbase_currency\x18\x05 \x01(\tR\fbaseCurrency\x12%\n" +
-	"\x0equote_currency\x18\x06 \x01(\tR\rquoteCurrency\x12\x12\n" +
-	"\x04side\x18\a \x01(\tR\x04side\x12\x1c\n" +
-	"\tdirection\x18\b \x01(\tR\tdirection\x12\x12\n" +
-	"\x04type\x18\t \x01(\tR\x04type\x12\x14\n" +
-	"\x05price\x18\n" +
-	" \x01(\tR\x05price\x12\x14\n" +
-	"\x05total\x18\v \x01(\tR\x05total\x12\x1f\n" +
-	"\vexternal_id\x18\f \x01(\tR\n" +
+	"\x0equote_currency\x18\x06 \x01(\tR\rquoteCurrency\x12\x1c\n" +
+	"\tdirection\x18\a \x01(\tR\tdirection\x12\x12\n" +
+	"\x04type\x18\b \x01(\tR\x04type\x12\x14\n" +
+	"\x05price\x18\t \x01(\tR\x05price\x12\x14\n" +
+	"\x05total\x18\n" +
+	" \x01(\tR\x05total\x12\x1f\n" +
+	"\vexternal_id\x18\v \x01(\tR\n" +
 	"externalId\x12\x18\n" +
-	"\anetwork\x18\r \x01(\tR\anetwork\x12%\n" +
-	"\x0epayment_method\x18\x0e \x01(\tR\rpaymentMethod\x12\x1a\n" +
-	"\bprovider\x18\x0f \x01(\tR\bprovider\x129\n" +
+	"\anetwork\x18\f \x01(\tR\anetwork\x12%\n" +
+	"\x0epayment_method\x18\r \x01(\tR\rpaymentMethod\x12\x1a\n" +
+	"\bprovider\x18\x0e \x01(\tR\bprovider\x129\n" +
 	"\n" +
-	"created_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
+	"created_at\x18\x0f \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"updated_at\x18\x11 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x129\n" +
+	"updated_at\x18\x10 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x129\n" +
 	"\n" +
-	"expires_at\x18\x12 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\"\xd7\x01\n" +
+	"expires_at\x18\x11 \x01(\v2\x1a.google.protobuf.TimestampR\texpiresAt\"\xd7\x01\n" +
 	"\rQuoteResponse\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\tR\x04code\x12\x18\n" +
 	"\asuccess\x18\x02 \x01(\bR\asuccess\x12\x18\n" +
