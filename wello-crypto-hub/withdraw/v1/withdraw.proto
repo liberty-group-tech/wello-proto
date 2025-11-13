@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package withdraw.v1;
+package crypto.withdraw.v1;
 
 import "google/protobuf/timestamp.proto";
 import "validate/validate.proto";
 
-option go_package = "github.com/liberty-group-tech/wello-proto/wello-crypto-hub/v1;withdraw";
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-crypto-hub/withdraw/v1;withdrawv1";
 option java_multiple_files = true;
 option java_package = "dev.kratos.api.withdraw.v1";
 option java_outer_classname = "WithdrawProtoV1";

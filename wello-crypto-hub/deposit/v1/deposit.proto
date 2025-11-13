@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package deposit.v1;
+package crypto.deposit.v1;
 
 import "google/protobuf/timestamp.proto";
 import "validate/validate.proto";
 
-option go_package = "github.com/liberty-group-tech/wello-proto/wello-crypto-hub/v1;deposit";
+option go_package = "github.com/liberty-group-tech/wello-proto/wello-crypto-hub/deposit/v1;depositv1";
 option java_multiple_files = true;
 option java_package = "dev.kratos.api.deposit.v1";
 option java_outer_classname = "DepositProtoV1";
